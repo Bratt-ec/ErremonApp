@@ -35,12 +35,6 @@ const BaseCrucigrama = () => {
     return (
       <View style={styles.container}>
         <View style={styles.lista}>
-        <Image source={require('../img/frutas/png/003-apple.png')} style={styles.manzana} />
-        <Image source={require('../img/frutas/png/006-bananas.png')} style={styles.banana} />
-        <Image source={require('../img/frutas/png/024-pear.png')} style={styles.pera} />
-        <Image source={require('../img/frutas/png/020-lemon.png')} style={styles.limon} />
-        <Image source={require('../img/frutas/png/014-corn.png')} style={styles.maiz} />
-        <Image source={require('../img/frutas/png/017-garlic.png')} style={styles.ajo} />
           <FlatList
             data={DATA}
             renderItem={Item}
@@ -140,11 +134,7 @@ const styles = StyleSheet.create({
       textTransform: "uppercase",
     },
     manzana: {width: 45, height:40, position: 'absolute', top: -5, alignSelf: 'flex-start', left: 24},
-    ajo: {width: 45, height:40, position: 'absolute', top: '28%', alignSelf: 'flex-start', left: '22%'},
-    limon: {width: 45, height:40, position: 'absolute', top: '42%', alignSelf: 'flex-start', left: '36%'},
-    pera: {width: 45, height:40, position: 'absolute', top: '49%', alignSelf: 'flex-start', left: '64%'},
-    banana: {width: 45, height:40, position: 'absolute', top: '42%', alignSelf: 'flex-start', left: '64%'},
-    maiz: {width: 45, height:40, position: 'absolute', top: '30%', alignSelf: 'flex-start', left: '80%'},
+
   });
   
 export default BaseCrucigrama;
