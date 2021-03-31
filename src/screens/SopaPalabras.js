@@ -29,7 +29,7 @@ const SopaPalabras = ({navigation}) => {
         <Text style={css_SopaPalabras.txtOpcion}>DE OPOSICIÓN</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={css_SopaPalabras.btnOpcion}>
+      <TouchableOpacity style={css_SopaPalabras.btnOpcion}  onPress={()=> goGame('DeAdicion')}>
         <View style={css_SopaPalabras.divIcon}>
           <Image
             source={require("../img/mando.png")}
@@ -39,7 +39,7 @@ const SopaPalabras = ({navigation}) => {
         <Text style={css_SopaPalabras.txtOpcion}>DE ADICIÓN</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={css_SopaPalabras.btnOpcion}>
+      <TouchableOpacity style={css_SopaPalabras.btnOpcion} onPress={()=> navigation.navigate('CausaConsecuencia')}>
         <View style={css_SopaPalabras.divIcon}>
           <Image
             source={require("../img/mando.png")}
@@ -52,7 +52,7 @@ const SopaPalabras = ({navigation}) => {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={css_SopaPalabras.btnOpcion}>
+      <TouchableOpacity style={css_SopaPalabras.btnOpcion} onPress={()=> navigation.navigate('DeTiempo')}>
         <View style={css_SopaPalabras.divIcon}>
           <Image
             source={require("../img/mando.png")}

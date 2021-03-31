@@ -49,7 +49,7 @@ const Menu = ({ navigation }) => {
         <View style={css_Menu.DivMenuCenter}>
           <TouchableOpacity
             style={css_Menu.DivSopaLetras}
-            onPress={() => navigation.navigate("JuegoLectura")}
+            onPress={() => navigation.navigate("DeLectura")}
           >
             <Text style={css_Menu.textoMenu}>Juegos de Lectura</Text>
             <Image

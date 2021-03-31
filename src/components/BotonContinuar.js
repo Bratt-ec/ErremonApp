@@ -2,14 +2,15 @@ import React, { useContext } from "react";
 import { Image, TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { Colors } from "../styles/Colors";
 import { AuthContext } from "../navigation/AuthProvider";
+import { useNavigation } from "@react-navigation/core";
 
-const Boton = ({ texto }) => {
+const BotonContinuar = ({ Texto, Ruta }) => {
   const { setPreGame } = useContext(AuthContext);
-
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={css_Boton.btnOpcion}
-      onPress={() => setPreGame(false)}
+      onPress={() => navigation.navigate(Ruta)}
     >
       <View style={css_Boton.divIcon}>
         <Image
@@ -17,7 +18,7 @@ const Boton = ({ texto }) => {
           style={css_Boton.iconOpcion}
         />
       </View>
-      <Text style={css_Boton.txtOpcion}>{texto}</Text>
+      <Text style={css_Boton.txtOpcion}>{Texto}</Text>
     </TouchableOpacity>
   );
 };
@@ -65,4 +66,4 @@ const css_Boton = StyleSheet.create({
     textTransform: "uppercase",
   },
 });
-export default Boton;
+export default BotonContinuar;
