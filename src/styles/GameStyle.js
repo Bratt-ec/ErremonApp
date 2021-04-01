@@ -8,8 +8,8 @@ export const css_SopaPalabras = StyleSheet.create({
     },
     EligeJuego:{
         backgroundColor: Colors.turquesa,
-        width: '60%',
-        padding: '4%',
+        width: '70%',
+        padding: '2%',
         shadowColor: '#fff',
         shadowOffset: {
             width: 0,
@@ -26,7 +26,7 @@ export const css_SopaPalabras = StyleSheet.create({
 
     },
     txtElige:{
-        fontSize: 22, 
+        fontSize: 18, 
         color: Colors.blue_dark,
         fontWeight: 'bold',
         textShadowRadius:5,

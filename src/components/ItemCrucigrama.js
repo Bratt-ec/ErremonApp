@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity, Text, View, TextInput } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View, TextInput, Image } from "react-native";
 import { Colors } from "../styles/Colors";
 
 const ItemCrucigrama = ({ Letra }) => {
@@ -7,11 +7,54 @@ const ItemCrucigrama = ({ Letra }) => {
     const abecedario = "abcdefghigklmnopqrstuvwxyz";
     let LetraRelleno = abecedario[Math.floor(Math.random() * abecedario.length)];
 
+    if(Letra == "manzana"){
+      return(
+        <View style={styles.cellEmpty}>
+            <Image source={require('../img/frutas/png/003-apple.png')} style={styles.imgFruta} />
+        </View>
+      )
+    }
+
+    if(Letra == "limon"){
+      return(
+        <View style={styles.cellEmpty}>
+           <Image source={require('../img/frutas/png/020-lemon.png')} style={styles.imgFruta} />
+        </View>
+      )
+    }
+    if(Letra == "ajo"){
+      return(
+        <View style={styles.cellEmpty}>
+           <Image source={require('../img/frutas/png/017-garlic.png')} style={styles.imgFruta} />
+        </View>
+      )
+    }
+    if(Letra == "pera"){
+      return(
+        <View style={styles.cellEmpty}>
+           <Image source={require('../img/frutas/png/024-pear.png')} style={styles.imgFruta} />
+        </View>
+      )
+    }
+    if(Letra == "banana"){
+      return(
+        <View style={styles.cellEmpty}>
+           <Image source={require('../img/frutas/png/006-bananas.png')} style={styles.imgFruta} />
+        </View>
+      )
+    }
+    if(Letra == "maiz"){
+      return(
+        <View style={styles.cellEmpty}>
+           <Image source={require('../img/frutas/png/014-corn.png')} style={styles.imgFruta} />
+        </View>
+      )
+    }
     if (Letra == "") {
       return (
-    <TouchableOpacity style={styles.cellEmpty}>
-        <Text style={styles.cellTextEmpty}>{LetraRelleno}</Text>
-      </TouchableOpacity>
+      <View style={styles.cellEmpty}>
+          <Text style={styles.cellTextEmpty}>{LetraRelleno}</Text>
+        </View>
       );
     } else {
       return (
@@ -80,6 +123,7 @@ const ItemCrucigrama = ({ Letra }) => {
   fontWeight: "bold",
   textAlign: "center",
     },
+    imgFruta: {width: 45, height:40, position: 'absolute'},
   });
 
   export default ItemCrucigrama;

@@ -17,13 +17,14 @@ const BaseCrucigrama = () => {
     let aleatorio = Math.random();
 
     let DATA = [
+        "manzana","","","","","",
         "m","o","n","a","","",
-        "a","j","o","n","","",
+        "a","j","o","n","","maiz",
         "n","a","m","a","i","z",
-        "z","","i","n","","",
+        "z","ajo","i","n","","",
         "a","","l","a","","",
-        "n","","","b","","",
-        "a","r","e","p","","",
+        "n","","limon","b","banana","",
+        "a","r","e","p","pera","",
         "","","","","","",
         "","","","","","",
         "","","","","","",
@@ -35,14 +36,16 @@ const BaseCrucigrama = () => {
     return (
       <View style={styles.container}>
         <View style={styles.lista}>
+
           <FlatList
             data={DATA}
             renderItem={Item}
             keyExtractor={item => item.id}
             numColumns="6"
-            style={{ marginTop: '12%' }} 
+            style={{ marginTop: '1%' }} 
           />
-          <TouchableOpacity style={styles.btnOpcion} onPress={() => navigation.navigate('WinGame')}>
+        </View>
+        <TouchableOpacity style={styles.btnOpcion} onPress={() => navigation.navigate('WinGame')}>
             <View style={styles.divIcon}>
               <Image
                 source={require("../img/mando.png")}
@@ -51,7 +54,6 @@ const BaseCrucigrama = () => {
             </View>
             <Text style={styles.txtOpcion}>Terminar</Text>
           </TouchableOpacity>
-        </View>
       </View>
     );
 }
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
       textAlign: "center",
     },
-    lista: { flex: 1, alignItems: "center", justifyContent: "center" },
+    lista: { alignItems: "center", justifyContent: "center" },
     btnOpcion: {
       flexDirection: "row",
       backgroundColor: Colors.turquesa,
@@ -133,8 +135,7 @@ const styles = StyleSheet.create({
       textShadowOffset: { width: 1, height: 1 },
       textTransform: "uppercase",
     },
-    manzana: {width: 45, height:40, position: 'absolute', top: -5, alignSelf: 'flex-start', left: 24},
-
+   
   });
   
 export default BaseCrucigrama;

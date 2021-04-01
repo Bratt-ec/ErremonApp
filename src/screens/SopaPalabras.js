@@ -12,7 +12,7 @@ const SopaPalabras = ({navigation}) => {
       <HeaderGame image="book.png" name="SOPA DE PALABRAS" />
 
       <View style={css_SopaPalabras.EligeJuego}>
-        <Text style={css_SopaPalabras.txtElige}>Elige un juego</Text>
+        <Text style={css_SopaPalabras.txtElige}>Vamos a jugar con conectores de palabras</Text>
       </View>
       <Image
         source={require("../img/oso_game_5.png")}
