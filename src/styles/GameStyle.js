@@ -70,6 +70,7 @@ export const css_SopaPalabras = StyleSheet.create({
         textShadowColor: Colors.yellow,
         textShadowOffset: { width: 2, height: 1},
         marginHorizontal: '4%',
+        textTransform: 'uppercase'
     },
     txtOpcion2:{
         fontSize: 18, 
@@ -187,7 +188,6 @@ export const css_DeOposicion = StyleSheet.create({
     }
 })
 
-
 export const css_DeLectura = StyleSheet.create({
     divTop:{
         display: 'flex',
@@ -227,4 +227,57 @@ export const css_DeLectura = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold'
     }
+})
+
+export const css_ItemCrucigrama = StyleSheet.create({
+    cell: {
+        padding: 2,
+        backgroundColor: Colors.turquesa,
+        width: 45,
+        borderColor: Colors.blue_dark,
+        borderWidth: 1,
+        height: 40,
+        alignItems: "center",
+        justifyContent: "center",
+      },
+      cellPress: {
+        padding: 2,
+        backgroundColor: Colors.yellow,
+        width: 45,
+        height: 40,
+        borderColor: Colors.blue_dark,
+        borderWidth: 1,
+        alignItems: "center",
+        justifyContent: "center",
+      },
+      cellText: {
+        color: Colors.white,
+        fontSize: 22,
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        textAlign: "center",
+      },
+      InputNombre:{
+          fontSize: 24,
+          textAlign: 'center',
+          color: Colors.white,
+          width: 45,
+          fontWeight: 'bold',
+      },
+      cellEmpty:{
+          padding: 2,
+          width: 45,
+          height: 40,
+          alignItems: "center",
+          justifyContent: "center",
+      },
+      cellTextEmpty:{
+    opacity: 1,
+    color: Colors.white,
+    fontSize: 0,
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    textAlign: "center",
+      },
+      imgFruta: {width: 45, height:40, position: 'absolute'},
 })

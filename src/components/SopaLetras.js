@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -9,17 +9,21 @@ import {
   Image,
 } from "react-native";
 import { Colors } from "../styles/Colors";
-import LetraBtn from "./LetraBtn";
+import AwesomeAlert from "react-native-awesome-alerts";
 import Opciones from "./Opciones";
 
-const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4}) => {
+const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4, Siguiente}) => {
+  const[btn, setBtn] = useState(false);
+  let touch = 0;
   const navigation = useNavigation();
   let DATA;
+  let toques;
+
   if(Juego == 'DeOposicion'){
       DATA = [
     "S","","","","",
-   "I","","","","E",
-     "N","","","","N",
+    "I","","","","E",
+    "N","","","","N",
     "E","u","","","C",
      "M","","a","","A",
      "B","p","","","M",
@@ -28,6 +32,7 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4}) => {
      "G","","","","O",
      "O","","","",""
     ];
+    toques = 23;
   }
   if(Juego == 'CausaConsecuencia'){
       DATA = [
@@ -42,6 +47,7 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4}) => {
     "E","","","","G",
     "T","N","E","I","U"
     ];
+    toques=35;
   }
   if(Juego == 'DeTiempo'){
       DATA = [
@@ -56,6 +62,7 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4}) => {
     "t","","","o","e",
     "e","","","","d"
     ];
+    toques = 34;
   }  
   if(Juego == 'DeAdicion'){
       DATA = [
@@ -70,16 +77,64 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4}) => {
     "","D","","S","",
     "","A","","A",""
     ];
+    toques = 21;
   }
-
-
 
   const abecedario = "abcdefghigklmnopqrstuvwxyz";
 
+  const LetraBtn = ({ Letra, NumLetras }) => {
+    const [press, setPress] = useState(false);
+    const abecedario = "abcdefghigklmnopqrstuvwxyz";
+    let LetraRelleno = abecedario[Math.floor(Math.random() * abecedario.length)];
+    let aleatorio = Math.random();
+    useEffect(() => {
+      if(touch == NumLetras){
+        navigation.navigate('WinGame')
+      }
+    }, [touch])
+    if (Letra == "") {
+      return ( 
+        <View style={styles.cell} key={aleatorio}>
+          <Text style={styles.cellText}>{LetraRelleno}</Text>
+        </View>
+      );
+    } else {
+      return (
+        <TouchableOpacity
+          style={press ? styles.cellPress : styles.cell}
+          onPress={() =>{
+            if(press) {
+              touch += -1
+              setPress(false) 
+            } else{
+              touch += +1
+              setPress(true);
+            }
+          }}
+          key={aleatorio}
+        >
+          <Text style={styles.cellText}>{Letra}</Text>
+        </TouchableOpacity>
+      );
+    }
+  };
+
   const Item = ({ item }) => {
     let id = abecedario[Math.floor(Math.random(4) * abecedario.length)];
-    return <LetraBtn Letra={item} key={id} />;
+    return <LetraBtn Letra={item} key={id} NumLetras={toques} />;
   };
+
+  const BotonSiguiente = ()=>(
+    <TouchableOpacity style={styles.btnOpcion} onPress={() => navigation.navigate(Siguiente)}>
+    <View style={styles.divIcon}>
+      <Image
+        source={require("../img/mando.png")}
+        style={styles.iconOpcion}
+      />
+    </View>
+    <Text style={styles.txtOpcion}>Siguiente</Text>
+  </TouchableOpacity>
+  );
   return (
     <View style={styles.container}>
       <View style={styles.divOpciones}>
@@ -97,15 +152,7 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4}) => {
           numColumns="5"
           style={{ marginTop: 20 }}
         />
-        <TouchableOpacity style={styles.btnOpcion} onPress={() => navigation.navigate('WinGame')}>
-          <View style={styles.divIcon}>
-            <Image
-              source={require("../img/mando.png")}
-              style={styles.iconOpcion}
-            />
-          </View>
-          <Text style={styles.txtOpcion}>Terminar</Text>
-        </TouchableOpacity>
+        {(btn) ? <BotonSiguiente /> : null}
       </View>
     </View>
   );
@@ -132,8 +179,10 @@ const styles = StyleSheet.create({
   cellPress: {
     padding: 2,
     backgroundColor: Colors.yellow,
-    width: 40,
+    width: 45,
     height: 40,
+    borderColor: Colors.blue_dark,
+    borderWidth: 1,
     alignItems: "center",
     justifyContent: "center",
   },

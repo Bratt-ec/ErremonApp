@@ -8,6 +8,10 @@ import { AuthContext } from "../navigation/AuthProvider";
 
 const TestEvaluativo = ({navigation}) => {
     const { preGame, setPreGame} = useContext(AuthContext);
+    // const{ numeros, setNumeros} = useState();
+    const base = '123';
+    let numeroAzar = base[Math.floor(Math.random() * base.length)];
+
     const Respuesta = (valor) =>{
         if(valor){
             navigation.navigate('WinGame');
@@ -15,8 +19,7 @@ const TestEvaluativo = ({navigation}) => {
             navigation.navigate('LoseGame');
         }
     }
-    const numeros = '123';
-    let numeroAzar = numeros[Math.floor(Math.random() * numeros.length)];
+   
     
     const backHandler = BackHandler.addEventListener("hardwareBackPress", ()=> setPreGame(true))
     useEffect(() => {      
@@ -27,7 +30,6 @@ const TestEvaluativo = ({navigation}) => {
         if(numeroAzar == 1){
             return(
                 <View>
-
                     <View style={css_DeLectura.divContenido}>
                         <View style={css_DeLectura.divPregunta}>
                             <Text style={css_DeLectura.txtPregunta}>Es un gran cantante, _____ sus canciones no me gustan</Text>

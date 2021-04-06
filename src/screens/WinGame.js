@@ -14,7 +14,7 @@ const WinGame = () => {
         <View style={Styles.divContenido}></View>
         <StatusBar style='light' />
         <HeaderGame name='muy bien' />
-        <Dialogo texto="¡Muy bien! Eres un gran jugador" />
+        <Dialogo texto="¡Muy bien, lo lograste! Sin duda Eres un gran jugador" />
         <Image source={require("../img/oso_3.png")} style={Styles.imgOso} />
         <BotonContinuar Texto="Continuar" Ruta='Menu'/>
       </View>

@@ -21,7 +21,7 @@ const Gm_DeAdicion = () => {
         <StatusBar style='light' />
         <HeaderGame name='juego de adicion' />
         {preGame ? <PreScreenGame txtDialogo='Encuentra las palabras en la siguiente sopa de letras'/> : null}
-        {preGame ? null : <SopaLetras Juego='DeAdicion' Opcion1='también' Opcion2='ademas' Opcion3='asi mismo' Opcion4='de la misma manera'/>}
+        {preGame ? null : <SopaLetras Juego='DeAdicion' Opcion1='también' Opcion2='ademas' Opcion3='asi mismo' Opcion4='de la misma manera' Siguiente='CausaConsecuencia'/>}
     </View>
      );
 }

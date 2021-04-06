@@ -5,9 +5,9 @@ import HeaderGame from '../components/HeaderGame';
 import PreScreenGame from '../components/PreScreenGame';
 import { css_Crucigrama } from '../styles/GameStyle';
 import { AuthContext } from "../navigation/AuthProvider";
-import SopaLetras from '../components/SopaLetras';
+import BaseCrucigrama from '../components/BaseCrucigrama';
 
-const Gm_DeTiempo = () => {
+const Gm_Colores = () => {
     const { preGame, setPreGame} = useContext(AuthContext);
 
     const backHandler = BackHandler.addEventListener("hardwareBackPress", ()=> setPreGame(true))
@@ -19,11 +19,11 @@ const Gm_DeTiempo = () => {
     return ( 
         <View style={css_Crucigrama.Container}>
         <StatusBar style='light' />
-        <HeaderGame name='juego de adicion' />
-        {preGame ? <PreScreenGame txtDialogo='Encuentra las palabras en la siguiente sopa de letras'/> : null}
-        {preGame ? null : <SopaLetras Juego='DeTiempo' Opcion1='finalmente' Opcion2='por ultimo' Opcion3='después' Opcion4='Mientras tanto' Siguiente='WinGame'/>}
+        <HeaderGame name='Crucigrama de frutas' />
+        {preGame ? <PreScreenGame txtDialogo='Completa correctamente las palabras del siguiente crucigrama'/> : null}
+        {preGame ? null : <BaseCrucigrama Tipo='Colores'/>}
     </View>
      );
 }
  
-export default Gm_DeTiempo;
+export default Gm_Colores;

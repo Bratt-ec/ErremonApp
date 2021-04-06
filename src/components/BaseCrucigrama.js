@@ -11,55 +11,82 @@ import {
 } from "react-native";
 import { Colors } from "../styles/Colors";
 import ItemCrucigrama from "./ItemCrucigrama";
+import ItemCrucigramaColores from "./ItemCrucigramaColores";
 
-const BaseCrucigrama = () => {
+const BaseCrucigrama = ({Tipo}) => {
     const navigation = useNavigation();
     let aleatorio = Math.random();
+  let DATA;
 
-    let DATA = [
-        "manzana","","","","","",
-        "m","o","n","a","","",
-        "a","j","o","n","","maiz",
-        "n","a","m","a","i","z",
-        "z","ajo","i","n","","",
-        "a","","l","a","","",
-        "n","","limon","b","banana","",
-        "a","r","e","p","pera","",
-        "","","","","","",
-        "","","","","","",
-        "","","","","","",
+    if(Tipo == 'Frutas'){
+          DATA = [
+        "","","","limon","","","",
+        "","manzana","","l","","","",
+        "maiz","m","a","i","z","","",
+        "","a","","m","","","",
+        "","n","","o","","","",
+        "","z","","n","","","",
+        "ajo","a","","","","","",
+        "a","n","a","n","a","b","banana",
+        "j","a","","","","r","",
+        "o","","","","","e","",
+        "","","","","","p","",
+        "","","","","","pera","",
         ];
+    }
+    if(Tipo =='Colores'){
+           DATA = [
+        "","","amarillo","","","","",
+        "","azul","a","z","u","l","",
+        "","","m","","","","",
+        "","","a","","","","",
+        "","rojo","r","o","j","o","",
+        "","","i","","","","",
+        "","","l","","cafe","","",
+        "","","l","","c","","",
+        "rosa","r","o","s","a","","",
+        "","","","","f","","",
+        "","e","d","r","e","v","verde",
+        "","","","","","","",
+      ]
+    }
+
     
     const Item = ({ item }) => {
-      return <ItemCrucigrama Letra={item} key={aleatorio}/>;
+      if(Tipo == 'Frutas'){
+        return <ItemCrucigrama Letra={item} key={aleatorio}/>;
+      }
+
+      if(Tipo == 'Colores'){
+        return <ItemCrucigramaColores Color={item} key={aleatorio}/>;
+      }
     };
     return (
       <View style={styles.container}>
-        <View style={styles.lista}>
-
+        <View style={styles.lista}> 
           <FlatList
             data={DATA}
             renderItem={Item}
             keyExtractor={item => item.id}
-            numColumns="6"
+            numColumns="7" 
             style={{ marginTop: '1%' }} 
           />
         </View>
-        <TouchableOpacity style={styles.btnOpcion} onPress={() => navigation.navigate('WinGame')}>
+        {/* <TouchableOpacity style={styles.btnOpcion} onPress={() => navigation.navigate('WinGame')}>
             <View style={styles.divIcon}>
               <Image
                 source={require("../img/mando.png")}
                 style={styles.iconOpcion}
               />
             </View>
-            <Text style={styles.txtOpcion}>Terminar</Text>
-          </TouchableOpacity>
+            <Text style={styles.txtOpcion}>Siguiente</Text>
+        </TouchableOpacity> */}
       </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 8 },
+    container: { height: '100%', width:'100%', padding: 8 },
     divOpciones: {
       flexDirection: "row",
       alignItems: "center",
@@ -102,7 +129,7 @@ const styles = StyleSheet.create({
       borderRadius: 30,
       alignSelf: "center",
       alignItems: "center",
-      margin: "1%",
+      margin: "6%",
       shadowColor: "#000",
       shadowOffset: {
         width: 0,

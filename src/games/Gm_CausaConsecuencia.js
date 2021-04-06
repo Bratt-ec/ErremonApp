@@ -21,7 +21,7 @@ const Gm_CausaConsecuencia = () => {
         <StatusBar style='light' />
         <HeaderGame name='causa y  consecuencia' />
         {preGame ? <PreScreenGame txtDialogo='Encuentra las palabras en la siguiente sopa de letras'/> : null}
-        {preGame ? null : <SopaLetras Juego='CausaConsecuencia' Opcion1='porqué' Opcion2='debido a' Opcion3='por ende' Opcion4='por consiguiente'/>}
+        {preGame ? null : <SopaLetras Juego='CausaConsecuencia' Opcion1='porqué' Opcion2='debido a' Opcion3='por ende' Opcion4='por consiguiente' Siguiente='DeTiempo'/>}
     </View>
      );
 }

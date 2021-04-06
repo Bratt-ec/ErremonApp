@@ -16,6 +16,9 @@ import Gm_DeAdicion from '../games/Gm_DeAdicion';
 import Gm_DeTiempo from '../games/Gm_DeTiempo';
 import Gm_Crucigrama from '../games/Gm_Crucigrama';
 import Gm_DeLectura from '../games/Gm_DeLectura';
+import MenuCrucigrama from '../screens/MenuCrucigrama';
+import Gm_Frutas from '../games/Gm_Frutas';
+import Gm_Colores from '../games/Gm_Colores';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +39,9 @@ export const AuthStack = () => {
             <Stack.Screen name='DeTiempo' component={Gm_DeTiempo} options={{headerShown: false}} />
             <Stack.Screen name='Crucigrama' component={Gm_Crucigrama} options={{headerShown: false}} />
             <Stack.Screen name='DeLectura' component={Gm_DeLectura} options={{headerShown: false}} />
+            <Stack.Screen name='MenuCrucigrama' component={MenuCrucigrama} options={{headerShown: false}} />
+            <Stack.Screen name='Gm_Frutas' component={Gm_Frutas} options={{headerShown: false}} />
+            <Stack.Screen name='Gm_Colores' component={Gm_Colores} options={{headerShown: false}} />
         </Stack.Navigator>
     );
 }

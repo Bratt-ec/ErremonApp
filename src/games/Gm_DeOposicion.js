@@ -21,7 +21,7 @@ const Gm_DeOposicion = () => {
             <StatusBar style='light' />
             <HeaderGame name='juego de oposición' />
             {preGame ? <PreScreenGame txtDialogo='Encuentra las palabras en la siguiente sopa de letras'/> : null}
-            {preGame ? null : <SopaLetras Juego='DeOposicion' Opcion1='pero' Opcion2='en cambio' Opcion3='aún' Opcion4='sin embargo'/>}
+            {preGame ? null : <SopaLetras Juego='DeOposicion' Opcion1='pero' Opcion2='en cambio' Opcion3='aún' Opcion4='sin embargo' Siguiente='DeAdicion'/>}
         </View>
      );
 }

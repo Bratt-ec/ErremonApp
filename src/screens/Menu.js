@@ -1,13 +1,39 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useContext } from "react";
+import React, { useContext,useState, useEffect } from "react";
 import { Image, ScrollView, Text, View, TouchableOpacity } from "react-native";
 import FondoInicio from "../components/FondoInicio";
 import { AuthContext } from "../navigation/AuthProvider";
 import { Colors } from "../styles/Colors";
 import { css_Menu } from "../styles/Style";
+import { Audio } from 'expo-av';
 
 const Menu = ({ navigation }) => {
   const { usuario, setUsuario } = useContext(AuthContext);
+
+  const [sound, setSound] = useState();
+
+  async function playSound() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+       require('../sounds/fondo.mp3'),{
+         isLooping: true
+       }
+    );
+    setSound(sound);
+
+    console.log('Playing Sound');
+    await sound.playAsync(); 
+  }
+
+  
+  useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
+
   return (
     <ScrollView>
       <View style={css_Menu.ContainerMenu}>
@@ -26,7 +52,7 @@ const Menu = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={css_Menu.DivCrucigramas}
-            onPress={() => navigation.navigate("Crucigrama")}
+            onPress={() => navigation.navigate("MenuCrucigrama")}
           >
             <Text style={css_Menu.textoMenu}>Crucigramas</Text>
             <Image
