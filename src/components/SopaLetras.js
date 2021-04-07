@@ -151,7 +151,7 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4, Siguiente}) => {
           numColumns="5"
           style={{ marginTop: 20 }}
         />
-        {(btn) ? <BotonSiguiente /> : null}
+        {/* {(btn) ? <BotonSiguiente /> : null} */}
       </View>
     </View>
   );

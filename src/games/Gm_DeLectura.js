@@ -156,7 +156,7 @@ const Gm_DeLectura = ({navigation}) => {
         <View style={css_Crucigrama.Container}>
             <StatusBar style='light' />
             <HeaderGame name='Juego de lectura' />
-            {preGame ? <PreScreenGame txtDialogo='Mira el video y responde a la pregunta ¡Suerte!'/> : null}
+            {preGame ? <PreScreenGame txtDialogo='Primero mira el video y luego responde a la pregunta ¡Suerte!'/> : null}
             {preGame ? null : <JuegoLectura />}
         </View>
      );

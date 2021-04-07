@@ -25,7 +25,7 @@ const Menu = ({ navigation }) => {
     await sound.playAsync(); 
   }
 
-  
+
   useEffect(() => {
     return sound
       ? () => {

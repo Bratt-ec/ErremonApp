@@ -97,10 +97,62 @@ export const css_JuegoImagenes = StyleSheet.create({
         backgroundColor: Colors.blue_dark,
     },
     imgRuleta:{
-        width: '80%',
-        height: 310,
+        width: '100%',
+        height: 350,
         alignSelf: 'center',
-        marginTop: '10%',
+        marginTop: '30%',
+        position: 'absolute',
+    },
+    opcionesRuleta: {
+        width: 70,
+        height: 70,
+    },
+    divRuleta:{
+        paddingHorizontal: 30,
+        paddingVertical: 10
+    },
+    divRuletaTop:{
+        // margin: '4%',
+        width: 170,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        display: 'flex',
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'space-around'
+    },
+    divRuletaCenter:{
+        margin: '1%',
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    divRuletaCenter2:{
+        margin: '1%',
+        flexDirection: 'row',
+        paddingHorizontal: 10,
+        flexWrap: 'wrap',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    divRuletaDown:{
+        // margin: '2%',
+        width: 170,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        display: 'flex',
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'space-around'
+    },
+    itemGiro: {
+        backgroundColor: Colors.turquesa,
+        borderRadius: 50,
+        opacity: 1
     }
 })
 
@@ -225,7 +277,8 @@ export const css_DeLectura = StyleSheet.create({
     },
     txtRespuesta:{
         fontSize: 22,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textTransform: 'uppercase'
     }
 })
 
