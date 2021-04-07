@@ -6,8 +6,6 @@ import { css_ItemCrucigrama } from "../styles/GameStyle";
 const ItemCrucigrama = ({ Letra }) => {
     const [letter, setLetter] = useState('');
     const llave =  Math.random();
-    const abecedario = "abcdefghigklmnopqrstuvwxyz";
-    let LetraRelleno = abecedario[Math.floor(Math.random() * abecedario.length)];
 
     if(Letra == "manzana"){
       return(
@@ -56,11 +54,12 @@ const ItemCrucigrama = ({ Letra }) => {
         </View>
       )
     }
-
+    
+    console.log(letter);
     if (Letra == "") {
       return (
       <View style={css_ItemCrucigrama.cellEmpty}>
-          <Text style={css_ItemCrucigrama.cellTextEmpty}>{LetraRelleno}</Text>
+        
         </View>
       );
     } else {

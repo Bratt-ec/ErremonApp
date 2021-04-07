@@ -9,11 +9,10 @@ import {
   Image,
 } from "react-native";
 import { Colors } from "../styles/Colors";
-import AwesomeAlert from "react-native-awesome-alerts";
 import Opciones from "./Opciones";
 
 const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4, Siguiente}) => {
-  const[btn, setBtn] = useState(false);
+  // const[btn, setBtn] = useState(false);
   let touch = 0;
   const navigation = useNavigation();
   let DATA;

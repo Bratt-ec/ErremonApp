@@ -7,7 +7,7 @@ import { css_Crucigrama } from '../styles/GameStyle';
 import { AuthContext } from "../navigation/AuthProvider";
 import BaseCrucigrama from '../components/BaseCrucigrama';
 
-const Gm_Colores = () => {
+const Gm_Animales = () => {
     const { preGame, setPreGame} = useContext(AuthContext);
 
     const backHandler = BackHandler.addEventListener("hardwareBackPress", ()=> setPreGame(true))
@@ -19,11 +19,11 @@ const Gm_Colores = () => {
     return ( 
         <View style={css_Crucigrama.Container}>
         <StatusBar style='light' />
-        <HeaderGame name='Crucigrama de Colores' />
+        <HeaderGame name='Crucigrama de Animales' />
         {preGame ? <PreScreenGame txtDialogo='Completa correctamente las palabras del siguiente crucigrama'/> : null}
-        {preGame ? null : <BaseCrucigrama Tipo='Colores'/>}
+        {preGame ? null : <BaseCrucigrama Tipo='Animales'/>}
     </View>
      );
 }
  
-export default Gm_Colores;
+export default Gm_Animales;

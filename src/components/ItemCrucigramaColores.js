@@ -9,9 +9,25 @@ import {
 } from "react-native";
 import { Colors } from "../styles/Colors";
 import { css_ItemCrucigrama } from "../styles/GameStyle";
-const ItemCrucigramaColores = ({ Color }) => {
+
+const ItemCrucigramaColores = ({ Color, NumLetras }) => {
   const llave = Math.random();
   const [item, setItem] = useState("");
+
+  if(item !== ''){
+    if(item == Animal.toUpperCase()){
+      aciertos += +1
+    }else{
+      aciertos += -1
+    }
+  }
+  
+  useEffect(() => {
+    if(aciertos == NumLetras){
+      navigation.navigate('WinGame');
+    }
+  }, [aciertos])
+
   if (Color == "amarillo") {
     return (
       <View

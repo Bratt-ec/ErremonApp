@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import {
   StyleSheet,
   View,
@@ -10,13 +10,15 @@ import {
   TextInput,
 } from "react-native";
 import { Colors } from "../styles/Colors";
-import ItemCrucigrama from "./ItemCrucigrama";
-import ItemCrucigramaColores from "./ItemCrucigramaColores";
+import { css_ItemCrucigrama } from "../styles/GameStyle";
+
 
 const BaseCrucigrama = ({Tipo}) => {
     const navigation = useNavigation();
     let aleatorio = Math.random();
+    let aciertos = 0;
   let DATA;
+  let num_letras;
 
     if(Tipo == 'Frutas'){
           DATA = [
@@ -28,12 +30,15 @@ const BaseCrucigrama = ({Tipo}) => {
         "","z","","n","","","",
         "ajo","a","","","","","",
         "a","n","a","n","a","b","banana",
-        "j","a","","","","r","",
-        "o","","","","","e","",
-        "","","","","","p","",
-        "","","","","","pera","",
+        "j","a","","","r","","",
+        "o","","","","e","","",
+        "","","","","p","","",
+        "","","","","pera","","",
         ];
+
+        num_letras= 24;
     }
+
     if(Tipo =='Colores'){
            DATA = [
         "","","amarillo","","","","",
@@ -48,19 +53,354 @@ const BaseCrucigrama = ({Tipo}) => {
         "","","","","f","","",
         "","e","d","r","e","v","verde",
         "","","","","","","",
-      ]
+      ];
+      num_letras = 24;
     }
 
+    if(Tipo == 'Animales'){
+      DATA = [
+        "","","vaca","","","","",
+        "oveja","o","v","e","j","a","",
+        "","","a","","","raton","",
+        "","cabra","c","a","b","r","a",
+        "","","a","","","a","",
+        "","","panda","","tigre","t","",
+        "","pato","p","a","t","o","",
+        "","","a","","i","n","",
+        "","","n","","g","","",
+        "","","d","","r","","",
+        "","","a","","e","","",
+
+      ];
+      num_letras = 27;
+    }
+
+    //#region Crucigrama de Frutas
+    const ItemCrucigrama = ({ Letra, NumLetras }) => {
+      const [letter, setLetter] = useState('');
+      const llave =  Math.random();
+      
+      if(Letra == "manzana"){
+        return(
+          <View style={css_ItemCrucigrama.cellEmpty}>
+              <Image source={require('../img/frutas/png/003-apple.png')} style={css_ItemCrucigrama.imgFruta} />
+          </View>
+        )
+      }
+  
+      if(Letra == "limon"){
+        return(
+          <View style={css_ItemCrucigrama.cellEmpty}>
+             <Image source={require('../img/frutas/png/020-lemon.png')} style={css_ItemCrucigrama.imgFruta} />
+          </View>
+        )
+      }
+  
+      if(Letra == "ajo"){
+        return(
+          <View style={css_ItemCrucigrama.cellEmpty}>
+             <Image source={require('../img/frutas/png/017-garlic.png')} style={css_ItemCrucigrama.imgFruta} />
+          </View>
+        )
+      }
+  
+      if(Letra == "pera"){
+        return(
+          <View style={css_ItemCrucigrama.cellEmpty}>
+             <Image source={require('../img/frutas/png/024-pear.png')} style={css_ItemCrucigrama.imgFruta} />
+          </View>
+        )
+      }
+  
+      if(Letra == "banana"){
+        return(
+          <View style={css_ItemCrucigrama.cellEmpty}>
+             <Image source={require('../img/frutas/png/006-bananas.png')} style={css_ItemCrucigrama.imgFruta} />
+          </View>
+        )
+      }
+  
+      if(Letra == "maiz"){
+        return(
+          <View style={css_ItemCrucigrama.cellEmpty}>
+             <Image source={require('../img/frutas/png/014-corn.png')} style={css_ItemCrucigrama.imgFruta} />
+          </View>
+        )
+      }
+    if(letter !== ''){
+      if(letter == Letra.toUpperCase()){
+        aciertos += +1
+        console.log(aciertos);
+      }else{
+        aciertos += -1
+        console.log(aciertos);
+      }
+    }
+    
+    useEffect(() => {
+      if(aciertos == NumLetras){
+        navigation.navigate('WinGame');
+      }
+    }, [aciertos])
+      if (Letra == "") {
+        return (
+        <View style={css_ItemCrucigrama.cellEmpty}>
+          
+          </View>
+        );
+      } else {
+        return (
+          <View style={css_ItemCrucigrama.cell} >
+          <TextInput
+          style={css_ItemCrucigrama.InputNombre}
+          onChangeText={setLetter}
+          value={letter}
+          textContentType="name"
+          placeholderTextColor={Colors.white}
+          maxLength={1}
+          key={llave}
+        />
+          </View>
+        );
+      }
+    };
+    //#endregion
+    
+    //#region Crucigrama de Animales
+    const ItemCrucigramaAnimales = ({Animal, NumLetras}) => {
+      const llave = Math.random();
+      const [item, setItem] = useState("");
+  
+      if(item !== ''){
+        if(item == Animal.toUpperCase()){
+          aciertos += +1
+        }else{
+          aciertos += -1
+        }
+      }
+      
+      useEffect(() => {
+        if(aciertos == NumLetras){
+          navigation.navigate('WinGame');
+        }
+      }, [aciertos])
+
+      if(Animal == "vaca"){
+          return(
+            <View style={css_ItemCrucigrama.cellEmpty}>
+                <Image source={require('../img/animales/016-cow.png')} style={css_ItemCrucigrama.imgFruta} />
+            </View>
+          ) 
+        }
+  
+        if(Animal == "oveja"){
+          return(
+            <View style={css_ItemCrucigrama.cellEmpty}>
+                <Image source={require('../img/animales/080-sheep.png')} style={css_ItemCrucigrama.imgFruta} />
+            </View>
+          ) 
+        }
+  
+        if(Animal == "raton"){
+          return(
+            <View style={css_ItemCrucigrama.cellEmpty}>
+                <Image source={require('../img/animales/071-rat.png')} style={css_ItemCrucigrama.imgFruta} />
+            </View>
+          ) 
+        }
+  
+        if(Animal == "cabra"){
+          return(
+            <View style={css_ItemCrucigrama.cellEmpty}>
+                <Image source={require('../img/animales/031-goat.png')} style={css_ItemCrucigrama.imgFruta} />
+            </View>
+          ) 
+        }
+  
+        if(Animal == "pato"){
+          return(
+            <View style={css_ItemCrucigrama.cellEmpty}>
+                <Image source={require('../img/animales/022-duck.png')} style={css_ItemCrucigrama.imgFruta} />
+            </View>
+          ) 
+        }
+  
+        if(Animal == "panda"){
+          return(
+            <View style={css_ItemCrucigrama.cellEmpty}>
+                <Image source={require('../img/animales/029-panda.png')} style={css_ItemCrucigrama.imgFruta} />
+            </View>
+          ) 
+        }
+  
+        if(Animal == "tigre"){
+          return(
+            <View style={css_ItemCrucigrama.cellEmpty}>
+                <Image source={require('../img/animales/091-tiger.png')} style={css_ItemCrucigrama.imgFruta} />
+            </View>
+          ) 
+        }
+   
+      if (Animal == "") {
+          return (
+            <View style={css_ItemCrucigrama.cellEmpty}>
+              <Text style={css_ItemCrucigrama.cellTextEmpty}> </Text>
+            </View>
+          );
+        } else {
+          return (
+            <View style={css_ItemCrucigrama.cell}>
+              <TextInput
+                style={css_ItemCrucigrama.InputNombre}
+                onChangeText={setItem}
+                value={item}
+                textContentType="name"
+                placeholderTextColor={Colors.white}
+                maxLength={1}
+                key={llave}
+              />
+            </View>
+          );
+        }
+  }
+
+    //#endregion
+    
+    //#region Crucigrama de Colores
+    const ItemCrucigramaColores = ({ Color, NumLetras }) => {
+      const llave = Math.random();
+      const [item, setItem] = useState("");
+    
+      if(item !== ''){
+        if(item == Color.toUpperCase()){
+          aciertos += +1
+        }else{
+          aciertos += -1
+        }
+      }
+      
+      useEffect(() => {
+        if(aciertos == NumLetras){
+          navigation.navigate('WinGame');
+        }
+      }, [aciertos])
+    
+      if (Color == "amarillo") {
+        return (
+          <View
+            style={{
+              backgroundColor: "#F1C40F",
+              borderRadius: 10,
+              width: 45,
+              height: 40,
+            }}
+          ></View>
+        );
+      }
+    
+      if (Color == "azul") {
+        return (
+          <View
+            style={{
+              backgroundColor: "#2980B9",
+              borderRadius: 10,
+              width: 45,
+              height: 40,
+            }}
+          ></View>
+        );
+      }
+    
+      if (Color == "rojo") {
+        return (
+          <View
+            style={{
+              backgroundColor: "#CB4335",
+              borderRadius: 10,
+              width: 45,
+              height: 40,
+            }}
+          ></View>
+        );
+      }
+    
+      if (Color == "rosa") {
+        return (
+          <View
+            style={{
+              backgroundColor: "#FF6FCD",
+              borderRadius: 10,
+              width: 45,
+              height: 40,
+            }}
+          ></View>
+        );
+      }
+    
+      if (Color == "verde") {
+        return (
+          <View
+            style={{
+              backgroundColor: "#16DB43",
+              borderRadius: 10,
+              width: 45,
+              height: 40,
+            }}
+          ></View>
+        );
+      }
+    
+      if (Color == "cafe") {
+        return (
+          <View
+            style={{
+              backgroundColor: "#873600",
+              borderRadius: 10,
+              width: 45,
+              height: 40,
+            }}
+          ></View>
+        );
+      }
+    
+      if (Color == "") {
+        return (
+          <View style={css_ItemCrucigrama.cellEmpty}>
+            <Text style={css_ItemCrucigrama.cellTextEmpty}> </Text>
+          </View>
+        );
+      } else {
+        return (
+          <View style={css_ItemCrucigrama.cell}>
+            <TextInput
+              style={css_ItemCrucigrama.InputNombre}
+              onChangeText={setItem}
+              value={item}
+              textContentType="name"
+              placeholderTextColor={Colors.white}
+              maxLength={1}
+              key={llave}
+            />
+          </View>
+        );
+      }
+    };
+    //#endregion
     
     const Item = ({ item }) => {
       if(Tipo == 'Frutas'){
-        return <ItemCrucigrama Letra={item} key={aleatorio}/>;
+        return <ItemCrucigrama Letra={item} key={aleatorio} NumLetras={num_letras} />;
       }
 
       if(Tipo == 'Colores'){
-        return <ItemCrucigramaColores Color={item} key={aleatorio}/>;
+        return <ItemCrucigramaColores Color={item} key={aleatorio} NumLetras={num_letras}/>;
+      }
+
+      if(Tipo == 'Animales'){
+        return <ItemCrucigramaAnimales Animal={item} key={aleatorio} NumLetras={num_letras}/>;
       }
     };
+
     return (
       <View style={styles.container}>
         <View style={styles.lista}> 
