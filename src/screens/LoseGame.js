@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/core";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
@@ -6,15 +7,16 @@ import Dialogo from "../components/Dialogo";
 import HeaderGame from "../components/HeaderGame";
 import { Colors } from "../styles/Colors";
 
-const LoseGame = ({navigation}) => {
+const LoseGame = ({ Siguiente }) => {
+  const navigation = useNavigation();
   return (
     <View style={Styles.Container}>
-    <StatusBar style='light' />
-            <HeaderGame name='Por un poquito' />
+      <StatusBar style="light" />
+      <HeaderGame name="Por un poquito" />
       <View style={Styles.divContenido}></View>
       <Dialogo texto="Fallaste amigo, pero no te rindas. ¡Vuelve a intentarlo!" />
       <Image source={require("../img/OSO-TRISTE.png")} style={Styles.imgOso} />
-      <BotonContinuar Texto="Continuar" Ruta='Menu'/>
+      <BotonContinuar Texto="Continuar" Ruta='Menu' />
     </View>
   );
 };

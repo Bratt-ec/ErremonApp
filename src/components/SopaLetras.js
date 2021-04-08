@@ -9,72 +9,244 @@ import {
   Image,
 } from "react-native";
 import { Colors } from "../styles/Colors";
+import BotonContinuar from "./BotonContinuar";
+import Dialogo from "./Dialogo";
 import Opciones from "./Opciones";
 
-const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4, Siguiente}) => {
-  // const[btn, setBtn] = useState(false);
+const SopaLetras = ({
+  Juego,
+  Opcion1,
+  Opcion2,
+  Opcion3,
+  Opcion4,
+  Siguiente,
+}) => {
+  const [lose, setLose] = useState(false);
   let touch = 0;
   const navigation = useNavigation();
   let DATA;
   let toques;
 
-  if(Juego == 'DeOposicion'){
-      DATA = [
-    "S","","","","",
-    "I","","","","E",
-    "N","","","","N",
-    "E","u","","","C",
-     "M","","a","","A",
-     "B","p","","","M",
-     "A","","e","","B",
-     "R","","","r","I",
-     "G","","","","O",
-     "O","","","",""
+  if (Juego == "DeOposicion") {
+    DATA = [
+      "S",
+      "",
+      "",
+      "",
+      "",
+      "I",
+      "",
+      "",
+      "",
+      "E",
+      "N",
+      "",
+      "",
+      "",
+      "N",
+      "E",
+      "u",
+      "",
+      "",
+      "C",
+      "M",
+      "",
+      "a",
+      "",
+      "A",
+      "B",
+      "p",
+      "",
+      "",
+      "M",
+      "A",
+      "",
+      "e",
+      "",
+      "B",
+      "R",
+      "",
+      "",
+      "r",
+      "I",
+      "G",
+      "",
+      "",
+      "",
+      "O",
+      "O",
+      "",
+      "",
+      "",
+      "",
     ];
     toques = 23;
   }
-  if(Juego == 'CausaConsecuencia'){
-      DATA = [
-    "P","P","D","","P",
-    "O","O","E","","O",
-    "R","R","B","","R",
-    "Q","E","I","","C",
-    "U","N","D","","O",
-    "E","D","O","","N",
-    "","E","A","","S",
-    "","","","r","I",
-    "E","","","","G",
-    "T","N","E","I","U"
+
+  if (Juego == "CausaConsecuencia") {
+    DATA = [
+      "P",
+      "P",
+      "D",
+      "",
+      "P",
+      "O",
+      "O",
+      "E",
+      "",
+      "O",
+      "R",
+      "R",
+      "B",
+      "",
+      "R",
+      "Q",
+      "E",
+      "I",
+      "",
+      "C",
+      "U",
+      "N",
+      "D",
+      "",
+      "O",
+      "E",
+      "D",
+      "O",
+      "",
+      "N",
+      "",
+      "E",
+      "A",
+      "",
+      "S",
+      "",
+      "",
+      "",
+      "r",
+      "I",
+      "E",
+      "",
+      "",
+      "",
+      "G",
+      "T",
+      "N",
+      "E",
+      "I",
+      "U",
     ];
-    toques=35;
+    toques = 35;
   }
-  if(Juego == 'DeTiempo'){
-      DATA = [
-    "F","","m","p","",
-    "i","","i","o","",
-    "n","","e","r","",
-    "a","","n","u","s",
-    "l","","t","l","e",
-    "m","","r","t","u",
-    "e","","a","i","p",
-    "n","","s","m","s",
-    "t","","","o","e",
-    "e","","","","d"
+
+  if (Juego == "DeTiempo") {
+    DATA = [
+      "F",
+      "",
+      "m",
+      "p",
+      "",
+      "i",
+      "",
+      "i",
+      "o",
+      "",
+      "n",
+      "",
+      "e",
+      "r",
+      "",
+      "a",
+      "",
+      "n",
+      "u",
+      "s",
+      "l",
+      "",
+      "t",
+      "l",
+      "e",
+      "m",
+      "",
+      "r",
+      "t",
+      "u",
+      "e",
+      "",
+      "a",
+      "i",
+      "p",
+      "n",
+      "",
+      "s",
+      "m",
+      "s",
+      "t",
+      "",
+      "",
+      "o",
+      "e",
+      "e",
+      "",
+      "",
+      "",
+      "d",
     ];
     toques = 34;
-  }  
-  if(Juego == 'DeAdicion'){
-      DATA = [
-    "","","","","T",
-    "","","","","A",
-    "","","","O","M",
-    "","","","M","B",
-    "","S","","S","I",
-    "","A","","I","E",
-    "","M","","M","N",
-    "","E","","I","",
-    "","D","","S","",
-    "","A","","A",""
+  }
+
+  if (Juego == "DeAdicion") {
+    DATA = [
+      "",
+      "",
+      "",
+      "",
+      "T",
+      "",
+      "",
+      "",
+      "",
+      "A",
+      "",
+      "",
+      "",
+      "O",
+      "M",
+      "",
+      "",
+      "",
+      "M",
+      "B",
+      "",
+      "S",
+      "",
+      "S",
+      "I",
+      "",
+      "A",
+      "",
+      "I",
+      "E",
+      "",
+      "M",
+      "",
+      "M",
+      "N",
+      "",
+      "E",
+      "",
+      "I",
+      "",
+      "",
+      "D",
+      "",
+      "S",
+      "",
+      "",
+      "A",
+      "",
+      "A",
+      "",
     ];
     toques = 21;
   }
@@ -83,16 +255,18 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4, Siguiente}) => {
 
   const LetraBtn = ({ Letra, NumLetras }) => {
     const [press, setPress] = useState(false);
+
     const abecedario = "abcdefghigklmnopqrstuvwxyz";
-    let LetraRelleno = abecedario[Math.floor(Math.random() * abecedario.length)];
+    let LetraRelleno =
+      abecedario[Math.floor(Math.random() * abecedario.length)];
     let aleatorio = Math.random();
     useEffect(() => {
-      if(touch == NumLetras){
-        navigation.navigate('WinGame')
+      if (touch == NumLetras) {
+        navigation.navigate("WinGame");
       }
-    }, [touch])
+    }, [touch]);
     if (Letra == "") {
-      return ( 
+      return (
         <View style={styles.cell} key={aleatorio}>
           <Text style={styles.cellText}>{LetraRelleno}</Text>
         </View>
@@ -101,12 +275,12 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4, Siguiente}) => {
       return (
         <TouchableOpacity
           style={press ? styles.cellPress : styles.cell}
-          onPress={() =>{
-            if(press) {
-              touch += -1
-              setPress(false) 
-            } else{
-              touch += +1
+          onPress={() => {
+            if (press) {
+              touch += -1;
+              setPress(false);
+            } else {
+              touch += +1;
               setPress(true);
             }
           }}
@@ -123,41 +297,87 @@ const SopaLetras = ({Juego, Opcion1, Opcion2, Opcion3, Opcion4, Siguiente}) => {
     return <LetraBtn Letra={item} key={id} NumLetras={toques} />;
   };
 
-  const BotonSiguiente = ()=>(
-    <TouchableOpacity style={styles.btnOpcion} onPress={() => navigation.navigate(Siguiente)}>
-    <View style={styles.divIcon}>
-      <Image
-        source={require("../img/mando.png")}
-        style={styles.iconOpcion}
-      />
-    </View>
-    <Text style={styles.txtOpcion}>Siguiente</Text>
-  </TouchableOpacity>
+  const BotonSiguiente = () => (
+    <TouchableOpacity style={styles.btnOpcion} onPress={() => setLose(true)}>
+      <View style={styles.divIcon}>
+        <Image source={require("../img/mando.png")} style={styles.iconOpcion} />
+      </View>
+      <Text style={styles.txtOpcion}>Terminar</Text>
+    </TouchableOpacity>
   );
-  return (
-    <View style={styles.container}>
-      <View style={styles.divOpciones}>
-        <Opciones Value={Opcion1} />
-        <Opciones Value={Opcion2} />
-        <Opciones Value={Opcion3} />
-        <Opciones Value={Opcion4} />
 
-      </View>
-      <View style={styles.lista}>
-        <FlatList
-          data={DATA}
-          renderItem={Item}
-          keyExtractor={(item) => item}
-          numColumns="5"
-          style={{ marginTop: 20 }}
+  const LoseGame = ({ Siguiente }) => {
+    const navigation = useNavigation();
+    return (
+      <View style={styles.Container}>
+        <View style={styles.divContenido}></View>
+        <Dialogo texto="Fallaste amigo, pero no te rindas. ¡Vuelve a intentarlo!" />
+        <Image
+          source={require("../img/OSO-TRISTE.png")}
+          style={styles.imgOso}
         />
-        {/* {(btn) ? <BotonSiguiente /> : null} */}
+        <BotonContinuar Texto="Continuar" Ruta={Siguiente} />
       </View>
-    </View>
-  );
+    );
+  };
+
+  if (lose) {
+    if (Juego == "DeOposicion") {
+      return <LoseGame Siguiente="CausaConsecuencia" />;
+    }
+
+    if (Juego == "CausaConsecuencia") {
+      return <LoseGame Siguiente="DeTiempo" />;
+    }
+    if (Juego == "DeTiempo") {
+      return <LoseGame Siguiente="DeAdicion" />;
+    }
+
+    if (Juego == "DeAdicion") {
+      return <LoseGame Siguiente="SopaPalabras" />;
+    }
+  } else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.divOpciones}>
+          <Opciones Value={Opcion1} />
+          <Opciones Value={Opcion2} />
+          <Opciones Value={Opcion3} />
+          <Opciones Value={Opcion4} />
+        </View>
+        <View style={styles.lista}>
+          <FlatList
+            data={DATA}
+            renderItem={Item}
+            keyExtractor={(item) => item}
+            numColumns="5"
+            style={{ marginTop: 20 }}
+          />
+          <BotonSiguiente />
+        </View>
+      </View>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
+  Container: {
+    flex: 1,
+    backgroundColor: Colors.blue_dark,
+  },
+  divContenido: {
+    backgroundColor: Colors.white,
+    opacity: 0.4,
+    height: "100%",
+    width: "100%",
+    padding: "4%",
+    position: "absolute",
+  },
+  imgOso: {
+    width: 160,
+    height: 200,
+    alignSelf: "flex-end",
+  },
   container: { flex: 1, padding: 8 },
   divOpciones: {
     flexDirection: "row",
@@ -197,7 +417,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: Colors.turquesa,
     padding: 4,
-    width: "66%",
+    width: "64%",
     borderRadius: 30,
     alignSelf: "center",
     alignItems: "center",

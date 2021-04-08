@@ -11,9 +11,12 @@ import {
 } from "react-native";
 import { Colors } from "../styles/Colors";
 import { css_ItemCrucigrama } from "../styles/GameStyle";
+import BotonContinuar from "./BotonContinuar";
+import Dialogo from "./Dialogo";
 
 
 const BaseCrucigrama = ({Tipo}) => {
+  const [lose, setLose] = useState(false);
     const navigation = useNavigation();
     let aleatorio = Math.random();
     let aciertos = 0;
@@ -387,6 +390,31 @@ const BaseCrucigrama = ({Tipo}) => {
     };
     //#endregion
     
+    
+  const BotonSiguiente = () => (
+    <TouchableOpacity style={styles.btnOpcion} onPress={() => setLose(true)}>
+      <View style={styles.divIcon}>
+        <Image source={require("../img/mando.png")} style={styles.iconOpcion} />
+      </View>
+      <Text style={styles.txtOpcion}>Terminar</Text>
+    </TouchableOpacity>
+  );
+
+  const LoseGame = ({ Siguiente }) => {
+    return (
+      <View style={styles.Container}>
+        <View style={styles.divContenido}></View>
+        <Dialogo texto="Fallaste amigo, pero no te rindas. ¡Vuelve a intentarlo!" />
+        <Image
+          source={require("../img/OSO-TRISTE.png")}
+          style={styles.imgOso}
+        />
+        <BotonContinuar Texto="Continuar" Ruta={Siguiente} />
+      </View>
+    );
+  };
+
+
     const Item = ({ item }) => {
       if(Tipo == 'Frutas'){
         return <ItemCrucigrama Letra={item} key={aleatorio} NumLetras={num_letras} />;
@@ -400,7 +428,20 @@ const BaseCrucigrama = ({Tipo}) => {
         return <ItemCrucigramaAnimales Animal={item} key={aleatorio} NumLetras={num_letras}/>;
       }
     };
-
+    if (lose) {
+      if (Tipo == "Frutas") {
+        // setLose(false);
+        return <LoseGame Siguiente="Gm_Colores" />;
+      }
+  
+      if (Tipo == "Colores") {
+        return <LoseGame Siguiente="Gm_Animales" />;
+      }
+      if (Tipo == "Animales") {
+        return <LoseGame Siguiente="MenuCrucigrama" />;
+      }
+  
+    } else {
     return (
       <View style={styles.container}>
         <View style={styles.lista}> 
@@ -412,17 +453,10 @@ const BaseCrucigrama = ({Tipo}) => {
             style={{ marginTop: '1%' }} 
           />
         </View>
-        {/* <TouchableOpacity style={styles.btnOpcion} onPress={() => navigation.navigate('WinGame')}>
-            <View style={styles.divIcon}>
-              <Image
-                source={require("../img/mando.png")}
-                style={styles.iconOpcion}
-              />
-            </View>
-            <Text style={styles.txtOpcion}>Siguiente</Text>
-        </TouchableOpacity> */}
+        <BotonSiguiente />
       </View>
     );
+    }
 }
 
 const styles = StyleSheet.create({

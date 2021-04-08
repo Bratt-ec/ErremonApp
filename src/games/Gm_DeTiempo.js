@@ -21,7 +21,7 @@ const Gm_DeTiempo = () => {
         <StatusBar style='light' />
         <HeaderGame name='juego de adicion' />
         {preGame ? <PreScreenGame txtDialogo='Encuentra las palabras en la siguiente sopa de letras'/> : null}
-        {preGame ? null : <SopaLetras Juego='DeTiempo' Opcion1='finalmente' Opcion2='por ultimo' Opcion3='después' Opcion4='Mientras tanto' Siguiente='WinGame'/>}
+        {preGame ? null : <SopaLetras Juego='DeTiempo' Opcion1='finalmente' Opcion2='por ultimo' Opcion3='después' Opcion4='Mientras tanto' Siguiente='LoseGame'/>}
     </View>
      );
 }
