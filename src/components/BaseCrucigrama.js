@@ -17,6 +17,7 @@ import Dialogo from "./Dialogo";
 
 const BaseCrucigrama = ({Tipo}) => {
   const [lose, setLose] = useState(false);
+  const [win, setWin] = useState(false);
     const navigation = useNavigation();
     let aleatorio = Math.random();
     let aciertos = 0;
@@ -135,14 +136,15 @@ const BaseCrucigrama = ({Tipo}) => {
         aciertos += +1
         console.log(aciertos);
       }else{
-        aciertos += -1
+       
         console.log(aciertos);
       }
     }
     
     useEffect(() => {
       if(aciertos == NumLetras){
-        navigation.navigate('WinGame');
+        // navigation.navigate('WinGame');
+        setWin(true);
       }
     }, [aciertos])
       if (Letra == "") {
@@ -178,13 +180,14 @@ const BaseCrucigrama = ({Tipo}) => {
         if(item == Animal.toUpperCase()){
           aciertos += +1
         }else{
-          aciertos += -1
+          console.log(aciertos);
         }
       }
       
       useEffect(() => {
         if(aciertos == NumLetras){
-          navigation.navigate('WinGame');
+          // navigation.navigate('WinGame');
+          setWin(true);
         }
       }, [aciertos])
 
@@ -278,13 +281,14 @@ const BaseCrucigrama = ({Tipo}) => {
         if(item == Color.toUpperCase()){
           aciertos += +1
         }else{
-          aciertos += -1
+          console.log(aciertos);
         }
       }
       
       useEffect(() => {
         if(aciertos == NumLetras){
-          navigation.navigate('WinGame');
+          // navigation.navigate('WinGame');
+          setWin(true);
         }
       }, [aciertos])
     
@@ -428,14 +432,41 @@ const BaseCrucigrama = ({Tipo}) => {
         return <ItemCrucigramaAnimales Animal={item} key={aleatorio} NumLetras={num_letras}/>;
       }
     };
-    if (lose) {
+
+    const WinGame = ({Siguiente}) => {
+      // const { preGame, setPreGame} = useContext(AuthContext);
+        return ( 
+            <View style={styles.Container}>
+            <View style={styles.divContenido}></View>
+            <Dialogo texto="¡Muy bien, lo lograste! Sin duda Eres un gran jugador" />
+            <Image source={require("../img/oso_3.png")} style={styles.imgOso} />
+            <BotonContinuar Texto="Continuar" Ruta={Siguiente}/>
+          </View>
+         );
+    }
+
+    if(win){
       if (Tipo == "Frutas") {
-        // setLose(false);
-        return <LoseGame Siguiente="Gm_Colores" />;
+        return <WinGame Siguiente='MenuCrucigrama'/>
+      }
+  
+      if (Tipo == "Animales") {
+        return <WinGame Siguiente='MenuCrucigrama'/>
       }
   
       if (Tipo == "Colores") {
-        return <LoseGame Siguiente="Gm_Animales" />;
+        return <WinGame Siguiente='MenuCrucigrama'/>
+      }
+    }
+
+    if (lose) {
+      if (Tipo == "Frutas") {
+        // setLose(false);
+        return <LoseGame Siguiente="MenuCrucigrama" />;
+      }
+  
+      if (Tipo == "Colores") {
+        return <LoseGame Siguiente="MenuCrucigrama" />;
       }
       if (Tipo == "Animales") {
         return <LoseGame Siguiente="MenuCrucigrama" />;

@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -12,7 +12,7 @@ import { Colors } from "../styles/Colors";
 import BotonContinuar from "./BotonContinuar";
 import Dialogo from "./Dialogo";
 import Opciones from "./Opciones";
-
+import { AuthContext } from '../navigation/AuthProvider';
 const SopaLetras = ({
   Juego,
   Opcion1,
@@ -22,6 +22,7 @@ const SopaLetras = ({
   Siguiente,
 }) => {
   const [lose, setLose] = useState(false);
+  const [win, setWin] = useState(false);
   let touch = 0;
   const navigation = useNavigation();
   let DATA;
@@ -29,56 +30,16 @@ const SopaLetras = ({
 
   if (Juego == "DeOposicion") {
     DATA = [
-      "S",
-      "",
-      "",
-      "",
-      "",
-      "I",
-      "",
-      "",
-      "",
-      "E",
-      "N",
-      "",
-      "",
-      "",
-      "N",
-      "E",
-      "u",
-      "",
-      "",
-      "C",
-      "M",
-      "",
-      "a",
-      "",
-      "A",
-      "B",
-      "p",
-      "",
-      "",
-      "M",
-      "A",
-      "",
-      "e",
-      "",
-      "B",
-      "R",
-      "",
-      "",
-      "r",
-      "I",
-      "G",
-      "",
-      "",
-      "",
-      "O",
-      "O",
-      "",
-      "",
-      "",
-      "",
+      "S","", "","","",
+      "I","","","","E",
+      "N","","","","N",
+      "E","u","","","C",
+      "M","","a","","A",
+      "B","p","","","M",
+      "A","","e","","B",
+      "R","","","r","I",
+      "G","","","","O",
+      "O","","","","",
     ];
     toques = 23;
   }
@@ -262,7 +223,8 @@ const SopaLetras = ({
     let aleatorio = Math.random();
     useEffect(() => {
       if (touch == NumLetras) {
-        navigation.navigate("WinGame");
+        // navigation.navigate("WinGame");
+        setWin(true);
       }
     }, [touch]);
     if (Letra == "") {
@@ -307,7 +269,6 @@ const SopaLetras = ({
   );
 
   const LoseGame = ({ Siguiente }) => {
-    const navigation = useNavigation();
     return (
       <View style={styles.Container}>
         <View style={styles.divContenido}></View>
@@ -321,6 +282,35 @@ const SopaLetras = ({
     );
   };
 
+  const WinGame = ({Siguiente}) => {
+    // const { preGame, setPreGame} = useContext(AuthContext);
+      return ( 
+          <View style={styles.Container}>
+          <View style={styles.divContenido}></View>
+          <Dialogo texto="¡Muy bien, lo lograste! Sin duda Eres un gran jugador" />
+          <Image source={require("../img/oso_3.png")} style={styles.imgOso} />
+          <BotonContinuar Texto="Continuar" Ruta={Siguiente}/>
+        </View>
+       );
+  }
+  
+  if(win){
+    if (Juego == "DeOposicion") {
+      return <WinGame Siguiente='CausaConsecuencia'/>
+    }
+
+    if (Juego == "CausaConsecuencia") {
+      return <WinGame Siguiente='CausaConsecuencia'/>
+    }
+
+    if (Juego == "DeTiempo") {
+      return <WinGame Siguiente='CausaConsecuencia'/>
+    }
+
+    if (Juego == "DeAdicion") {
+      return <WinGame Siguiente='SopaLetras'/>
+    }
+  }
   if (lose) {
     if (Juego == "DeOposicion") {
       return <LoseGame Siguiente="CausaConsecuencia" />;
