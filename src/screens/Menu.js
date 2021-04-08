@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useContext,useState, useEffect } from "react";
-import { Image, ScrollView, Text, View, TouchableOpacity } from "react-native";
+import { Image, ScrollView, Text, View, TouchableOpacity, Touchable } from "react-native";
 import FondoInicio from "../components/FondoInicio";
 import { AuthContext } from "../navigation/AuthProvider";
 import { Colors } from "../styles/Colors";
@@ -9,11 +9,13 @@ import { Audio } from 'expo-av';
 
 const Menu = ({ navigation }) => {
   const { usuario, setUsuario } = useContext(AuthContext);
-
+  const[sonido, setSonido] =  useState(true);
   const [sound, setSound] = useState();
 
-  async function playSound() {
-    console.log('Loading Sound');
+  async function playSound(play) {
+    if(play){
+      setSonido(false);
+       console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync(
        require('../sounds/fondo.mp3'),{
          isLooping: true
@@ -23,10 +25,18 @@ const Menu = ({ navigation }) => {
 
     console.log('Playing Sound');
     await sound.playAsync(); 
-  }
+    }else{
+
+      console.log('Stop sound');
+     await sound.pauseAsync() 
+     setSonido(true)
+    }
+   
+  };
 
 
   useEffect(() => {
+
     return sound
       ? () => {
           console.log('Unloading Sound');
@@ -38,7 +48,14 @@ const Menu = ({ navigation }) => {
     <ScrollView>
       <View style={css_Menu.ContainerMenu}>
         <StatusBar style="light" backgroundColor={Colors.blue_dark2} />
-        <Text style={css_Menu.txtHeader}>HOLA!! {usuario}</Text>
+        <View style={{display: 'flex' ,flexDirection: 'row', width: '100%', alignContent: 'space-between', justifyContent: 'space-between'}}>
+          <Text style={css_Menu.txtHeader}>HOLA!! {usuario}</Text>
+          <TouchableOpacity onPress={()=> (sonido)? playSound(true) : playSound(false)  }  style={{borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>
+            <Image source={require('../img/volume.png')} style={{ width: 20, height: 20, alignSelf: 'center'}}/>
+          </TouchableOpacity>
+        </View>
+
+        
         <View style={css_Menu.DivMenuTop}>
           <TouchableOpacity
             style={css_Menu.DivSopaPalabras}
@@ -63,10 +80,10 @@ const Menu = ({ navigation }) => {
         </View>
         <TouchableOpacity
           style={css_Menu.DivJuegoImg}
-          onPress={() => navigation.navigate("JuegoImagenes")}
+          onPress={() => navigation.navigate("DeLectura")}
         >
           <FondoInicio />
-          <Text style={css_Menu.textoMenu2}>Juego de Imágenes</Text>
+          <Text style={css_Menu.textoMenu2}>Juegos de Lectura</Text>
           <Image
             source={require("../img/oso_game_2.png")}
             style={css_Menu.ImgOso}
@@ -75,9 +92,9 @@ const Menu = ({ navigation }) => {
         <View style={css_Menu.DivMenuCenter}>
           <TouchableOpacity
             style={css_Menu.DivSopaLetras}
-            onPress={() => navigation.navigate("DeLectura")}
+            onPress={() => navigation.navigate("JuegoImagenes")}
           >
-            <Text style={css_Menu.textoMenu}>Juegos de Lectura</Text>
+            <Text style={css_Menu.textoMenu}>Juego de Imágenes</Text>
             <Image
               source={require("../img/perros.png")}
               style={css_Menu.MenuImg2}

@@ -136,7 +136,7 @@ const BaseCrucigrama = ({Tipo}) => {
         aciertos += +1
         console.log(aciertos);
       }else{
-       
+        
         console.log(aciertos);
       }
     }
