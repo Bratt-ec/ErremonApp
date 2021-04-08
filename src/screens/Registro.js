@@ -42,7 +42,7 @@ const Registro = ({ navigation }) => {
       return setAlert2(true);
     }
     // Validamos que el nombre no tenga números
-    for (let i = 0; i < nombre.length; i++) {
+    for (let i = 0; i < nombre.length; i++) { 
       if (numbers.indexOf(nombre[i]) > -1) {
         return setAlert3(true);
       } else {

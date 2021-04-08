@@ -1,12 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Colors } from "../styles/Colors";
+import { AuthContext } from "../navigation/AuthProvider";
 
 const HeaderGame = ({ name }) => {
+  const {personaje } = useContext(AuthContext);
   return (
     <View style={CSS.headerDiv}>
       <Image source={require("../img/book.png")} style={CSS.ImgHeader} />
       <Text style={CSS.txtHeader}>{name}</Text>
+      {
+         (personaje == 'Santi') 
+         ? <Image source={require('../img/../img/kid.png')} style={{width:40, height: 40, margin: 10 }} />
+         : <Image source={require('../img/../img/girl.png')} style={{width:40, height: 40, margin: 10}}/>
+      }
     </View>
   );
 };

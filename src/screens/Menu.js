@@ -8,7 +8,7 @@ import { css_Menu } from "../styles/Style";
 import { Audio } from 'expo-av';
 
 const Menu = ({ navigation }) => {
-  const { usuario, setUsuario } = useContext(AuthContext);
+  const { usuario, setUsuario, personaje, setPersonaje } = useContext(AuthContext);
   const[sonido, setSonido] =  useState(true);
   const [sound, setSound] = useState();
 
@@ -34,7 +34,6 @@ const Menu = ({ navigation }) => {
    
   };
 
-
   useEffect(() => {
 
     return sound
@@ -49,7 +48,20 @@ const Menu = ({ navigation }) => {
       <View style={css_Menu.ContainerMenu}>
         <StatusBar style="light" backgroundColor={Colors.blue_dark2} />
         <View style={{display: 'flex' ,flexDirection: 'row', width: '100%', alignContent: 'space-between', justifyContent: 'space-between'}}>
-          <Text style={css_Menu.txtHeader}>HOLA!! {usuario}</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <Text style={css_Menu.txtHeader}>HOLA!! {usuario}</Text> 
+          <TouchableOpacity onPress={()=> {
+            setPersonaje(null)
+            setUsuario(null)
+            }}>
+          {
+            
+            (personaje == 'Santi') 
+            ? <Image source={require('../img/../img/kid.png')} style={{width:25, height: 25, marginTop: 27}} />
+            : <Image source={require('../img/../img/girl.png')} style={{width:25, height: 25, marginTop: 27}}/>
+          }
+          </TouchableOpacity>
+          </View>
           <TouchableOpacity onPress={()=> (sonido)? playSound(true) : playSound(false)  }  style={{borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>
             <Image source={require('../img/volume.png')} style={{ width: 20, height: 20, alignSelf: 'center'}}/>
           </TouchableOpacity>
@@ -61,6 +73,7 @@ const Menu = ({ navigation }) => {
             style={css_Menu.DivSopaPalabras}
             onPress={() => navigation.navigate("SopaPalabras")}
           >
+            <Text style={css_Menu.Enumeracion}>1</Text>
             <Text style={css_Menu.textoMenu}>Sopa de Palabras</Text>
             <Image
               source={require("../img/conejo1.png")}
@@ -71,6 +84,7 @@ const Menu = ({ navigation }) => {
             style={css_Menu.DivCrucigramas}
             onPress={() => navigation.navigate("MenuCrucigrama")}
           >
+             <Text style={css_Menu.Enumeracion3}>2</Text>
             <Text style={css_Menu.textoMenu}>Crucigramas</Text>
             <Image
               source={require("../img/conejos.png")}
@@ -82,7 +96,9 @@ const Menu = ({ navigation }) => {
           style={css_Menu.DivJuegoImg}
           onPress={() => navigation.navigate("DeLectura")}
         >
+          
           <FondoInicio />
+          <Text style={css_Menu.Enumeracion}>3</Text>
           <Text style={css_Menu.textoMenu2}>Juegos de Lectura</Text>
           <Image
             source={require("../img/oso_game_2.png")}
@@ -94,6 +110,7 @@ const Menu = ({ navigation }) => {
             style={css_Menu.DivSopaLetras}
             onPress={() => navigation.navigate("JuegoImagenes")}
           >
+             <Text style={css_Menu.Enumeracion}>4</Text>
             <Text style={css_Menu.textoMenu}>Juego de Imágenes</Text>
             <Image
               source={require("../img/perros.png")}
@@ -104,6 +121,7 @@ const Menu = ({ navigation }) => {
             style={css_Menu.DivVocabulario}
             onPress={() => navigation.navigate("Vocabulario")}
           >
+             <Text style={css_Menu.Enumeracion}>5</Text>
             <Text style={css_Menu.textoMenu}>Vocabulario</Text>
             <Image
               source={require("../img/oso_game_3.png")}
@@ -115,6 +133,7 @@ const Menu = ({ navigation }) => {
           style={css_Menu.DivTest}
           onPress={() => navigation.navigate("TestEvaluativo")}
         >
+           <Text style={css_Menu.Enumeracion2}>6</Text>
           <Text style={css_Menu.textoMenu2}>Test Evaluativo</Text>
           <Image
             source={require("../img/oso_game_2.png")}

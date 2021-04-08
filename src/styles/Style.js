@@ -194,6 +194,27 @@ export const css_Menu = StyleSheet.create({
         textAlign: "center",
         width: '50%'
     },
+    Enumeracion:{
+        color: Colors.blue_semi_dark,
+        
+        position: 'absolute',
+        fontWeight: 'bold',
+        fontSize: 80
+    },
+    Enumeracion2:{
+        color: Colors.blue_semi_dark,
+        position: 'absolute',
+        fontWeight: 'bold',
+        fontSize: 80,
+        margin: 20
+    },
+    Enumeracion3:{
+        color: Colors.blue_dark,
+        position: 'absolute',
+        fontWeight: 'bold',
+        fontSize: 60,
+        marginTop: -20
+    },
     txtHeader:{
         color: Colors.white,
         fontSize: 20,
