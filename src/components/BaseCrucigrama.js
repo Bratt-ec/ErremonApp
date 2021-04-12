@@ -151,7 +151,7 @@ const BaseCrucigrama = ({Tipo}) => {
         return (
         <View style={css_ItemCrucigrama.cellEmpty}>
           
-          </View>
+        </View>
         );
       } else {
         return (

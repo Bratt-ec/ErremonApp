@@ -315,3 +315,44 @@ export const css_Menu = StyleSheet.create({
         overflow: 'hidden',
     },
 })
+
+
+export const css_Trofeos = StyleSheet.create({
+    btnMenu: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 30,
+        marginLeft: 20,
+        alignSelf: 'flex-start'
+      },
+      Titulo:{
+          fontSize: 25,
+          color: Colors.turquesa,
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+      },
+      ContainerTrofeos:{
+          margin: 10,
+          alignItems: 'center'
+      },
+      divLogro:{
+        margin: 12,
+        alignItems: 'center',
+        backgroundColor: Colors.turquesa,
+        padding: 6,
+        borderRadius: 6,
+        flexDirection: 'row'
+      },
+      txtLogro:{
+        color: Colors.white,
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'right',
+        marginLeft: 10
+      },
+      Icono: {
+          width: 50,
+          height: 50,
+          alignSelf: 'flex-start'
+      }
+})
