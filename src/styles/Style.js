@@ -185,6 +185,14 @@ export const css_Menu = StyleSheet.create({
         margin: '5%',
         textAlign: "center",
     },
+    textoMenu3:{
+        color: Colors.white,
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginHorizontal: '4%',
+        margin: '5%',
+        textAlign: 'right',
+    },
     textoMenu2:{
         color: Colors.white,
         fontSize: 20,
@@ -195,33 +203,37 @@ export const css_Menu = StyleSheet.create({
         width: '50%'
     },
     Enumeracion:{
-        color: Colors.blue_semi_dark,
-        
+        color: Colors.white,        
         position: 'absolute',
         fontWeight: 'bold',
-        fontSize: 80
+        fontSize: 50,
+        marginLeft:6
+        
     },
     Enumeracion2:{
-        color: Colors.blue_semi_dark,
+        color: Colors.white,
         position: 'absolute',
         fontWeight: 'bold',
         fontSize: 80,
         margin: 20
     },
     Enumeracion3:{
-        color: Colors.blue_dark,
+        color: Colors.white,
         position: 'absolute',
         fontWeight: 'bold',
-        fontSize: 60,
-        marginTop: -20
+        fontSize: 50,
+        marginTop: -10,
+        
+    },
+    imgAvatar:{
+
     },
     txtHeader:{
         color: Colors.white,
-        fontSize: 20,
-        alignSelf: 'flex-start',
-        marginTop: 28,
-        marginLeft: 18,
+        fontSize: 25,
         fontWeight: 'bold',
+        // textTransform: 'uppercase',
+        textAlign: 'center'
     },
     MenuImg:{
         resizeMode: 'contain',

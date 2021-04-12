@@ -6,6 +6,7 @@ import { AuthContext } from "../navigation/AuthProvider";
 import { Colors } from "../styles/Colors";
 import { css_Menu } from "../styles/Style";
 import { Audio } from 'expo-av';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 const Menu = ({ navigation }) => {
   const { usuario, setUsuario, personaje, setPersonaje } = useContext(AuthContext);
@@ -35,7 +36,6 @@ const Menu = ({ navigation }) => {
   };
 
   useEffect(() => {
-
     return sound
       ? () => {
           console.log('Unloading Sound');
@@ -48,21 +48,16 @@ const Menu = ({ navigation }) => {
       <View style={css_Menu.ContainerMenu}>
         <StatusBar style="light" backgroundColor={Colors.blue_dark2} />
         <View style={{display: 'flex' ,flexDirection: 'row', width: '100%', alignContent: 'space-between', justifyContent: 'space-between'}}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text style={css_Menu.txtHeader}>HOLA!! {usuario}</Text> 
+          <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 30, marginLeft:20}}>
           <TouchableOpacity onPress={()=> {
-            setPersonaje(null)
-            setUsuario(null)
+            // setPersonaje(null) 
+            // setUsuario(null)
+           navigation.openDrawer() 
             }}>
-          {
-            
-            (personaje == 'Santi') 
-            ? <Image source={require('../img/../img/kid.png')} style={{width:25, height: 25, marginTop: 27}} />
-            : <Image source={require('../img/../img/girl.png')} style={{width:25, height: 25, marginTop: 27}}/>
-          }
+              <FontAwesome5 name="bars" size={34} color={Colors.white} />
           </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={()=> (sonido)? playSound(true) : playSound(false)  }  style={{borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>
+          <TouchableOpacity onPress={()=> (sonido)? playSound(true) : playSound(false)  }  style={{marginRight: 20 ,borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>
             <Image source={require('../img/volume.png')} style={{ width: 20, height: 20, alignSelf: 'center'}}/>
           </TouchableOpacity>
         </View>
@@ -85,7 +80,7 @@ const Menu = ({ navigation }) => {
             onPress={() => navigation.navigate("MenuCrucigrama")}
           >
              <Text style={css_Menu.Enumeracion3}>2</Text>
-            <Text style={css_Menu.textoMenu}>Crucigramas</Text>
+            <Text style={css_Menu.textoMenu3}>Crucigramas</Text>
             <Image
               source={require("../img/conejos.png")}
               style={css_Menu.MenuImg}
@@ -111,7 +106,7 @@ const Menu = ({ navigation }) => {
             onPress={() => navigation.navigate("JuegoImagenes")}
           >
              <Text style={css_Menu.Enumeracion}>4</Text>
-            <Text style={css_Menu.textoMenu}>Juego de Imágenes</Text>
+            <Text style={css_Menu.textoMenu3}>Juego de Imágenes</Text>
             <Image
               source={require("../img/perros.png")}
               style={css_Menu.MenuImg2}
@@ -122,7 +117,7 @@ const Menu = ({ navigation }) => {
             onPress={() => navigation.navigate("Vocabulario")}
           >
              <Text style={css_Menu.Enumeracion}>5</Text>
-            <Text style={css_Menu.textoMenu}>Vocabulario</Text>
+            <Text style={css_Menu.textoMenu3}>Vocabulario</Text>
             <Image
               source={require("../img/oso_game_3.png")}
               style={css_Menu.ImgOso2}

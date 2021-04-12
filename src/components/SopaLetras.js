@@ -296,15 +296,15 @@ const SopaLetras = ({
   
   if(win){
     if (Juego == "DeOposicion") {
-      return <WinGame Siguiente='CausaConsecuencia'/>
+      return <WinGame Siguiente='SopaPalabras'/>
     }
 
     if (Juego == "CausaConsecuencia") {
-      return <WinGame Siguiente='CausaConsecuencia'/>
+      return <WinGame Siguiente='SopaPalabras'/>
     }
 
     if (Juego == "DeTiempo") {
-      return <WinGame Siguiente='CausaConsecuencia'/>
+      return <WinGame Siguiente='SopaPalabras'/>
     }
 
     if (Juego == "DeAdicion") {
@@ -313,14 +313,14 @@ const SopaLetras = ({
   }
   if (lose) {
     if (Juego == "DeOposicion") {
-      return <LoseGame Siguiente="CausaConsecuencia" />;
+      return <LoseGame Siguiente="SopaPalabras" />;
     }
 
     if (Juego == "CausaConsecuencia") {
-      return <LoseGame Siguiente="DeTiempo" />;
+      return <LoseGame Siguiente="SopaPalabras" />;
     }
     if (Juego == "DeTiempo") {
-      return <LoseGame Siguiente="DeAdicion" />;
+      return <LoseGame Siguiente="SopaPalabras" />;
     }
 
     if (Juego == "DeAdicion") {
