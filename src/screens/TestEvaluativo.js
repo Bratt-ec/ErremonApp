@@ -358,7 +358,7 @@ const TestEvaluativo = ({navigation}) => {
             );
         }
 
-    return ( 
+    return (  
         <View style={css_Crucigrama.Container}>
             <HeaderGame name='Test Evaluativo'/>
             {preGame ? <PreScreenGame txtDialogo='Ahora veremos cuanto has aprendido, escoje la palabra que comlpleta la oración ¡Suerte!'/> : null}

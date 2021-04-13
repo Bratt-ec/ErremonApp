@@ -7,15 +7,16 @@ import HeaderGame from '../components/HeaderGame';
 import { AuthContext } from '../navigation/AuthProvider';
 import { Colors } from "../styles/Colors";
 
-const WinGame = ({Siguiente, Win , NombreTrofeo}) => {
-
-  const Trofeo = ({Nombre})=>(
+export const Trofeo = ({Nombre})=>(
     <View style={Styles.divTrofeo}>
        <Text style={Styles.alerta}>¡Felicidades! Recibiste un trofeo:</Text>
       <Image source={require('../img/trofeo.png')} style={Styles.Icono}/>
       <Text style={Styles.nombreTrofeo}>{Nombre}</Text>
     </View>
   )
+const WinGame = ({Siguiente, Win , NombreTrofeo}) => {
+
+  
     return ( 
         <View style={Styles.Container}>
         <View style={Styles.divContenido}></View>

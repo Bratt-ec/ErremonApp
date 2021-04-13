@@ -241,46 +241,65 @@ export const css_DeOposicion = StyleSheet.create({
 })
 
 export const css_DeLectura = StyleSheet.create({
-    divTop:{
-        display: 'flex',
-        flexDirection: "row",
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignContent: 'space-between' ,
-        marginTop: '4%',
-    },
-    book:{
-        width: 80,
-        height: 80,
-        marginHorizontal: '4%',
-    },
-    divContenido:{
-        alignItems: 'center',
-        margin: '4%',
-    },
-    divPregunta:{
-        backgroundColor: Colors.turquesa,
-        padding: 10,
-        borderRadius: 6,
-        marginVertical: '4%'
-    },
-    txtPregunta:{
-        color: Colors.white,
-        fontSize: 26,
-        fontWeight: 'bold',
-    },
-    Respuesta:{
-        backgroundColor: Colors.yellow,
-        margin: '4%',
-        padding: 10,
-        borderRadius: 6,
-    },
-    txtRespuesta:{
-        fontSize: 22,
-        fontWeight: 'bold',
-        textTransform: 'uppercase'
-    }
-})
+  divTop: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "space-between",
+    marginTop: "4%",
+  },
+  book: {
+    width: 80,
+    height: 80,
+    marginHorizontal: "4%",
+  },
+  divContenido: {
+    alignItems: "center",
+    margin: "4%",
+  },
+  divPregunta: {
+    backgroundColor: Colors.turquesa,
+    padding: 10,
+    borderRadius: 6,
+    marginVertical: "2%",
+  },
+  divNota:{
+    // backgroundColor: Colors.turquesa,
+    padding: 10,
+    borderRadius: 6,
+    marginVertical: "2%",
+    flexDirection: 'row',
+    justifyContent:'center',
+    alignItems: 'center'
+  },
+  txtPregunta: {
+    color: Colors.white,
+    fontSize: 22,
+    fontWeight: "bold",
+  },
+  Respuesta: {
+    backgroundColor: Colors.yellow,
+    margin: "2%",
+    padding: 10,
+    borderRadius: 6,
+  },
+  txtRespuesta: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textTransform: "uppercase",
+  },
+  hiddenVideo: {
+    alignSelf: "center",
+    width: 0,
+    height: 0,
+  },
+  video: {
+    alignSelf: "center",
+    width: 320,
+    height: 200,
+  },
+});
 
 export const css_ItemCrucigrama = StyleSheet.create({
     cell: {
