@@ -36,6 +36,29 @@ const Menu = ({ navigation }) => {
    
   };
 
+  async function conectoresSound() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+       require('../sounds/conectores.mp3')
+    );
+    setSound(sound);
+
+    console.log('Playing Sound Conectores');
+    await sound.playAsync(); 
+  }
+
+  async function crucigramaSound() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+       require('../sounds/crucigramas.mp3')
+    );
+    setSound(sound);
+
+    console.log('Playing Sound Crucigrama');
+    await sound.playAsync(); 
+  }
+
+  
   useEffect(() => {
     return sound
       ? () => {
@@ -72,7 +95,10 @@ const Menu = ({ navigation }) => {
         <View style={css_Menu.DivMenuTop}>
           <TouchableOpacity
             style={css_Menu.DivSopaPalabras}
-            onPress={() => navigation.navigate("SopaPalabras")}
+            onPress={() => {
+              conectoresSound()
+              navigation.navigate("SopaPalabras")
+            }}
           >
             <Text style={css_Menu.Enumeracion}>1</Text>
             <Text style={css_Menu.textoMenu}>Sopa de Palabras</Text>
@@ -83,7 +109,10 @@ const Menu = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={css_Menu.DivCrucigramas}
-            onPress={() => navigation.navigate("MenuCrucigrama")}
+            onPress={() => {
+              crucigramaSound();
+              navigation.navigate("MenuCrucigrama")
+            }}
           >
              <Text style={css_Menu.Enumeracion3}>2</Text>
             <Text style={css_Menu.textoMenu3}>Crucigramas</Text>

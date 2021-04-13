@@ -12,9 +12,7 @@ const Inicio = ({ navigation }) => {
   async function playSound() {
     console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync(
-       require('../sounds/fondo.mp3'),{
-         isLooping: true
-       }
+       require('../sounds/login.mp3')
     );
     setSound(sound);
 
@@ -54,7 +52,10 @@ const Inicio = ({ navigation }) => {
       </View>
       <TouchableOpacity
         style={css_Inicio.ViewPlayButton}
-        onPress={() => navigation.navigate("Registro")}
+        onPress={() => {
+          playSound();
+          navigation.navigate("Registro")
+        }}
       >
         <Image
           source={require("../img/play-button.png")}
