@@ -27,6 +27,7 @@ const BaseCrucigrama = ({Tipo}) => {
 
   const [lose, setLose] = useState(false);
   const [win, setWin] = useState(false);
+  const [medalla, setMedalla] = useState(false);
     const navigation = useNavigation();
     let aleatorio = Math.random();
     let aciertos = 0;
@@ -165,6 +166,7 @@ const BaseCrucigrama = ({Tipo}) => {
         for (let i = 0; i < trofeos.length; i++) {
           if (trofeos[i].nombre == "Jefe de las Frutas") {
             console.log("Ya tienes este trofeo");
+            setMedalla(false);
             return;
           } }
 
@@ -174,6 +176,7 @@ const BaseCrucigrama = ({Tipo}) => {
               nombre: 'Jefe de las Frutas',
               estrellas: "5",
             }) 
+            setMedalla(true);
         setTrofeos(trofeosObj);
         setJuegosCompletados(juegosCompletados + 1);
       }
@@ -229,6 +232,7 @@ const BaseCrucigrama = ({Tipo}) => {
           for (let i = 0; i < trofeos.length; i++) {
             if (trofeos[i].nombre == "Jefe de los Animales") {
               console.log("Ya tienes este trofeo");
+              setMedalla(false);
               return;
             } }
   
@@ -238,6 +242,7 @@ const BaseCrucigrama = ({Tipo}) => {
                 nombre: 'Jefe de los Animales',
                 estrellas: "5",
               }) 
+              setMedalla(true);
           setTrofeos(trofeosObj);
           setJuegosCompletados(juegosCompletados + 1);
 
@@ -353,6 +358,7 @@ const BaseCrucigrama = ({Tipo}) => {
           for (let i = 0; i < trofeos.length; i++) {
             if (trofeos[i].nombre == "Jefe de los Colores") {
               console.log("Ya tienes este trofeo");
+              setMedalla(false);
               return;
             } }
           
@@ -362,6 +368,7 @@ const BaseCrucigrama = ({Tipo}) => {
                 nombre: 'Jefe de los Colores',
                 estrellas: "5",
               }) 
+              setMedalla(true);
           setTrofeos(trofeosObj);
           setJuegosCompletados(juegosCompletados + 1);
 
@@ -497,15 +504,15 @@ const BaseCrucigrama = ({Tipo}) => {
 
     if(win){
       if (Tipo == "Frutas") {
-        return <WinGame Siguiente='MenuCrucigrama' Win={true} NombreTrofeo='Jefe de las Frutas' />
+        return <WinGame Siguiente='MenuCrucigrama' Win={medalla} NombreTrofeo='Jefe de las Frutas' />
       }
   
       if (Tipo == "Animales") {
-        return <WinGame Siguiente='MenuCrucigrama'  Win={true} NombreTrofeo='Jefe de los Animales' />
+        return <WinGame Siguiente='MenuCrucigrama'  Win={medalla} NombreTrofeo='Jefe de los Animales' />
       }
   
       if (Tipo == "Colores") {
-        return <WinGame Siguiente='MenuCrucigrama'  Win={true} NombreTrofeo='Jefe de los Colores' />
+        return <WinGame Siguiente='MenuCrucigrama'  Win={medalla} NombreTrofeo='Jefe de los Colores' />
       }
     }
 

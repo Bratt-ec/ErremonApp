@@ -1,0 +1,6 @@
+Apuntes
+Que el osito indique en el login 
+Solo hacer un crucigrama
+//Ir a las sopas de letras en cada Win
+SONIDO EN EL MENU Y EN EL LOGIN
+
