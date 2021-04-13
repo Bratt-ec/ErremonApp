@@ -9,10 +9,10 @@ import {
   Image,
 } from "react-native";
 import { Colors } from "../styles/Colors";
-import BotonContinuar from "./BotonContinuar";
-import Dialogo from "./Dialogo";
 import Opciones from "./Opciones";
 import { AuthContext } from '../navigation/AuthProvider';
+import WinGame from "../screens/WinGame";
+import LoseGame from "../screens/LoseGame";
 const SopaLetras = ({
   Juego,
   Opcion1,
@@ -21,13 +21,30 @@ const SopaLetras = ({
   Opcion4,
   Siguiente,
 }) => {
+  /*
+    Datos de los trofeos
+      id: '',
+      nombre: '',
+      estrellas: ''
+  */
+      const {
+        trofeos,
+        setTrofeos,
+        juegosCompletados,
+        setJuegosCompletados,
+      } = useContext(AuthContext);
+
   const [lose, setLose] = useState(false);
   const [win, setWin] = useState(false);
+  const [medalla, setMedalla] = useState(false);
+
   let touch = 0;
   const navigation = useNavigation();
   let DATA;
   let toques;
-
+  /*
+  Array[4,9] con la estructura de las sopas de letras
+  */
   if (Juego == "DeOposicion") {
     DATA = [
       "S","", "","","",
@@ -46,168 +63,48 @@ const SopaLetras = ({
 
   if (Juego == "CausaConsecuencia") {
     DATA = [
-      "P",
-      "P",
-      "D",
-      "",
-      "P",
-      "O",
-      "O",
-      "E",
-      "",
-      "O",
-      "R",
-      "R",
-      "B",
-      "",
-      "R",
-      "Q",
-      "E",
-      "I",
-      "",
-      "C",
-      "U",
-      "N",
-      "D",
-      "",
-      "O",
-      "E",
-      "D",
-      "O",
-      "",
-      "N",
-      "",
-      "E",
-      "A",
-      "",
-      "S",
-      "",
-      "",
-      "",
-      "r",
-      "I",
-      "E",
-      "",
-      "",
-      "",
-      "G",
-      "T",
-      "N",
-      "E",
-      "I",
-      "U",
+      "P","P","D","","P",
+      "O","O","E","","O",
+      "R","R","B","","R",
+      "Q","E","I","","C",
+      "U","N","D", "","O",
+      "E","D","O","","N",
+      "","E","A","","S",
+      "","","","r","I",
+      "E","","","","G",
+      "T","N","E","I","U",
     ];
     toques = 35;
   }
 
   if (Juego == "DeTiempo") {
     DATA = [
-      "F",
-      "",
-      "m",
-      "p",
-      "",
-      "i",
-      "",
-      "i",
-      "o",
-      "",
-      "n",
-      "",
-      "e",
-      "r",
-      "",
-      "a",
-      "",
-      "n",
-      "u",
-      "s",
-      "l",
-      "",
-      "t",
-      "l",
-      "e",
-      "m",
-      "",
-      "r",
-      "t",
-      "u",
-      "e",
-      "",
-      "a",
-      "i",
-      "p",
-      "n",
-      "",
-      "s",
-      "m",
-      "s",
-      "t",
-      "",
-      "",
-      "o",
-      "e",
-      "e",
-      "",
-      "",
-      "",
-      "d",
+      "F","","m","p","",
+      "i","","i","o","",
+      "n","","e","r","",
+      "a","","n","u","s",
+      "l","","t","l","e",
+      "m","","r","t","u",
+      "e","","a","i","p",
+      "n","","s", "m","s",
+      "t","", "", "o","e",
+      "e","","","","d",
     ];
     toques = 34;
   }
 
   if (Juego == "DeAdicion") {
     DATA = [
-      "",
-      "",
-      "",
-      "",
-      "T",
-      "",
-      "",
-      "",
-      "",
-      "A",
-      "",
-      "",
-      "",
-      "O",
-      "M",
-      "",
-      "",
-      "",
-      "M",
-      "B",
-      "",
-      "S",
-      "",
-      "S",
-      "I",
-      "",
-      "A",
-      "",
-      "I",
-      "E",
-      "",
-      "M",
-      "",
-      "M",
-      "N",
-      "",
-      "E",
-      "",
-      "I",
-      "",
-      "",
-      "D",
-      "",
-      "S",
-      "",
-      "",
-      "A",
-      "",
-      "A",
-      "",
+      "","","","","T",
+      "","","","","A",
+      "","","","O","M",
+      "","","","M","B",
+      "","S","","S","I",
+      "","A","","I","E",
+      "","M","","M","N",
+      "","E","","I","",
+      "","D","","S","",
+      "","A","","A","",
     ];
     toques = 21;
   }
@@ -218,13 +115,86 @@ const SopaLetras = ({
     const [press, setPress] = useState(false);
 
     const abecedario = "abcdefghigklmnopqrstuvwxyz";
-    let LetraRelleno =
-      abecedario[Math.floor(Math.random() * abecedario.length)];
+    let LetraRelleno = abecedario[Math.floor(Math.random() * abecedario.length)];
     let aleatorio = Math.random();
     useEffect(() => {
       if (touch == NumLetras) {
         // navigation.navigate("WinGame");
         setWin(true);
+
+        let trofeosObj;
+        if(trofeos.id === '') {
+            trofeosObj = []
+        }else{
+          trofeosObj = [...trofeos]
+        }
+          if (Juego == "DeOposicion") {
+              for (let i = 0; i < trofeos.length; i++) {
+                if (trofeos[i].nombre == "Jefe de Conectores de Oposición") {
+                  console.log("Ya tienes este trofeo");
+                  setMedalla(false);
+                  return;
+                } }
+                trofeosObj.push({
+                  id: aleatorio,
+                  nombre: 'Jefe de Conectores de Oposición',
+                  estrellas: "5",
+                }) 
+                setMedalla(true);
+
+          }
+      
+          if (Juego == "CausaConsecuencia") {
+            for (let i = 0; i < trofeos.length; i++) {
+              if (trofeos[i].nombre == "Jefe de Conectores de Causa Consecuencia") {
+                console.log("Ya tienes este trofeo");
+                setMedalla(false);
+                return;
+              } }
+            trofeosObj.push(
+              {
+                id: aleatorio,
+                nombre: 'Jefe de Conectores de Causa Consecuencia',
+                estrellas: "5",
+              }) 
+              setMedalla(true);
+          }
+      
+          if (Juego == "DeTiempo") {
+            for (let i = 0; i < trofeos.length; i++) {
+              if (trofeos[i].nombre == "Jefe de Conectores de Tiempo") {
+                console.log("Ya tienes este trofeo");
+                setMedalla(false);
+                return;
+              } }
+            trofeosObj.push(
+              {
+              id: aleatorio,
+              nombre: 'Jefe de Conectores de Tiempo',
+              estrellas: "5", 
+            }) 
+            setMedalla(true);
+          }
+      
+          if (Juego == "DeAdicion") {
+
+            for (let i = 0; i < trofeos.length; i++) {
+              if (trofeos[i].nombre == "Jefe de Conectores de Adición") {
+                console.log("Ya tienes este trofeo");
+                setMedalla(false);
+                return;
+              } }
+              trofeosObj.push(  
+                {
+                id: aleatorio,
+                nombre: 'Jefe de Conectores de Adición',
+                estrellas: "5",
+              }) 
+              setMedalla(true);
+          }
+
+          setTrofeos(trofeosObj)
+          setJuegosCompletados(juegosCompletados + 1);
       }
     }, [touch]);
     if (Letra == "") {
@@ -268,63 +238,38 @@ const SopaLetras = ({
     </TouchableOpacity>
   );
 
-  const LoseGame = ({ Siguiente }) => {
-    return (
-      <View style={styles.Container}>
-        <View style={styles.divContenido}></View>
-        <Dialogo texto="Fallaste amigo, pero no te rindas. ¡Vuelve a intentarlo!" />
-        <Image
-          source={require("../img/OSO-TRISTE.png")}
-          style={styles.imgOso}
-        />
-        <BotonContinuar Texto="Continuar" Ruta={Siguiente} />
-      </View>
-    );
-  };
-
-  const WinGame = ({Siguiente}) => {
-    // const { preGame, setPreGame} = useContext(AuthContext);
-      return ( 
-          <View style={styles.Container}>
-          <View style={styles.divContenido}></View>
-          <Dialogo texto="¡Muy bien, lo lograste! Sin duda Eres un gran jugador" />
-          <Image source={require("../img/oso_3.png")} style={styles.imgOso} />
-          <BotonContinuar Texto="Continuar" Ruta={Siguiente}/>
-        </View>
-       );
-  }
-  
   if(win){
+ 
     if (Juego == "DeOposicion") {
-      return <WinGame Siguiente='SopaPalabras'/>
+      return <WinGame Siguiente='SopaPalabras' Win={medalla} NombreTrofeo='Jefe de Conectores de Oposición'/>
     }
 
     if (Juego == "CausaConsecuencia") {
-      return <WinGame Siguiente='SopaPalabras'/>
+      return <WinGame Siguiente='SopaPalabras'  Win={medalla} NombreTrofeo='Jefe de Conectores de Causa Consecuencia'/>
     }
 
     if (Juego == "DeTiempo") {
-      return <WinGame Siguiente='SopaPalabras'/>
+      return <WinGame Siguiente='SopaPalabras'  Win={medalla} NombreTrofeo='Jefe de Conectores de Tiempo'/>
     }
 
     if (Juego == "DeAdicion") {
-      return <WinGame Siguiente='SopaLetras'/>
+      return <WinGame Siguiente='SopaPalabras'  Win={medalla} NombreTrofeo='Jefe de Conectores de Adición'/>
     }
   }
   if (lose) {
     if (Juego == "DeOposicion") {
-      return <LoseGame Siguiente="SopaPalabras" />;
+      return <LoseGame Siguiente="SopaPalabras"/>;
     }
 
     if (Juego == "CausaConsecuencia") {
-      return <LoseGame Siguiente="SopaPalabras" />;
+      return <LoseGame Siguiente="SopaPalabras"/>;
     }
     if (Juego == "DeTiempo") {
-      return <LoseGame Siguiente="SopaPalabras" />;
+      return <LoseGame Siguiente="SopaPalabras"/>;
     }
 
     if (Juego == "DeAdicion") {
-      return <LoseGame Siguiente="SopaPalabras" />;
+      return <LoseGame Siguiente="SopaPalabras"/>;
     }
   } else {
     return (

@@ -171,150 +171,161 @@ export const css_Registro = StyleSheet.create({
 })
 
 export const css_Menu = StyleSheet.create({
-    ContainerMenu:{
-        flex: 1,
-        backgroundColor: Colors.blue_dark,
-        alignItems: 'center',
-        padding: '2%',
-    },
-    textoMenu:{
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginHorizontal: '8%',
-        margin: '5%',
-        textAlign: "center",
-    },
-    textoMenu3:{
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginHorizontal: '4%',
-        margin: '5%',
-        textAlign: 'right',
-    },
-    textoMenu2:{
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginHorizontal: '5%',
-        margin: '5%',
-        textAlign: "center",
-        width: '50%'
-    },
-    Enumeracion:{
-        color: Colors.white,        
-        position: 'absolute',
-        fontWeight: 'bold',
-        fontSize: 50,
-        marginLeft:6
-        
-    },
-    Enumeracion2:{
-        color: Colors.white,
-        position: 'absolute',
-        fontWeight: 'bold',
-        fontSize: 80,
-        margin: 20
-    },
-    Enumeracion3:{
-        color: Colors.white,
-        position: 'absolute',
-        fontWeight: 'bold',
-        fontSize: 50,
-        marginTop: -10,
-        
-    },
-    imgAvatar:{
+  ContainerMenu: {
+    flex: 1,
+    backgroundColor: Colors.blue_dark,
+    alignItems: "center",
+    padding: "2%",
+  },
+  textoMenu: {
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: "bold",
+    marginHorizontal: "8%",
+    margin: "5%",
+    textAlign: "center",
+  },
+  textoMenu3: {
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: "bold",
+    marginHorizontal: "4%",
+    margin: "5%",
+    textAlign: "right",
+  },
+  textoMenu2: {
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: "bold",
+    marginHorizontal: "5%",
+    margin: "5%",
+    textAlign: "center",
+    width: "50%",
+  },
+  txtTrofeos: {
+    color: Colors.blue_dark,
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingLeft: 10,
+  },
+  TrofeosDiv: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 30,
+    backgroundColor: Colors.redLight,
+    padding: 5,
+    borderRadius: 10,
 
-    },
-    txtHeader:{
-        color: Colors.white,
-        fontSize: 25,
-        fontWeight: 'bold',
-        // textTransform: 'uppercase',
-        textAlign: 'center'
-    },
-    MenuImg:{
-        resizeMode: 'contain',
-        width: '100%',
-    },
-    MenuImg2:{
-        resizeMode: 'contain',
-        width: '40%',
-        alignSelf: 'center',
-        top: -12
-    },
-    ImgOso:{
-        resizeMode: 'contain',
-        width: '40%',
-    },
-    ImgOso2:{
-        resizeMode: 'contain',
-        width: '70%',
-        alignSelf: 'center',
-        top: -7
-    },
-    DivMenuTop:{
-        flexDirection: "row",
-        marginTop: '1%',
-        padding: '2%',
-    },
-    DivMenuCenter:{
-        flexDirection: "row",
-        padding: '2%',
-    },
-    DivSopaLetras:{
-        backgroundColor: Colors.redLight,
-        width: '45%',
-        height: 160,
-        margin: '2%',
-        borderRadius: 15,
-        overflow: 'hidden',
-    },
-    DivSopaPalabras:{
-        backgroundColor: Colors.turquesa,
-        width: '45%',
-        height: 160,
-        margin: '2%',
-        borderRadius: 15,
-    },
-    DivCrucigramas:{
-        backgroundColor: Colors.turquesa,
-        width: '45%',
-        height: 160,
-        margin: '2%',
-        borderRadius: 15,
-        overflow: 'hidden'
-    },
-    DivVocabulario:{
-        backgroundColor: Colors.yellow,
-        width: '45%',
-        height: 160,
-        margin: '2%',
-        borderRadius: 15,
-        // alignItems: 'center',
-        overflow: 'hidden'
-    },
-    DivJuegoImg:{
-        backgroundColor: Colors.redLight,
-        width: '90%',
-        height: 160,
-        margin: '2%',
-        borderRadius: 15,
-        flexDirection: 'row',
-        overflow: 'hidden',
-    },
-    DivTest:{
-        backgroundColor: Colors.yellow,
-        width: '90%',
-        height: 160,
-        margin: '2%',
-        borderRadius: 15,
-        flexDirection: 'row',
-        overflow: 'hidden',
-    },
-})
+  },
+  Enumeracion: {
+    color: Colors.white,
+    position: "absolute",
+    fontWeight: "bold",
+    fontSize: 50,
+    marginLeft: 6,
+  },
+  Enumeracion2: {
+    color: Colors.white,
+    position: "absolute",
+    fontWeight: "bold",
+    fontSize: 80,
+    margin: 20,
+  },
+  Enumeracion3: {
+    color: Colors.white,
+    position: "absolute",
+    fontWeight: "bold",
+    fontSize: 50,
+    marginTop: -10,
+  },
+  imgAvatar: {},
+  txtHeader: {
+    color: Colors.white,
+    fontSize: 25,
+    fontWeight: "bold",
+    // textTransform: 'uppercase',
+    textAlign: "center",
+  },
+  MenuImg: {
+    resizeMode: "contain",
+    width: "100%",
+  },
+  MenuImg2: {
+    resizeMode: "contain",
+    width: "40%",
+    alignSelf: "center",
+    top: -12,
+  },
+  ImgOso: {
+    resizeMode: "contain",
+    width: "40%",
+  },
+  ImgOso2: {
+    resizeMode: "contain",
+    width: "70%",
+    alignSelf: "center",
+    top: -7,
+  },
+  DivMenuTop: {
+    flexDirection: "row",
+    marginTop: "1%",
+    padding: "2%",
+  },
+  DivMenuCenter: {
+    flexDirection: "row",
+    padding: "2%",
+  },
+  DivSopaLetras: {
+    backgroundColor: Colors.redLight,
+    width: "45%",
+    height: 160,
+    margin: "2%",
+    borderRadius: 15,
+    overflow: "hidden",
+  },
+  DivSopaPalabras: {
+    backgroundColor: Colors.turquesa,
+    width: "45%",
+    height: 160,
+    margin: "2%",
+    borderRadius: 15,
+  },
+  DivCrucigramas: {
+    backgroundColor: Colors.turquesa,
+    width: "45%",
+    height: 160,
+    margin: "2%",
+    borderRadius: 15,
+    overflow: "hidden",
+  },
+  DivVocabulario: {
+    backgroundColor: Colors.yellow,
+    width: "45%",
+    height: 160,
+    margin: "2%",
+    borderRadius: 15,
+    // alignItems: 'center',
+    overflow: "hidden",
+  },
+  DivJuegoImg: {
+    backgroundColor: Colors.redLight,
+    width: "90%",
+    height: 160,
+    margin: "2%",
+    borderRadius: 15,
+    flexDirection: "row",
+    overflow: "hidden",
+  },
+  DivTest: {
+    backgroundColor: Colors.yellow,
+    width: "90%",
+    height: 160,
+    margin: "2%",
+    borderRadius: 15,
+    flexDirection: "row",
+    overflow: "hidden",
+  },
+});
 
 
 export const css_Trofeos = StyleSheet.create({
@@ -329,14 +340,16 @@ export const css_Trofeos = StyleSheet.create({
           fontSize: 25,
           color: Colors.turquesa,
           fontWeight: 'bold',
-          textTransform: 'uppercase'
+          textTransform: 'uppercase',
+          textAlign: 'center'
       },
       ContainerTrofeos:{
           margin: 10,
           alignItems: 'center'
       },
       divLogro:{
-        margin: 12,
+        //   width: '96%',
+        margin: 10,
         alignItems: 'center',
         backgroundColor: Colors.turquesa,
         padding: 6,
@@ -347,8 +360,9 @@ export const css_Trofeos = StyleSheet.create({
         color: Colors.white,
         fontSize: 18,
         fontWeight: 'bold',
-        textAlign: 'right',
-        marginLeft: 10
+        // textAlign: 'right',
+        marginLeft: 6,
+        width: 200
       },
       Icono: {
           width: 50,

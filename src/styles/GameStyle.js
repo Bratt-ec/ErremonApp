@@ -293,6 +293,16 @@ export const css_ItemCrucigrama = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
       },
+      cellError: {
+        padding: 2,
+        backgroundColor: Colors.redLight,
+        width: 45,
+        borderColor: Colors.blue_dark,
+        borderWidth: 1,
+        height: 40,
+        alignItems: "center",
+        justifyContent: "center",
+      },
       cellPress: {
         padding: 2,
         backgroundColor: Colors.yellow,

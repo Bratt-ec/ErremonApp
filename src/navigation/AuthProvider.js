@@ -9,8 +9,8 @@ export const AuthProvider = ({ children }) => {
   const [endGame, setEndGame] = useState(true);
   const[trofeos, setTrofeos] = useState({
     id: '',
-    nombre: '',
-    estrellas: ''
+    nombre: '', 
+    estrellas: '' 
   })
   const[juegosCompletados, setJuegosCompletados] = useState(0);
   return (

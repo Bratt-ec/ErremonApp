@@ -31,7 +31,7 @@ const css_Boton = StyleSheet.create({
     borderRadius: 30,
     alignSelf: "center",
     alignItems: "center",
-    marginTop: "20%",
+    marginTop: "18%",
     margin: "2%",
     shadowColor: "#000",
     shadowOffset: {

@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
-import React, {useState,useEffect} from "react";
+import React, {useState,useEffect, useContext} from "react";
 import {
   StyleSheet,
   View,
@@ -9,13 +9,22 @@ import {
   Image,
   TextInput,
 } from "react-native";
+import { AuthContext } from "../navigation/AuthProvider";
+import LoseGame from "../screens/LoseGame";
+import WinGame from "../screens/WinGame";
 import { Colors } from "../styles/Colors";
 import { css_ItemCrucigrama } from "../styles/GameStyle";
-import BotonContinuar from "./BotonContinuar";
-import Dialogo from "./Dialogo";
+
 
 
 const BaseCrucigrama = ({Tipo}) => {
+  const {
+    trofeos,
+    setTrofeos,
+    juegosCompletados,
+    setJuegosCompletados,
+  } = useContext(AuthContext);
+
   const [lose, setLose] = useState(false);
   const [win, setWin] = useState(false);
     const navigation = useNavigation();
@@ -136,7 +145,7 @@ const BaseCrucigrama = ({Tipo}) => {
         aciertos += +1
         console.log(aciertos);
       }else{
-        
+        // aciertos += -1
         console.log(aciertos);
       }
     }
@@ -145,11 +154,33 @@ const BaseCrucigrama = ({Tipo}) => {
       if(aciertos == NumLetras){
         // navigation.navigate('WinGame');
         setWin(true);
+       
+        let trofeosObj;
+        if(trofeos.id === '') {
+            trofeosObj = []
+        }else{
+          trofeosObj = [...trofeos]
+        }
+
+        for (let i = 0; i < trofeos.length; i++) {
+          if (trofeos[i].nombre == "Jefe de las Frutas") {
+            console.log("Ya tienes este trofeo");
+            return;
+          } }
+
+          trofeosObj.push(
+              {
+              id: aleatorio,
+              nombre: 'Jefe de las Frutas',
+              estrellas: "5",
+            }) 
+        setTrofeos(trofeosObj);
+        setJuegosCompletados(juegosCompletados + 1);
       }
     }, [aciertos])
       if (Letra == "") {
         return (
-        <View style={css_ItemCrucigrama.cellEmpty}>
+        <View style={css_ItemCrucigrama.cellEmpty} key={llave}>
           
         </View>
         );
@@ -188,6 +219,28 @@ const BaseCrucigrama = ({Tipo}) => {
         if(aciertos == NumLetras){
           // navigation.navigate('WinGame');
           setWin(true);
+          let trofeosObj;
+          if(trofeos.id === '') {
+              trofeosObj = []
+          }else{            
+            trofeosObj = [...trofeos]
+          }
+
+          for (let i = 0; i < trofeos.length; i++) {
+            if (trofeos[i].nombre == "Jefe de los Animales") {
+              console.log("Ya tienes este trofeo");
+              return;
+            } }
+  
+          trofeosObj.push(
+                {
+                id: aleatorio,
+                nombre: 'Jefe de los Animales',
+                estrellas: "5",
+              }) 
+          setTrofeos(trofeosObj);
+          setJuegosCompletados(juegosCompletados + 1);
+
         }
       }, [aciertos])
 
@@ -289,6 +342,29 @@ const BaseCrucigrama = ({Tipo}) => {
         if(aciertos == NumLetras){
           // navigation.navigate('WinGame');
           setWin(true);
+          let trofeosObj;
+          if(trofeos.id === '') {
+              trofeosObj = []
+          }else{
+            console.log(trofeos);
+            trofeosObj = [...trofeos]
+          }
+
+          for (let i = 0; i < trofeos.length; i++) {
+            if (trofeos[i].nombre == "Jefe de los Colores") {
+              console.log("Ya tienes este trofeo");
+              return;
+            } }
+          
+          trofeosObj.push(
+                {
+                id: aleatorio,
+                nombre: 'Jefe de los Colores',
+                estrellas: "5",
+              }) 
+          setTrofeos(trofeosObj);
+          setJuegosCompletados(juegosCompletados + 1);
+
         }
       }, [aciertos])
     
@@ -404,20 +480,6 @@ const BaseCrucigrama = ({Tipo}) => {
     </TouchableOpacity>
   );
 
-  const LoseGame = ({ Siguiente }) => {
-    return (
-      <View style={styles.Container}>
-        <View style={styles.divContenido}></View>
-        <Dialogo texto="Fallaste amigo, pero no te rindas. ¡Vuelve a intentarlo!" />
-        <Image
-          source={require("../img/OSO-TRISTE.png")}
-          style={styles.imgOso}
-        />
-        <BotonContinuar Texto="Continuar" Ruta={Siguiente} />
-      </View>
-    );
-  };
-
 
     const Item = ({ item }) => {
       if(Tipo == 'Frutas'){
@@ -433,29 +495,17 @@ const BaseCrucigrama = ({Tipo}) => {
       }
     };
 
-    const WinGame = ({Siguiente}) => {
-      // const { preGame, setPreGame} = useContext(AuthContext);
-        return ( 
-            <View style={styles.Container}>
-            <View style={styles.divContenido}></View>
-            <Dialogo texto="¡Muy bien, lo lograste! Sin duda Eres un gran jugador" />
-            <Image source={require("../img/oso_3.png")} style={styles.imgOso} />
-            <BotonContinuar Texto="Continuar" Ruta={Siguiente}/>
-          </View>
-         );
-    }
-
     if(win){
       if (Tipo == "Frutas") {
-        return <WinGame Siguiente='MenuCrucigrama'/>
+        return <WinGame Siguiente='MenuCrucigrama' Win={true} NombreTrofeo='Jefe de las Frutas' />
       }
   
       if (Tipo == "Animales") {
-        return <WinGame Siguiente='MenuCrucigrama'/>
+        return <WinGame Siguiente='MenuCrucigrama'  Win={true} NombreTrofeo='Jefe de los Animales' />
       }
   
       if (Tipo == "Colores") {
-        return <WinGame Siguiente='MenuCrucigrama'/>
+        return <WinGame Siguiente='MenuCrucigrama'  Win={true} NombreTrofeo='Jefe de los Colores' />
       }
     }
 

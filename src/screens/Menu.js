@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useContext,useState, useEffect } from "react";
-import { Image, ScrollView, Text, View, TouchableOpacity, Touchable } from "react-native";
+import { Image, ScrollView, Text, View, TouchableOpacity } from "react-native";
 import FondoInicio from "../components/FondoInicio";
 import { AuthContext } from "../navigation/AuthProvider";
 import { Colors } from "../styles/Colors";
@@ -9,10 +9,11 @@ import { Audio } from 'expo-av';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 const Menu = ({ navigation }) => {
-  const { usuario, setUsuario, personaje, setPersonaje } = useContext(AuthContext);
+  const { trofeos } = useContext(AuthContext);
   const[sonido, setSonido] =  useState(true);
   const [sound, setSound] = useState();
 
+  const numTrofeos = (trofeos.id == '') ? 0 : trofeos.length;
   async function playSound(play) {
     if(play){
       setSonido(false);
@@ -49,14 +50,19 @@ const Menu = ({ navigation }) => {
         <StatusBar style="light" backgroundColor={Colors.blue_dark2} />
         <View style={{display: 'flex' ,flexDirection: 'row', width: '100%', alignContent: 'space-between', justifyContent: 'space-between'}}>
           <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 30, marginLeft:20}}>
-          <TouchableOpacity onPress={()=> {
-            // setPersonaje(null) 
-            // setUsuario(null)
-           navigation.openDrawer() 
-            }}>
-              <FontAwesome5 name="bars" size={34} color={Colors.white} />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={()=> {
+              // setPersonaje(null) 
+              // setUsuario(null)
+            navigation.openDrawer() 
+              }}>
+                <FontAwesome5 name="bars" size={34} color={Colors.white} />
+            </TouchableOpacity>
           </View>
+          <View style={css_Menu.TrofeosDiv}>
+            <FontAwesome5 name="trophy" size={20} color={Colors.white} />
+            <Text style={css_Menu.txtTrofeos}>Trofeos: {numTrofeos}</Text>
+          </View>
+
           <TouchableOpacity onPress={()=> (sonido)? playSound(true) : playSound(false)  }  style={{marginRight: 20 ,borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>
             <Image source={require('../img/volume.png')} style={{ width: 20, height: 20, alignSelf: 'center'}}/>
           </TouchableOpacity>
