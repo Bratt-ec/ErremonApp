@@ -1,19 +1,46 @@
 import React, {useContext} from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Colors } from "../styles/Colors";
 import { AuthContext } from "../navigation/AuthProvider";
 
 const HeaderGame = ({ name }) => {
-  const {personaje } = useContext(AuthContext);
+  const {personaje,playSound,setPlaySound  } = useContext(AuthContext);
   return (
     <View style={CSS.headerDiv}>
       <Image source={require("../img/book.png")} style={CSS.ImgHeader} />
       <Text style={CSS.txtHeader}>{name}</Text>
-      {
-         (personaje == 'Santi') 
-         ? <Image source={require('../img/../img/kid.png')} style={{width:40, height: 40, margin: 10 }} />
-         : <Image source={require('../img/../img/girl.png')} style={{width:40, height: 40, margin: 10}}/>
-      }
+      {personaje == "Santi" ? (
+        <Image
+          source={require("../img/../img/kid.png")}
+          style={{ width: 40, height: 40, margin: 10 }}
+        />
+      ) : (
+        <Image
+          source={require("../img/../img/girl.png")}
+          style={{ width: 40, height: 40, margin: 10 }}
+        />
+      )}
+      <TouchableOpacity
+        onPress={() => (playSound ? setPlaySound(false) : setPlaySound(true))}
+        style={{
+          marginRight: 20,
+          borderRadius: 100,
+          width: 35,
+          height: 35,
+          backgroundColor: Colors.white,
+          justifyContent: "center",
+          alignSelf: "center",
+        }}
+      >
+        <Image
+          source={
+            playSound
+              ? require("../img/volume-off.png")
+              : require("../img/volume.png")
+          }
+          style={{ width: 23, height: 23, alignSelf: "center" }}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

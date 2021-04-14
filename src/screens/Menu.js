@@ -101,7 +101,14 @@ const Menu = ({ navigation }) => {
           </View>
 
           <TouchableOpacity onPress={()=> (playSound)? setPlaySound(false) : setPlaySound(true)  }  style={{marginRight: 20 ,borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>
-            <Image source={require('../img/volume.png')} style={{ width: 20, height: 20, alignSelf: 'center'}}/>
+            <Image 
+            source={
+              (playSound)
+              ? require('../img/volume-off.png')
+              : require('../img/volume.png')
+            } 
+            style={{ width: 23, height: 23, alignSelf: 'center'}}
+            />
           </TouchableOpacity>
         </View>
 

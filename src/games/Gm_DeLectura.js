@@ -197,7 +197,7 @@ const Gm_DeLectura = ({navigation}) => {
           setMedalla(true);
           setTrofeos(trofeosObj);
           setJuegosCompletados(juegosCompletados + 1);
-          console.log(trofeos);
+          
         }
       }
         return () => backHandler.remove();
