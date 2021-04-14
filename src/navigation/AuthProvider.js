@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [personaje, setPersonaje] = useState(null);
   const [preGame, setPreGame] = useState(true);
   const [endGame, setEndGame] = useState(true);
+  const [playSound, setPlaySound] = useState(true);
   const[trofeos, setTrofeos] = useState({
     id: '',
     nombre: '', 
@@ -27,7 +28,9 @@ export const AuthProvider = ({ children }) => {
         trofeos,
         setTrofeos,
         juegosCompletados,
-        setJuegosCompletados
+        setJuegosCompletados,
+        playSound,
+        setPlaySound
       }}
     >
       {children}

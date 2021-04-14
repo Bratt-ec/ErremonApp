@@ -14,7 +14,7 @@ export const Trofeo = ({Nombre})=>(
       <Text style={Styles.nombreTrofeo}>{Nombre}</Text>
     </View>
   )
-const WinGame = ({Siguiente, Win , NombreTrofeo}) => {
+const WinGame = ({Siguiente, Win , NombreTrofeo, TextoDialogo}) => {
 
   
     return ( 
@@ -22,7 +22,7 @@ const WinGame = ({Siguiente, Win , NombreTrofeo}) => {
         <View style={Styles.divContenido}></View>
         {/* <StatusBar style='light' /> */}
         {/* <HeaderGame name='muy bien' /> */}
-        <Dialogo texto="¡Muy bien, lo lograste! Sin duda Eres un gran jugador" />
+        {(TextoDialogo)? <Dialogo texto={TextoDialogo}/> :<Dialogo texto="¡Muy bien, lo lograste! Sin duda Eres un gran jugador" />}
         <Image source={require("../img/oso_3.png")} style={Styles.imgOso} />
         { (Win) ? <Trofeo Nombre={NombreTrofeo} /> : null }
         <BotonContinuar Texto="Continuar" Ruta={Siguiente}/>

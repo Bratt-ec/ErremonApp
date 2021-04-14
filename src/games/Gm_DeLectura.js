@@ -9,7 +9,7 @@ import { Colors } from '../styles/Colors';
 import { Video, AVPlaybackStatus } from 'expo-av';
 import Dialogo from '../components/Dialogo';
 import BotonContinuar from '../components/BotonContinuar';
-import { Trofeo } from '../screens/WinGame';
+import WinGame, { Trofeo } from '../screens/WinGame';
 
 const Gm_DeLectura = ({navigation}) => {
     // App Context
@@ -53,9 +53,9 @@ const Gm_DeLectura = ({navigation}) => {
             // setRespuestas(respuestas - 1)
             setPregunta(pregunta + 1 )
         }
-        // console.log(respuestas);
+        
     }
-    
+    // console.log(respuestas);
     const OpenVideo = ()=>{
         (play) ? setPlay(false):setPlay(true)
     }
@@ -93,7 +93,9 @@ const Gm_DeLectura = ({navigation}) => {
 
     }
 
+
     const NotaFinal = ()=>{
+     
         return (
           <View>
             <View style={css_DeLectura.divContenido}>
@@ -169,35 +171,37 @@ const Gm_DeLectura = ({navigation}) => {
         );
     }
         
-    useEffect(() => {       
-        if(pregunta == 6){
-            if(respuestas >= 4){
-                let trofeosObj;
-                if(trofeos.id === '') {
-                    trofeosObj = []
-                }else{
-                trofeosObj = [...trofeos]
-                }
-                for (let i = 0; i < trofeos.length; i++) {
-                if (trofeos[i].nombre == "Master de la Comprensión Lectora") {
-                console.log("Ya tienes este trofeo");
-                setMedalla(false);
-                return;
-                } }    
-                
-                trofeosObj.push({
-                id: aleatorio,
-                nombre: "Master de la Comprensión Lectora",
-                estrellas: "5",
-                });
-            setMedalla(true);
-            setTrofeos(trofeosObj);
-            setJuegosCompletados(juegosCompletados + 1);
+    useEffect(() => { 
+      if(pregunta == 6){
+        if (respuestas >= 4) {
+          let trofeosObj;
+          if (trofeos.id === "") {
+            trofeosObj = [];
+          } else {
+            trofeosObj = [...trofeos];
+          }
+          for (let i = 0; i < trofeos.length; i++) {
+            if (trofeos[i].nombre == "Master de la Comprensión Lectora") {
+              console.log("Ya tienes este trofeo");
+              setMedalla(false);
+              return;
             }
-        }
+          }
 
+          trofeosObj.push({
+            id: aleatorio,
+            nombre: "Master de la Comprensión Lectora",
+            estrellas: "5",
+          });
+
+          setMedalla(true);
+          setTrofeos(trofeosObj);
+          setJuegosCompletados(juegosCompletados + 1);
+          console.log(trofeos);
+        }
+      }
         return () => backHandler.remove();
-    }, []);
+    }, [pregunta]);
     return ( 
         <View style={css_Crucigrama.Container}>
             <StatusBar style='light' />

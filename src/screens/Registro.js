@@ -13,11 +13,14 @@ import { AuthContext } from "../navigation/AuthProvider";
 import { Colors } from "../styles/Colors";
 import { css_Registro, css_Inicio } from "../styles/Style";
 import AwesomeAlert from "react-native-awesome-alerts";
+import { Audio } from 'expo-av';
 
 const Registro = ({ navigation }) => {
   const { usuario, setUsuario, personaje, setPersonaje } = useContext(
     AuthContext
   );
+ 
+  
   //#region  States de la APP
   const [alert1, setAlert1] = useState(false);
   const [alert2, setAlert2] = useState(false);
@@ -29,6 +32,7 @@ const Registro = ({ navigation }) => {
   const SeleccionarPersonaje = (heroe) => {
     setPerson(heroe);
   };
+
 
   const RegistrarUsuario = () => {
     let nombreReview;
@@ -53,6 +57,8 @@ const Registro = ({ navigation }) => {
     if (person == null) {
       return setAlert4(true);
     }
+    // Reproducimos el sonido de fondo
+  //  playSoundBg(true);
     // Agregamos el nombre al Context
     setUsuario(nombre);
     // Agregamos el personaje al context

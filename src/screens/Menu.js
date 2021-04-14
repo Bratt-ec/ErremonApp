@@ -9,32 +9,33 @@ import { Audio } from 'expo-av';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 const Menu = ({ navigation }) => {
-  const { trofeos } = useContext(AuthContext);
-  const[sonido, setSonido] =  useState(true);
+  const { trofeos, playSound,setPlaySound } = useContext(AuthContext);
+  // const[sonido, setSonido] =  useState(true);
   const [sound, setSound] = useState();
 
   const numTrofeos = (trofeos.id == '') ? 0 : trofeos.length;
-  async function playSound(play) {
-    if(play){
-      setSonido(false);
-       console.log('Loading Sound');
-    const { sound } = await Audio.Sound.createAsync(
-       require('../sounds/fondo.mp3'),{
-         isLooping: true
-       }
-    );
-    setSound(sound);
+  
 
-    console.log('Playing Sound');
-    await sound.playAsync(); 
-    }else{
+  // async function playSoundBg(play) {
+  //   if(play){
+  //     setPlaySound(false)
+  //      console.log('Loading Sound');
+  //     const { sound } = await Audio.Sound.createAsync(
+  //      require('../sounds/fondo.mp3'),{
+  //        isLooping: true
+  //      }
+  //   );
+  //   setSound(sound);
 
-      console.log('Stop sound');
-     await sound.pauseAsync() 
-     setSonido(true)
-    }
-   
-  };
+  //   console.log('Playing Sound');
+  //   await sound.playAsync(); 
+  //   }else{
+
+  //     console.log('Stop sound');
+  //    await sound.pauseAsync() 
+  //    setPlaySound(true)
+  //   }
+  // };
 
   async function conectoresSound() {
     console.log('Loading Sound');
@@ -58,14 +59,27 @@ const Menu = ({ navigation }) => {
     await sound.playAsync(); 
   }
 
-  
-  useEffect(() => {
-    return sound
-      ? () => {
-          console.log('Unloading Sound');
-          sound.unloadAsync(); }
-      : undefined;
-  }, [sound]);
+  async function LecturaSound() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+       require('../sounds/juego_lectura.mp3')
+    );
+    setSound(sound);
+
+    console.log('Playing Sound Crucigrama');
+    await sound.playAsync(); 
+  }
+
+  // (playSound) ? playSoundBg(true) : playSoundBg(false);
+
+  // useEffect(() => {
+    
+  //   return sound
+  //     ?  () => {
+  //         console.log('Unloading Sound');
+  //         sound.unloadAsync(); }
+  //     :  undefined;
+  // }, [sound]);
 
   return (
     <ScrollView>
@@ -86,7 +100,7 @@ const Menu = ({ navigation }) => {
             <Text style={css_Menu.txtTrofeos}>Trofeos: {numTrofeos}</Text>
           </View>
 
-          <TouchableOpacity onPress={()=> (sonido)? playSound(true) : playSound(false)  }  style={{marginRight: 20 ,borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>
+          <TouchableOpacity onPress={()=> (playSound)? setPlaySound(false) : setPlaySound(true)  }  style={{marginRight: 20 ,borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>
             <Image source={require('../img/volume.png')} style={{ width: 20, height: 20, alignSelf: 'center'}}/>
           </TouchableOpacity>
         </View>
@@ -124,7 +138,10 @@ const Menu = ({ navigation }) => {
         </View>
         <TouchableOpacity
           style={css_Menu.DivJuegoImg}
-          onPress={() => navigation.navigate("DeLectura")}
+          onPress={() => {
+            LecturaSound();
+            navigation.navigate("DeLectura")
+          }}
         >
           
           <FondoInicio />
