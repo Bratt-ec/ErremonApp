@@ -7,9 +7,8 @@ const HeaderGame = ({ name }) => {
   const {personaje,playSound,setPlaySound  } = useContext(AuthContext);
   return (
     <View style={CSS.headerDiv}>
-      <Image source={require("../img/book.png")} style={CSS.ImgHeader} />
-      <Text style={CSS.txtHeader}>{name}</Text>
-      {personaje == "Santi" ? (
+      {/* <Image source={require("../img/book.png")} style={CSS.ImgHeader} /> */}
+           {personaje == "Santi" ? (
         <Image
           source={require("../img/../img/kid.png")}
           style={{ width: 40, height: 40, margin: 10 }}
@@ -20,10 +19,12 @@ const HeaderGame = ({ name }) => {
           style={{ width: 40, height: 40, margin: 10 }}
         />
       )}
+      <Text style={CSS.txtHeader}>{name}</Text>
+ 
       <TouchableOpacity
         onPress={() => (playSound ? setPlaySound(false) : setPlaySound(true))}
         style={{
-          marginRight: 20,
+          margin: 20,
           borderRadius: 100,
           width: 35,
           height: 35,
