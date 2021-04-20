@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Image, Text, View, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useState, useEffect, useRef, createRef} from "react";
+import { Image, Text, View, TouchableOpacity, StyleSheet , Button} from "react-native";
 import HeaderGame from "../components/HeaderGame";
+import Ruleta from "../components/Ruleta";
 import { Colors } from "../styles/Colors";
 import { css_JuegoImagenes } from "../styles/GameStyle";
+
 
 const JuegoImagenes = () => {
   const [item, setItem] = useState(1);
   const [press, setPress] = useState(false);
+
   const numeros = "12345678";
 //   numeros[Math.floor(Math.random() * numeros.length)];
   const GirarRuleta = () => {
-     setItem(numeros[Math.floor(Math.random() * numeros.length)])
-     console.log(item);
+    //  setItem(numeros[Math.floor(Math.random() * numeros.length)])
+    //  console.log(item);
+ 
+    console.log('girar ruleta');
   }; 
+
 
   useEffect(() => {
      if(press){
@@ -24,86 +30,12 @@ const JuegoImagenes = () => {
     
 
   }, [press])
+
+
   return (
     <View style={css_JuegoImagenes.Container}>
       <HeaderGame image="book.png" name="JUEGO DE IMÁGENES" />
-      <Image
-        source={require("../img/ruleta.png")}
-        style={css_JuegoImagenes.imgRuleta}
-      />
-      <View style={css_JuegoImagenes.divRuleta}>
-        <View style={css_JuegoImagenes.divRuletaTop}>
-          <View style={item == 1 ? css_JuegoImagenes.itemGiro : null}>
-            <Image
-              source={require("../img/juego-imagenes/tapilla.png")}
-              style={css_JuegoImagenes.opcionesRuleta}
-            />
-          </View>
-          <View style={item == 2 ? css_JuegoImagenes.itemGiro : null}>
-            <Image
-              source={require("../img/juego-imagenes/cadado.png")}
-              style={css_JuegoImagenes.opcionesRuleta}
-            />
-          </View>
-        </View>
-        <View style={css_JuegoImagenes.divRuletaCenter}>
-          <View style={item == 3 ? css_JuegoImagenes.itemGiro : null}>
-            <Image
-              source={require("../img/juego-imagenes/dragon.png")}
-              style={css_JuegoImagenes.opcionesRuleta}
-            />
-          </View>
-
-          <View style={item == 4 ? css_JuegoImagenes.itemGiro : null}>
-            <Image
-              source={require("../img/juego-imagenes/fosforo.png")}
-              style={css_JuegoImagenes.opcionesRuleta}
-            />
-          </View>
-        </View>
-        <View style={css_JuegoImagenes.divRuletaCenter2}>
-          <View style={item == 5 ? css_JuegoImagenes.itemGiro : null}>
-            <Image
-              source={require("../img/juego-imagenes/gato.png")}
-              style={css_JuegoImagenes.opcionesRuleta}
-            />
-          </View>
-          <View style={item == 6 ? css_JuegoImagenes.itemGiro : null}>
-            <Image
-              source={require("../img/juego-imagenes/libro.png")}
-              style={css_JuegoImagenes.opcionesRuleta}
-            />
-          </View>
-        </View>
-        <View style={css_JuegoImagenes.divRuletaDown}>
-          <View style={item == 7 ? css_JuegoImagenes.itemGiro : null}>
-            <Image
-              source={require("../img/juego-imagenes/plato.png")}
-              style={css_JuegoImagenes.opcionesRuleta}
-            />
-          </View>
-          <View style={item == 8 ? css_JuegoImagenes.itemGiro : null}>
-            <Image
-              source={require("../img/juego-imagenes/regalo.png")}
-              style={css_JuegoImagenes.opcionesRuleta}
-            />
-          </View>
-        </View>
-      </View>
-      <TouchableOpacity
-        style={css_Boton.btnOpcion}
-        onPress={() => {
-          setPress(true)
-        }}
-      >
-        <View style={css_Boton.divIcon}>
-          <Image
-            source={require("../img/mando.png")}
-            style={css_Boton.iconOpcion}
-          />
-        </View>
-        <Text style={css_Boton.txtOpcion}>Girar ruleta</Text>
-      </TouchableOpacity>
+      <Ruleta />
     </View>
   );
 };
