@@ -15,7 +15,7 @@ export const Trofeo = ({Nombre})=>(
     </View>
   )
 const WinGame = ({Siguiente, Win , NombreTrofeo, TextoDialogo}) => {
-
+  const { setPreGame } = useContext(AuthContext)
   
     return ( 
         <View style={Styles.Container}>
@@ -25,7 +25,7 @@ const WinGame = ({Siguiente, Win , NombreTrofeo, TextoDialogo}) => {
         {(TextoDialogo)? <Dialogo texto={TextoDialogo}/> :<Dialogo texto="¡Muy bien, lo lograste! Sin duda Eres un gran jugador" />}
         <Image source={require("../img/oso_3.png")} style={Styles.imgOso} />
         { (Win) ? <Trofeo Nombre={NombreTrofeo} /> : null }
-        <BotonContinuar Texto="Continuar" Ruta={Siguiente}/>
+        <BotonContinuar Texto="Continuar" Ruta={Siguiente} />
       </View>
      );
 }
