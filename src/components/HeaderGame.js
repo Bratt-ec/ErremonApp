@@ -1,4 +1,5 @@
 import React, {useContext} from "react";
+import { StatusBar } from "expo-status-bar";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Colors } from "../styles/Colors";
 import { AuthContext } from "../navigation/AuthProvider";
@@ -7,6 +8,7 @@ const HeaderGame = ({ name }) => {
   const {personaje,playSound,setPlaySound  } = useContext(AuthContext);
   return (
     <View style={CSS.headerDiv}>
+      
       {/* <Image source={require("../img/book.png")} style={CSS.ImgHeader} /> */}
            {personaje == "Santi" ? (
         <Image

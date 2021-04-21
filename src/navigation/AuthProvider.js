@@ -7,8 +7,9 @@ export const AuthProvider = ({ children }) => {
   const [personaje, setPersonaje] = useState(null);
   const [preGame, setPreGame] = useState(true);
   const [endGame, setEndGame] = useState(true);
-  const [playSound, setPlaySound] = useState(true);
-  const[trofeos, setTrofeos] = useState({
+  const [playSound, setPlaySound] = useState(false);
+  const [itemRuleta, setItemRuleta] = useState(null);
+  const[trofeos, setTrofeos] = useState({ 
     id: '',
     nombre: '', 
     estrellas: '' 
@@ -17,7 +18,7 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        usuario,
+        usuario, 
         setUsuario,
         personaje,
         setPersonaje,
@@ -30,7 +31,9 @@ export const AuthProvider = ({ children }) => {
         juegosCompletados,
         setJuegosCompletados,
         playSound,
-        setPlaySound
+        setPlaySound,
+        itemRuleta,
+        setItemRuleta
       }}
     >
       {children}

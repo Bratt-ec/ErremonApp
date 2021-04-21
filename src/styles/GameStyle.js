@@ -96,12 +96,43 @@ export const css_JuegoImagenes = StyleSheet.create({
         flex:1,
         backgroundColor: Colors.blue_dark,
     },
-    imgRuleta:{
-        width: '100%',
-        height: 350,
-        alignSelf: 'center',
-        marginTop: '30%',
-        position: 'absolute',
+    divImgOracion:{
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+    },  
+    imgOracion:{
+        width: 87,
+        height: 90,
+    },
+    divJuego:{
+        margin: 8,
+        borderStyle: 'solid',
+        borderWidth: 3,
+        borderColor: Colors.yellow,
+        padding: 6,
+        borderRadius: 12,
+    },
+    divOracionesEjemplo:{
+        flexDirection:'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    Ejemplos:{
+        width: '30%', 
+        height: 100,
+        margin: '2%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: Colors.redLight,
+        borderRadius: 10,
+        padding: '1%',
+
+    },
+    txtEjemplos:{
+        color: Colors.white,
+        textAlign: 'center',
+        fontSize: 16,
     },
     opcionesRuleta: {
         width: 70,
