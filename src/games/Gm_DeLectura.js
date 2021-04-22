@@ -10,6 +10,8 @@ import { Video, AVPlaybackStatus } from 'expo-av';
 import Dialogo from '../components/Dialogo';
 import BotonContinuar from '../components/BotonContinuar';
 import WinGame, { Trofeo } from '../screens/WinGame';
+import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 const Gm_DeLectura = ({navigation}) => {
     // App Context
@@ -147,6 +149,10 @@ const Gm_DeLectura = ({navigation}) => {
                 <View style={css_DeLectura.divContenido}>
 
                 <View style={css_DeLectura.divPregunta}>
+                  <View style={css_DeLectura.divIcon}>
+                      <AntDesign name="questioncircle" size={26} color={Colors.yellow} />
+                  </View>
+                  
                     <Text style={css_DeLectura.txtPregunta}>{objPreguntas[NumPregunta].textoPregunta}</Text>
                 </View>
                 <View style={css_DeLectura.divRespuestas}>
@@ -160,6 +166,9 @@ const Gm_DeLectura = ({navigation}) => {
                                 Respuesta(false)
                             }
                         }}>
+                           <View style={css_DeLectura.divIcon}>
+                            <Ionicons name="md-game-controller" size={24} color={Colors.turquesa} />
+                          </View>
                            <Text style={css_DeLectura.txtRespuesta}>{numero}</Text> 
                         </TouchableOpacity>
                         ))

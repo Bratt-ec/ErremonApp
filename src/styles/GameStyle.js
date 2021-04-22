@@ -298,9 +298,18 @@ export const css_DeLectura = StyleSheet.create({
   },
   divPregunta: {
     backgroundColor: Colors.turquesa,
-    padding: 10,
     borderRadius: 6,
+    borderColor: Colors.yellow,
+    borderWidth: 3,
     marginVertical: "2%",
+    flexDirection: 'row',
+    alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  divIcon:{
+    backgroundColor: Colors.blue_dark,
+    paddingVertical: 14,
+    paddingHorizontal: 8,
   },
   divNota: {
     // backgroundColor: Colors.turquesa,
@@ -313,19 +322,24 @@ export const css_DeLectura = StyleSheet.create({
   },
   txtPregunta: {
     color: Colors.white,
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "bold",
+    marginHorizontal: 4,
   },
   Respuesta: {
     backgroundColor: Colors.yellow,
     margin: "2%",
-    padding: 10,
     borderRadius: 6,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: Colors.turquesa,
+    borderWidth: 3
   },
   txtRespuesta: {
     fontSize: 20,
     fontWeight: "bold",
     textTransform: "uppercase",
+    marginHorizontal: 12,
   },
   hiddenVideo: {
     alignSelf: "center",
