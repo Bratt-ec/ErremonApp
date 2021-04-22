@@ -199,7 +199,7 @@ export const css_JuegoImagenes = StyleSheet.create({
 export const css_Vocabulario = StyleSheet.create({
   Mensaje: {
     flexDirection: "row",
-    width: "70%",
+    width: "80%",
     alignSelf: "center",
     backgroundColor: Colors.yellow,
     alignItems: "center",
@@ -217,52 +217,59 @@ export const css_Vocabulario = StyleSheet.create({
     width: "62%",
     color: Colors.white,
     fontWeight: "bold",
-    fontSize: 17,
-  },
-  totalCajas: {
-    backgroundColor: Colors.red,
-    width: 170,
-    height: 30,
-    alignSelf: "center",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
-    borderRadius: 12,
-  },
-  txtCajas: {
-    color: Colors.white,
-    fontWeight: "bold",
     fontSize: 18,
   },
-  imgTotal: {
-    width: 50,
-    height: 50,
-  },
-  divCajas: {
-    width: "42%",
-    padding: "8%",
-    margin: "4%",
-  },
-  caja: {
-    width: 60,
-    height: 60,
-    borderRadius: 8,
+  ContainerPalabra:{
     backgroundColor: Colors.turquesa,
-    justifyContent: "center",
-    alignItems: "center",
+    margin: '4%',
+    borderRadius:14,
+    borderWidth: 3,
+    borderColor: Colors.yellow,
+    overflow: 'hidden',
   },
-  imgCaja: {
-    width: "90%",
-    height: "90%",
+  divPalabra:{
+    backgroundColor: Colors.yellow,
+    padding: '4%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between' 
   },
-  containerCajas: {
-    flexDirection: "row",
-    width: "100%",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
+  txtPalabra:{
+    fontSize: 30,
+    fontWeight: 'bold',
+    textTransform: 'capitalize'
   },
+  txtTipo:{
+    fontSize: 16,
+  },
+  divSignificado:{
+    padding: '5%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  txtSignificado:{
+    fontSize: 20,
+    textAlign: 'justify',
+  },
+  btnVocabulario:{
+    padding: 5,
+    backgroundColor: Colors.yellow,
+    flexDirection: 'row',
+    alignSelf: 'center',
+    width: '45%',
+    alignItems: 'center',
+    borderRadius:10,
+    margin: '2%',
+  },
+  txtBoton:{
+  fontSize: 26,
+    fontWeight: 'bold',
+    marginLeft: 6
+  },
+  divBotones:{
+    flexDirection: 'row',
+    justifyContent: 'center'
+  }
 });
 
 export const css_DeOposicion = StyleSheet.create({
