@@ -461,7 +461,7 @@ const JuegoImagenes = () => {
       {preGame ? (
         <PreScreenGame txtDialogo="Gira la ruleta y arma la oración correctamente ¡SUERTE!" />
       ) :null}
-      {ruleta ? <RuletaView />  : null}
+      {ruleta && preGame == false ? <RuletaView />  : null}
       {win ? (
         <WinGame
           Siguiente="Menu"

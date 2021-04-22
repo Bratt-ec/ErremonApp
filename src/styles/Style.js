@@ -349,7 +349,7 @@ export const css_Trofeos = StyleSheet.create({
           alignItems: 'center'
       },
       divLogro:{
-        //   width: '96%',
+          width: '95%',
         margin: 10,
         alignItems: 'center',
         backgroundColor: Colors.turquesa,
