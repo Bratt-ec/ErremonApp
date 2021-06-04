@@ -14,16 +14,7 @@ import { AuthContext } from '../navigation/AuthProvider';
 import { Colors } from '../styles/Colors';
 import { css_Vocabulario } from '../styles/GameStyle';
 
-const participants = [
-  'DRAGON',
-  'LIBRO',
-  'REGALO',
-  'GATO',
-  'CANDADO',
-  'FOSFORO',
-  'PLATO',
-  'TAPILLA',
-];
+// const participants = 
 
 class Ruleta extends Component {
     static contextType = AuthContext;
@@ -48,7 +39,7 @@ class Ruleta extends Component {
  
   render() { 
     
-    const { setItemRuleta } = this.context;
+    const { setItemRuleta,participants } = this.context;
 
     const wheelOptions = {
       rewards: participants,
@@ -56,7 +47,7 @@ class Ruleta extends Component {
       borderWidth: 5,
       borderColor: '#fff',
       innerRadius: 30,
-      duration: 6000,
+      duration: 4000,
       backgroundColor: 'transparent',
       textAngle: 'horizontal',
       knobSource: require('../img/knob.png'),
@@ -67,6 +58,7 @@ class Ruleta extends Component {
         <WheelOfFortune
           options={wheelOptions}
           getWinner={(value, index) => {
+            
             this.setState({winnerValue: value, winnerIndex: index});
           }}
         />

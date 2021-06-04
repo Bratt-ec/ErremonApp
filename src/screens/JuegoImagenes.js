@@ -21,6 +21,8 @@ import WinGame from "../screens/WinGame";
 
 const JuegoImagenes = () => {
   const {
+    participants,
+    setparticipants,
     itemRuleta,
     setItemRuleta,
     preGame,
@@ -74,7 +76,7 @@ const JuegoImagenes = () => {
             </View>
             <View style={css_JuegoImagenes.Ejemplos}>
               <Text style={css_JuegoImagenes.txtEjemplos}>
-                El dragon sale a volar
+                El dragón sale a volar
               </Text>
             </View>
             <View style={css_JuegoImagenes.Ejemplos}>
@@ -206,7 +208,7 @@ const JuegoImagenes = () => {
 
     if (Tipo == "FOSFORO") {
       setOracion(
-        "Para endender la cocina usamos un fósforo y así podremos cocinar"
+        "Para encender la cocina usamos un fósforo y así podremos cocinar"
       );
       return (
         <View style={css_JuegoImagenes.divJuego}>
@@ -368,6 +370,7 @@ const JuegoImagenes = () => {
       );
     }
   };
+  
   const ActividadImagenes = ({ Nombre }) => {
     const [respuesta, setRespuesta] = useState("");
 
@@ -378,6 +381,23 @@ const JuegoImagenes = () => {
       // Verificamos si las oraciones son iguales => respuesta == oracion ? true : false
       if (respuesta == oracion) {
         setWin(true);
+        // Reiniciamos el item de la ruleta
+        setItemRuleta(null)
+        setItem('')
+        // Eliminamos de la ruleta el item 
+        let objParticipant = participants;
+        objParticipant = objParticipant.filter(obj=>{
+          return obj !== item;
+        })
+        setparticipants(objParticipant);
+        
+        for (let i = 0; i < trofeos.length; i++) {
+          if (trofeos[i].nombre == "Master de las Oraciones") {
+            console.log("Ya tienes este trofeo");
+            // setMedalla(false);
+            return;
+          } 
+        }
         let trofeosObj;
         if (trofeos.id === "") {
           trofeosObj = [];
@@ -389,16 +409,14 @@ const JuegoImagenes = () => {
           id: aleatorio,
           nombre: "Master de las Oraciones",
           estrellas: "5",
-        });
-        // Reiniciamos el item de la ruleta
-        setItemRuleta(null)
-        setItem('')
+          tipo: 'medalla'
+        });        
         // Registramos el trofeo en el context
         setTrofeos(trofeosObj);
         setJuegosCompletados(juegosCompletados + 1);
       } else {
         setItemRuleta(null)
-        setItem('')
+        setItem('') 
         setLose(true);
       }
     };
@@ -419,6 +437,9 @@ const JuegoImagenes = () => {
           confirmButtonColor={Colors.yellow}
           onConfirmPressed={() => setAlert1(false)}
         />
+        <View style={css_JuegoImagenes.divInstrucciones}>
+          <Text style={css_JuegoImagenes.txtInstrucciones}>Completa la oración! :D</Text>
+        </View>
         <Imagenes Tipo={Nombre} />
         <View>
           <TextInput

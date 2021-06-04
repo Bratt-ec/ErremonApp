@@ -194,6 +194,21 @@ export const css_JuegoImagenes = StyleSheet.create({
     borderRadius: 50,
     opacity: 1,
   },
+  divInstrucciones:{
+    backgroundColor: Colors.turquesa,
+    padding: 8,
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 6,    
+    borderColor: Colors.yellow,
+    borderWidth: 4,
+    borderStyle: "solid"
+  },
+  txtInstrucciones:{
+    color: Colors.blue_dark,
+    fontWeight: 'bold',
+    fontSize: 22
+  }
 });
 
 export const css_Vocabulario = StyleSheet.create({

@@ -15,7 +15,7 @@ class Tail extends Component {
         const { onVocabulario, setOnVocabulario } = this.context;
 
         let tailSize = this.props.elements.length;
-        if(tailSize == 7){
+        if(tailSize == 5){
          setOnVocabulario(true);
         }
         let tailList = this.props.elements.map((el, idx) => {

@@ -40,7 +40,7 @@ const Stack = createStackNavigator();
 
 function CustomDrawerContent(props) {
   const { navigation } = props;
-  const { usuario, setUsuario, personaje, setPersonaje, setTrofeos } = useContext(
+  const { usuario, setUsuario, personaje, setPersonaje, setTrofeos, setparticipants } = useContext(
     AuthContext
   );
   return (
@@ -82,7 +82,17 @@ function CustomDrawerContent(props) {
               id: '',
               nombre: '', 
               estrellas: '' 
-            })
+            });
+            setparticipants([
+              'DRAGON',
+              'LIBRO',
+              'REGALO',
+              'GATO',
+              'CANDADO',
+              'FOSFORO',
+              'PLATO',
+              'TAPILLA',
+            ]);
         }}
       />
     </>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, StatusBar, SafeAreaView, View, Alert, Button, TouchableOpacity } from "react-native";
+import { AppRegistry, StyleSheet, StatusBar, SafeAreaView, View, Alert, Button, TouchableOpacity, Text } from "react-native";
 import { GameEngine, dispatch } from "react-native-game-engine";
 import { Head } from "./head";
 import { Food } from "./food";
@@ -53,7 +53,7 @@ export default class SnakeApp extends Component {
                     style={[{ width: this.boardSize, height: this.boardSize, backgroundColor: '#ffffff', flex: null }]}
                     systems={[ GameLoop ]}
                     entities={{
-                        head: { position: [0,  0], xspeed: 1, yspeed: 0, nextMove: 10, updateFrequency: 10, size: 20, renderer: <Head />},
+                        head: { position: [0,  0], xspeed: 0.5, yspeed: 0, nextMove: 10, updateFrequency: 10, size: 20, renderer: <Head />},
                         food: { position: [this.randomBetween(0, Constants.GRID_SIZE - 1), this.randomBetween(0, Constants.GRID_SIZE - 1)], size: 20, renderer: <Food />},
                         tail: { size: 20, elements: [], renderer: <Tail /> }
                     }}
@@ -63,27 +63,29 @@ export default class SnakeApp extends Component {
 
                 </GameEngine>
 
-                <Button title="Empezar de nuevo" onPress={this.reset} />
+                <TouchableOpacity style={styles.empezar} onPress={this.reset} >
+                    <Text style={styles.txtEmpezar}>Empezar de  nuevo</Text>
+                </TouchableOpacity>
 
                 <View style={styles.controls}>
                     <View style={styles.controlRow}>
                         <TouchableOpacity onPress={() => { this.engine.dispatch({ type: "move-up" })} }>
                             {/* <View style={styles.control} /> */}
-                            <AntDesign name="upcircle" size={84} color={Colors.white}/>
+                            <AntDesign name="upcircle" size={70} color={Colors.white}/>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.controlRow}>
                         <TouchableOpacity onPress={() => { this.engine.dispatch({ type: "move-left" })} }>
-                            <AntDesign name="leftcircle" size={84} color={Colors.white} />
+                            <AntDesign name="leftcircle" size={70} color={Colors.white} />
                         </TouchableOpacity>
                         <View style={[styles.control, { backgroundColor: null}]} />
                         <TouchableOpacity onPress={() => { this.engine.dispatch({ type: "move-right" })}}>
-                            <AntDesign name="rightcircle" size={84} color={Colors.white} />
+                            <AntDesign name="rightcircle" size={70} color={Colors.white} />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.controlRow}>
                         <TouchableOpacity onPress={() => { this.engine.dispatch({ type: "move-down" })} }>
-                            <AntDesign name="downcircle" size={84} color={Colors.white} />
+                            <AntDesign name="downcircle" size={70} color={Colors.white} />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
     },
     controls: {
         width: 300,
-        height: 300,
+        height: 250,
         flexDirection: 'column',
     },
     controlRow: {
@@ -115,5 +117,18 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         backgroundColor: 'blue'
+    },
+    empezar:{
+        margin: 10,
+        alignSelf: 'center',
+        backgroundColor: Colors.redLight,
+        padding: 10,
+        borderRadius: 10,
+
+    },
+    txtEmpezar:{
+        color: Colors.white,
+        fontWeight: "bold",
+        fontSize: 20,
     }
 });

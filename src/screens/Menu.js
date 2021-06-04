@@ -97,7 +97,7 @@ const Menu = ({ navigation }) => {
           </View>
           <View style={css_Menu.TrofeosDiv}>
             <FontAwesome5 name="trophy" size={20} color={Colors.white} />
-            <Text style={css_Menu.txtTrofeos}>Trofeos: {numTrofeos}</Text>
+            <Text style={css_Menu.txtTrofeos}>Premios: {numTrofeos}</Text>
           </View>
 
           <TouchableOpacity onPress={()=> (playSound)? setPlaySound(false) : setPlaySound(true)  }  style={{marginRight: 20 ,borderRadius: 100, width: 35, height: 35, backgroundColor: Colors.turquesa, justifyContent: 'center', alignSelf: 'flex-end'}}>

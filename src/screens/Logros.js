@@ -25,7 +25,9 @@ export const Logros = ({ navigation }) => {
   
   const DivLogros = ({item}) => (
     <View style={css_Trofeos.divLogro}>
-      <Image source={require('../img/trofeo.png')} style={css_Trofeos.Icono}/>
+      {(item.tipo == 'medalla') 
+      ?<Image source={require('../img/medal.png')} style={css_Trofeos.Icono}/>
+      :<Image source={require('../img/trofeo.png')} style={css_Trofeos.Icono}/>}
       <Text style={css_Trofeos.txtLogro}>{item.nombre}</Text>
     </View>
   )
@@ -45,7 +47,7 @@ export const Logros = ({ navigation }) => {
                 <FontAwesome5 name="bars" size={34} color={Colors.white} />
               </TouchableOpacity>
               <View style={css_Trofeos.ContainerTrofeos}> 
-              <Text style={css_Trofeos.Titulo}>Aún no tienes ningun trofeo</Text>
+              <Text style={css_Trofeos.Titulo}>Aún no tienes ningun premio</Text>
               </View>
         </View>
    </>
@@ -64,7 +66,7 @@ export const Logros = ({ navigation }) => {
               <FontAwesome5 name="bars" size={34} color={Colors.white} />
             </TouchableOpacity>
             <View style={css_Trofeos.ContainerTrofeos}> 
-            <Text style={css_Trofeos.Titulo}>Mis trofeos</Text>
+            <Text style={css_Trofeos.Titulo}>Mis Premios</Text>
               <FlatList 
               data={trofeos}
               renderItem={DivLogros}

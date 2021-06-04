@@ -7,15 +7,26 @@ export const AuthProvider = ({ children }) => {
   const [personaje, setPersonaje] = useState(null);
   const [preGame, setPreGame] = useState(true);
   const [endGame, setEndGame] = useState(true);
-  const [playSound, setPlaySound] = useState(false);
+  const [playSound, setPlaySound] = useState(true);
   const [onVocabulario, setOnVocabulario] = useState(false);
   const [itemRuleta, setItemRuleta] = useState(null);
   const[palabraVocabulario, setPalabraVocabulario] = useState(1);
   const[trofeos, setTrofeos] = useState({ 
     id: '',
     nombre: '', 
-    estrellas: '' 
+    estrellas: '' ,
+    tipo: '',
   })
+  const[participants, setparticipants] = useState([
+    'DRAGON',
+    'LIBRO',
+    'REGALO',
+    'GATO',
+    'CANDADO',
+    'FOSFORO',
+    'PLATO',
+    'TAPILLA',
+  ])
   const[juegosCompletados, setJuegosCompletados] = useState(0);
   return (
     <AuthContext.Provider
@@ -39,7 +50,9 @@ export const AuthProvider = ({ children }) => {
         palabraVocabulario,
         setPalabraVocabulario,
         onVocabulario, 
-        setOnVocabulario
+        setOnVocabulario,
+        participants,
+        setparticipants
       }}
     >
       {children}

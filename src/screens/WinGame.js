@@ -9,8 +9,8 @@ import { Colors } from "../styles/Colors";
 
 export const Trofeo = ({Nombre})=>(
     <View style={Styles.divTrofeo}>
-       <Text style={Styles.alerta}>¡Felicidades! Recibiste un trofeo:</Text>
-      <Image source={require('../img/trofeo.png')} style={Styles.Icono}/>
+       <Text style={Styles.alerta}>¡Felicidades! Recibiste una medalla:</Text>
+      <Image source={require('../img/medal.png')} style={Styles.Icono}/>
       <Text style={Styles.nombreTrofeo}>{Nombre}</Text>
     </View>
   )

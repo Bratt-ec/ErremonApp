@@ -139,6 +139,7 @@ const SopaLetras = ({
                   id: aleatorio,
                   nombre: 'Jefe de Conectores de Oposición',
                   estrellas: "5",
+                  tipo: 'medalla'
                 }) 
                 setMedalla(true);
 
@@ -156,6 +157,7 @@ const SopaLetras = ({
                 id: aleatorio,
                 nombre: 'Jefe de Conectores de Causa Consecuencia',
                 estrellas: "5",
+                tipo: 'medalla'
               }) 
               setMedalla(true);
           }
@@ -166,12 +168,14 @@ const SopaLetras = ({
                 console.log("Ya tienes este trofeo");
                 setMedalla(false);
                 return;
-              } }
+              } 
+            }
             trofeosObj.push(
               {
               id: aleatorio,
               nombre: 'Jefe de Conectores de Tiempo',
               estrellas: "5", 
+              tipo: 'medalla'
             }) 
             setMedalla(true);
           }
@@ -189,6 +193,7 @@ const SopaLetras = ({
                 id: aleatorio,
                 nombre: 'Jefe de Conectores de Adición',
                 estrellas: "5",
+                tipo: 'medalla'
               }) 
               setMedalla(true);
           }
