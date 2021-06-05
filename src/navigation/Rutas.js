@@ -35,6 +35,7 @@ import { css_Menu } from '../styles/Style';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Colors } from '../styles/Colors';
 import PalabraVocabulario from '../screens/PalabraVocabulario';
+import FinJuegoImagenes from '../screens/FinJuegoImagenes';
 
 
 const Stack = createStackNavigator();
@@ -134,6 +135,7 @@ export const AuthStack = () => {
             <Stack.Screen name='Vocabulario' component={Vocabulario} options={{headerShown: false}} />
             <Stack.Screen name='LoseGame' component={LoseGame} options={{headerShown: false}} />
             <Stack.Screen name='WinGame' component={WinGame} options={{headerShown: false}} />
+            <Stack.Screen name='FinJuegoImagenes' component={FinJuegoImagenes} options={{headerShown: false}} />            
             <Stack.Screen name='PalabraVocabulario' component={PalabraVocabulario} options={{headerShown: false}} />
             {/* JUEGOS */}
             <Stack.Screen name='DeOposicion' component={Gm_DeOposicion} options={{headerShown: false}} />

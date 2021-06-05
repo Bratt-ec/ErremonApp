@@ -7,10 +7,12 @@ import { Colors } from "../styles/Colors";
 import { css_JuegoImagenes, css_Vocabulario } from "../styles/GameStyle";
 import { Ionicons } from "@expo/vector-icons";
 import { DraxProvider, DraxView } from 'react-native-drax';
+import AwesomeAlert from "react-native-awesome-alerts";
 
 
 const Vocabulario = ({navigation}) => {
   const [received, setReceived] = useState([]);
+  const [alert1, setAlert1] = useState(false);
   // const [staged, setStaged] = useState([]);
   const { palabraVocabulario, setPalabraVocabulario,setobjPalabra, setOnVocabulario , preGame,
     setPreGame} = useContext(AuthContext);  
@@ -44,6 +46,7 @@ const Vocabulario = ({navigation}) => {
       setPalabraVocabulario(palabraVocabulario + 1);
     }else{
       setReceived([]);
+      setAlert1(true);
       console.log('LOSE GAME');
     }
     // setPalabraVocabulario(palabraVocabulario + 1);
@@ -54,6 +57,20 @@ const Vocabulario = ({navigation}) => {
 
 return(
   <View style={css_JuegoImagenes.Container}> 
+          <AwesomeAlert
+          // Alerta si el usuario no escribe su nombre
+          show={alert1}
+          showProgress={false}
+          title="Ops!"
+          message="Fallaste, Intentalo otra vez!!"
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={false}
+          showConfirmButton={true}
+          confirmText="Aceptar"
+          confirmButtonColor={Colors.yellow}
+          onConfirmPressed={() => setAlert1(false)}
+        />
     <HeaderGame image="book.png" name="VOCABULARIO" />
         {/* <PalabraNueva Palabra={NumeroPalabra} />   */}
         <DraxProvider>

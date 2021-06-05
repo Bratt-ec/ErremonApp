@@ -147,13 +147,13 @@ const Menu = ({ navigation }) => {
           style={css_Menu.DivJuegoImg}
           onPress={() => {
             LecturaSound();
-            navigation.navigate("DeLectura")
+            navigation.navigate("JuegoImagenes")
           }}
         >
           
           <FondoInicio />
           <Text style={css_Menu.Enumeracion}>3</Text>
-          <Text style={css_Menu.textoMenu2}>Juegos de Lectura</Text>
+          <Text style={css_Menu.textoMenu2}>Juego de Imágenes</Text>
           <Image
             source={require("../img/oso_game_2.png")}
             style={css_Menu.ImgOso}
@@ -161,11 +161,11 @@ const Menu = ({ navigation }) => {
         </TouchableOpacity>
         <View style={css_Menu.DivMenuCenter}>
           <TouchableOpacity
-            style={css_Menu.DivSopaLetras}
-            onPress={() => navigation.navigate("JuegoImagenes")}
+            style={css_Menu.DivSopaLetras}            
+            onPress={() => navigation.navigate("DeLectura")}
           >
              <Text style={css_Menu.Enumeracion}>4</Text>
-            <Text style={css_Menu.textoMenu3}>Juego de Imágenes</Text>
+            <Text style={css_Menu.textoMenu3}>Juegos de Lectura</Text>
             <Image
               source={require("../img/perros.png")}
               style={css_Menu.MenuImg2}

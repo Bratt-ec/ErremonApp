@@ -37,10 +37,8 @@ class Ruleta extends Component {
     this.child._onPress();
   };
  
-  render() { 
-    
-    const { setItemRuleta,participants } = this.context;
-
+  render() {     
+    const { setItemRuleta,participants } = this.context;    
     const wheelOptions = {
       rewards: participants,
       knobSize: 30,
