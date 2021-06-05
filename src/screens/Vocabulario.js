@@ -1,19 +1,21 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import HeaderGame from "../components/HeaderGame";
 import { Palabras } from "../components/Palabras";
-import SnakeApp from "../components/snake/Snake";
 import { AuthContext } from "../navigation/AuthProvider";
 import { Colors } from "../styles/Colors";
 import { css_JuegoImagenes, css_Vocabulario } from "../styles/GameStyle";
 import { Ionicons } from "@expo/vector-icons";
-import PreScreenGame from "../components/PreScreenGame";
-const Vocabulario = ({navigation}) => {
-  const { palabraVocabulario, setPalabraVocabulario,onVocabulario, setOnVocabulario , preGame,
-    setPreGame} = useContext(AuthContext);
-  const [nuevaPalabra, setNuevaPalabra] = useState(false);
+import { DraxProvider, DraxView } from 'react-native-drax';
 
-  if (palabraVocabulario == 20) {
+
+const Vocabulario = ({navigation}) => {
+  const [received, setReceived] = useState([]);
+  // const [staged, setStaged] = useState([]);
+  const { palabraVocabulario, setPalabraVocabulario,setobjPalabra, setOnVocabulario , preGame,
+    setPreGame} = useContext(AuthContext);  
+
+  if (palabraVocabulario == 7) {
     setPalabraVocabulario(1);
   }
 
@@ -22,55 +24,88 @@ const Vocabulario = ({navigation}) => {
   );
 
   const RepetirJuego = ()=>{
-      setNuevaPalabra(false)
-      setPalabraVocabulario(palabraVocabulario + 1);
-      setOnVocabulario(false);
+    setReceived([]);
+      // setNuevaPalabra(false)
+      // setPalabraVocabulario(palabraVocabulario + 1);
+      // setOnVocabulario(false);
   }
 
   const FinJuego = ()=>{
-    setPalabraVocabulario(palabraVocabulario + 1);
-    setOnVocabulario(false);
-    navigation.navigate('Menu');
+    let word = '';
+    received.map(silaba =>{  
+      word+=silaba;
+    })
+    console.log(word.toLowerCase() , '---' , NumeroPalabra.palabra);
+    if(word.toLowerCase() == NumeroPalabra.palabra.toLowerCase()){
+      console.log('WIN GAME');
+      setReceived([]);
+      setobjPalabra(NumeroPalabra);
+      navigation.navigate('PalabraVocabulario');
+      setPalabraVocabulario(palabraVocabulario + 1);
+    }else{
+      setReceived([]);
+      console.log('LOSE GAME');
+    }
+    // setPalabraVocabulario(palabraVocabulario + 1);
+    // setOnVocabulario(false);
+    // navigation.navigate('Menu');
   }
 
-  const PalabraNueva = ({ Palabra }) => (
-    <View>
-      <HeaderGame image="book.png" name="VOCABULARIO" />
 
-      <View style={css_Vocabulario.Mensaje}>
-        <Text style={css_Vocabulario.txtMensaje}>
-          Encontraste una nueva palabra
-        </Text>
-        <Image
-          source={require("../img/oso_game_7.png")}
-          style={css_Vocabulario.imgOso}
-        />
-      </View>
+return(
+  <View style={css_JuegoImagenes.Container}> 
+    <HeaderGame image="book.png" name="VOCABULARIO" />
+        {/* <PalabraNueva Palabra={NumeroPalabra} />   */}
+        <DraxProvider>
+      <View style={styles.container}>
+        <DraxView
+          style={[styles.centeredContent, styles.receivingZone]}
+          receivingStyle={styles.receiving}
+          renderContent={({ viewState }) => {
 
-      <View style={css_Vocabulario.ContainerPalabra}>
-        <View style={css_Vocabulario.divPalabra}>
-          <View>
-            <Text style={css_Vocabulario.txtPalabra}>{Palabra.palabra}</Text>
-            <Text style={css_Vocabulario.txtTipo}>{Palabra.tipo}</Text>
-          </View>
+            const receivingDrag = viewState && viewState.receivingDrag;
+            const payload = receivingDrag && receivingDrag.payload;               
 
-          <Ionicons
-            name="information-circle"
-            size={50}
-            color={Colors.blue_dark}
-          />
+            return (
+              <>
+                <Text style={styles.textRecived}>Completa una palabra</Text>
+                <Image source={require('../img/oso_game_2.png')} style={styles.imgOso} />
+                <View style={styles.contentWord}>
+                  <Text style={styles.incomingPayload}>{payload}</Text>
+                  <Text style={styles.received}>{received}</Text>
+                </View>
+              </>
+            );
+          }}
+          onReceiveDragDrop={(event) => {
+            if(received.length == NumeroPalabra.juego.length){
+              console.log('DRAG BLOQUEADO');
+            }else{
+              setReceived([
+                ...received,
+                event.dragged.payload || '?',
+              ]);
+            }
+          }}
+        />      
+        <View style={styles.palette}>
+          {
+            NumeroPalabra.juego.map(silaba =>(
+              <DraxView
+            style={[styles.centeredContent, styles.draggableBox, styles.yellow]}
+            draggingStyle={styles.dragging}
+            dragReleasedStyle={styles.dragging}
+            hoverDraggingStyle={styles.hoverDragging}
+            dragPayload={silaba}
+            longPressDelay={0}
+          >
+            <Text style={styles.textDraggable}>{silaba}</Text>
+          </DraxView>
+
+            ))
+          }          
         </View>
-        <View style={css_Vocabulario.divSignificado}>
-          <Ionicons
-            name="chatbubble-ellipses-sharp"
-            size={40}
-            color={Colors.blue_dark}
-          />
-          <Text style={css_Vocabulario.txtSignificado}>
-            {Palabra.definicion}
-          </Text>
-        </View>
-      </View>
+      </View>      
       <View style={css_Vocabulario.divBotones}>
         <TouchableOpacity style={css_Vocabulario.btnVocabulario} onPress={()=> FinJuego()}>
           <Ionicons name="checkbox" size={36} color={Colors.blue_dark} />
@@ -85,15 +120,101 @@ const Vocabulario = ({navigation}) => {
           />
           <Text style={css_Vocabulario.txtBoton}>Otra vez</Text>
         </TouchableOpacity>
-      </View>
-    </View>
-  );
-
-return(
-    <View style={css_JuegoImagenes.Container}> 
-        {onVocabulario ? <PalabraNueva Palabra={NumeroPalabra} /> : <SnakeApp />}
-    </View>
+      </View>      
+    </DraxProvider>
+  </View>
 )
 };
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+    paddingTop: 5,
+    // padding:20,
+    
+  },
+  centeredContent: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  receivingZone: {
+    height: 'auto',
+    borderRadius: 10,
+    padding: 10,
+    margin: 16,
+    backgroundColor: Colors.turquesa
+  },
+  textRecived:{
+    color: Colors.blue_dark,
+    fontSize: 24,
+    fontWeight: 'bold',
+  },  
+  receiving: {
+    borderColor: Colors.redLight,
+    borderWidth: 2,
+  },
+  incomingPayload: {  
+    fontSize: 20,
+    fontWeight:'bold',
+    color: Colors.blue_dark
+  },
+  contentWord:{
+    margin: 2,
+    alignItems: 'center',
+    justifyContent: 'center',    
+  },
+  received: {
+    fontSize: 24,
+    fontWeight:'bold',
+    color: Colors.blue_dark
+  },
+  palette: {
+    flexDirection: 'row',
+    alignItems:'center',    
+    flexWrap:'wrap',
+    margin: 10,
+    justifyContent: 'center',
+  },
+  draggableBox: {
+    width: 80,
+    height: 80,
+    borderRadius: 10,
+    padding: 10,
+    margin: 10
+  },
+  textDraggable:{
+    fontWeight: 'bold',
+    fontSize: 20
+  },  
+  green: {
+    backgroundColor: Colors.blue_lit,
+  },
+  blue: {
+    backgroundColor: Colors.yellow,
+  },
+  red: {
+    backgroundColor: Colors.redLight,
+  },
+  yellow: {
+    backgroundColor: Colors.yellow,
+  },
+  cyan: {
+    backgroundColor: '#aaffff',
+  },
+  dragging: {
+    opacity: 0.2,
+  },
+  hoverDragging: {
+    borderColor: Colors.redLight,
+    borderWidth: 2,
+  },
+  stagedCount: {
+    fontSize: 18,
+  },
+  imgOso:{
+    width: 100,
+    height:100,
+    resizeMode: "contain"
+  }
+});
 
 export default Vocabulario;

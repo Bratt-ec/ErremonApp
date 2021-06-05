@@ -267,22 +267,37 @@ export const css_Vocabulario = StyleSheet.create({
     textAlign: 'justify',
   },
   btnVocabulario:{
-    padding: 5,
-    backgroundColor: Colors.yellow,
+    padding: 2,
+    backgroundColor: Colors.turquesa,
     flexDirection: 'row',
     alignSelf: 'center',
-    width: '45%',
+    width: '40%',
     alignItems: 'center',
-    borderRadius:10,
+    borderRadius:8,
+    margin: '2%',
+  },
+  btnVocabulario2:{
+    padding: 5,
+    backgroundColor: Colors.turquesa,
+    flexDirection: 'row',
+    alignSelf: 'center',  
+    alignItems: 'center',
+    borderRadius:8,
     margin: '2%',
   },
   txtBoton:{
-  fontSize: 26,
+  fontSize: 20,
     fontWeight: 'bold',
     marginLeft: 6
   },
   divBotones:{
+    marginTop: 30,
     flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  divBotones2:{
+    marginTop: 30,
+    flexDirection: 'column',
     justifyContent: 'center'
   }
 });

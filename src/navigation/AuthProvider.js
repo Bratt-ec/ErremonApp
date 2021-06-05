@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [playSound, setPlaySound] = useState(true);
   const [onVocabulario, setOnVocabulario] = useState(false);
   const [itemRuleta, setItemRuleta] = useState(null);
+  const [objPalabra, setobjPalabra] = useState({});
   const[palabraVocabulario, setPalabraVocabulario] = useState(1);
   const[trofeos, setTrofeos] = useState({ 
     id: '',
@@ -52,7 +53,9 @@ export const AuthProvider = ({ children }) => {
         onVocabulario, 
         setOnVocabulario,
         participants,
-        setparticipants
+        setparticipants,
+        objPalabra,
+        setobjPalabra
       }}
     >
       {children}
