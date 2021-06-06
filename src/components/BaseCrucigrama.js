@@ -189,7 +189,7 @@ const BaseCrucigrama = ({Tipo}) => {
         );
       } else {
         return (
-          <View style={css_ItemCrucigrama.cell} >
+          <View style={(letter == Letra.toUpperCase()) ? css_ItemCrucigrama.cell : css_ItemCrucigrama.cellError } >
           <TextInput
           style={css_ItemCrucigrama.InputNombre}
           onChangeText={setLetter}

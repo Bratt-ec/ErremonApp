@@ -20,7 +20,7 @@ import WinGame, { Trofeo } from "../screens/WinGame";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-const Gm_DeLectura = ({ navigation }) => {
+const Gm_CuentoLeon = ({ navigation }) => {
   // App Context
   const {
     trofeos,
@@ -224,7 +224,7 @@ const Gm_DeLectura = ({ navigation }) => {
   return (
     <View style={css_Crucigrama.Container}>
       <StatusBar style="light" />
-      <HeaderGame name="Juego de lectura" />
+      <HeaderGame name="El León y el Conejo" />
       {pregunta !== 6 && preGame == false ? <JuegoLectura /> : null}
       {preGame ? (
         <PreScreenGame txtDialogo="Primero mira el video y luego responde a la pregunta ¡Suerte!" />
@@ -283,4 +283,4 @@ const styles = StyleSheet.create({
   oso: { width: 100, height: 150, alignSelf: "flex-end", marginTop: -40 },
   oso2: { width: 100, height: 110, alignSelf: "flex-end", marginTop: -40 },
 });
-export default Gm_DeLectura;
+export default Gm_CuentoLeon;

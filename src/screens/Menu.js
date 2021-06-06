@@ -163,7 +163,7 @@ const Menu = ({ navigation }) => {
             style={css_Menu.DivSopaLetras}            
             onPress={() => {
                 LecturaSound()
-                navigation.navigate("DeLectura")
+                navigation.navigate("MenuCuentos")
               }
             }
           >

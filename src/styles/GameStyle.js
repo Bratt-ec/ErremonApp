@@ -455,3 +455,38 @@ export const css_ItemCrucigrama = StyleSheet.create({
   },
   imgFruta: { width: 45, height: 40, position: "absolute" },
 });
+
+export const css_MenuCuentos = StyleSheet.create({
+  containerCuentos:{
+    padding:10,
+  },
+  CardCuento:{
+    display:'flex',
+    flexDirection: 'row',
+    padding: 10,
+    backgroundColor: Colors.turquesa,
+    margin: 10,
+    borderRadius: 10,
+  },
+  ContainerImg:{
+    display:'flex',
+    flexDirection: 'row',    
+  },
+  imgCuento:{
+    resizeMode:'contain',
+    width:70,
+    height: 70,
+  },
+  containerTitulo:{
+    display:'flex',    
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 6,
+  },
+  tituloCuento:{
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 'bold',
+  }
+
+})

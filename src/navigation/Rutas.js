@@ -16,7 +16,7 @@ import Gm_CausaConsecuencia from '../games/Gm_CausaConsecuencia';
 import Gm_DeAdicion from '../games/Gm_DeAdicion';
 import Gm_DeTiempo from '../games/Gm_DeTiempo';
 import Gm_Crucigrama from '../games/Gm_Crucigrama';
-import Gm_DeLectura from '../games/Gm_DeLectura';
+import Gm_DeLectura from '../games/Gm_CuentoOso';
 import MenuCrucigrama from '../screens/MenuCrucigrama';
 import Gm_Frutas from '../games/Gm_Frutas';
 import Gm_Colores from '../games/Gm_Colores';
@@ -36,6 +36,8 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Colors } from '../styles/Colors';
 import PalabraVocabulario from '../screens/PalabraVocabulario';
 import FinJuegoImagenes from '../screens/FinJuegoImagenes';
+import MenuCuentos from '../screens/MenuCuentos';
+import Gm_CuentoLeon from '../games/Gm_CuentoLeon';
 
 
 const Stack = createStackNavigator();
@@ -136,6 +138,8 @@ export const AuthStack = () => {
             <Stack.Screen name='LoseGame' component={LoseGame} options={{headerShown: false}} />
             <Stack.Screen name='WinGame' component={WinGame} options={{headerShown: false}} />
             <Stack.Screen name='FinJuegoImagenes' component={FinJuegoImagenes} options={{headerShown: false}} />            
+            <Stack.Screen name='CuentoOso' component={Gm_DeLectura} options={{headerShown: false}} />            
+            <Stack.Screen name='CuentoLeon' component={Gm_CuentoLeon} options={{headerShown: false}} />            
             <Stack.Screen name='PalabraVocabulario' component={PalabraVocabulario} options={{headerShown: false}} />
             {/* JUEGOS */}
             <Stack.Screen name='DeOposicion' component={Gm_DeOposicion} options={{headerShown: false}} />
@@ -143,7 +147,7 @@ export const AuthStack = () => {
             <Stack.Screen name='DeAdicion' component={Gm_DeAdicion} options={{headerShown: false}} />
             <Stack.Screen name='DeTiempo' component={Gm_DeTiempo} options={{headerShown: false}} />
             <Stack.Screen name='Crucigrama' component={Gm_Crucigrama} options={{headerShown: false}} />
-            <Stack.Screen name='DeLectura' component={Gm_DeLectura} options={{headerShown: false}} />
+            <Stack.Screen name='MenuCuentos' component={MenuCuentos} options={{headerShown: false}} />
             <Stack.Screen name='MenuCrucigrama' component={MenuCrucigrama} options={{headerShown: false}} />
             <Stack.Screen name='Gm_Frutas' component={Gm_Frutas} options={{headerShown: false}} />
             <Stack.Screen name='Gm_Colores' component={Gm_Colores} options={{headerShown: false}} />
