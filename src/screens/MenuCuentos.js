@@ -21,7 +21,7 @@ const MenuCuentos = ({navigation}) => {
                         <Image source={require('../img/cuentos/leon.png')} style={css_MenuCuentos.imgCuento} />
                     </View>
                     <View style={css_MenuCuentos.containerTitulo}>
-                        <Text style={css_MenuCuentos.tituloCuento}>El León y el Conejo</Text>
+                        <Text style={css_MenuCuentos.tituloCuento}>El León y la Oruga</Text>
                     </View>
                 </TouchableOpacity>
             </View>      

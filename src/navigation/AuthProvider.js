@@ -10,6 +10,8 @@ export const AuthProvider = ({ children }) => {
   const [playSound, setPlaySound] = useState(true);
   const [onVocabulario, setOnVocabulario] = useState(false);
   const [itemRuleta, setItemRuleta] = useState(null);
+  const [ruleta, setRuleta] = useState(true);
+  const [win, setWin] = useState(false);
   const [objPalabra, setobjPalabra] = useState({});
   const[palabraVocabulario, setPalabraVocabulario] = useState(1);
   const[trofeos, setTrofeos] = useState({ 
@@ -55,7 +57,11 @@ export const AuthProvider = ({ children }) => {
         participants,
         setparticipants,
         objPalabra,
-        setobjPalabra
+        setobjPalabra,
+        ruleta,
+        setRuleta,
+        win,
+        setWin
       }}
     >
       {children}

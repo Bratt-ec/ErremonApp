@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/core";
 
 const BotonContinuar = ({ Texto, Ruta }) => {
   const { setPreGame } = useContext(AuthContext);
-  const navigation = useNavigation();
+  const navigation = useNavigation();  
   return (
     <TouchableOpacity
       style={css_Boton.btnOpcion}
@@ -31,7 +31,7 @@ const css_Boton = StyleSheet.create({
     borderRadius: 30,
     alignSelf: "center",
     alignItems: "center",
-    marginTop: "18%",
+    marginTop: "8%",
     margin: "2%",
     shadowColor: "#000",
     shadowOffset: {

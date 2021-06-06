@@ -17,10 +17,10 @@ import { Colors } from "../styles/Colors";
 import { css_JuegoImagenes, css_Vocabulario } from "../styles/GameStyle";
 import AwesomeAlert from "react-native-awesome-alerts";
 import LoseGame from "../screens/LoseGame";
-import WinGame from "../screens/WinGame";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { DraxProvider, DraxView } from "react-native-drax";
+import WinGame2 from "./WinGame2";
 
 const JuegoImagenes = ({navigation}) => {
   const {
@@ -34,14 +34,18 @@ const JuegoImagenes = ({navigation}) => {
     setTrofeos,
     juegosCompletados,
     setJuegosCompletados,
+    ruleta,
+    setRuleta,
+    win,
+    setWin
   } = useContext(AuthContext);
   // State
   const [item, setItem] = useState("");
   const [oracion, setOracion] = useState("");
   const [alert1, setAlert1] = useState(false);
-  const [win, setWin] = useState(false);
+
   const [lose, setLose] = useState(false);
-  const [ruleta, setRuleta] = useState(true);
+  // const [ruleta, setRuleta] = useState(true);
   const [received, setReceived] = useState([]);
 
   if(participants.length == 0){
@@ -1022,8 +1026,7 @@ const JuegoImagenes = ({navigation}) => {
     setItem(itemRuleta);
     // console.log('Y el juego es:' + item);
     return () => backHandler.remove();
-  }, [itemRuleta]);
-
+  }, [itemRuleta]);  
   return (
     <View style={css_JuegoImagenes.Container}>
       <HeaderGame image="book.png" name="JUEGO DE IMÁGENES" />
@@ -1032,10 +1035,10 @@ const JuegoImagenes = ({navigation}) => {
       ) : null}
       {ruleta && preGame == false ? <RuletaView /> : null}
       {win ? (
-        <WinGame
+        <WinGame2
           Siguiente="Menu"
           Win={true}
-          NombreTrofeo="Master de las Oraciones"
+          NombreTrofeo="Master de las Oraciones"          
         />
       ) : null}
       {lose ? <LoseGame Siguiente="Menu" /> : null}
