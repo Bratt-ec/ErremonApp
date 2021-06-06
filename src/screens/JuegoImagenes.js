@@ -91,9 +91,15 @@ const JuegoImagenes = ({navigation}) => {
                           />
                         </View>
                         <Text style={styles.incomingPayload}>{payload}</Text>
-                        <Text style={styles.received}>
-                          {received.join(" ")}
-                        </Text>
+                        <View style={styles.divReceived}>
+                          {
+                            received.map(item =>(                                                            
+                                <Text style={styles.received} key={item}>
+                                  {item}
+                                </Text>                              
+                            ))
+                          }                          
+                        </View>
                       </View>
                     </>
                   );
@@ -191,9 +197,15 @@ const JuegoImagenes = ({navigation}) => {
                           />                          
                         </View>
                         <Text style={styles.incomingPayload}>{payload}</Text>
-                        <Text style={styles.received}>
-                          {received.join(" ")}
-                        </Text>
+                        <View style={styles.divReceived}>
+                          {
+                            received.map(item =>(
+                              <Text style={styles.received} key={item}>
+                                {item}
+                              </Text>
+                            ))
+                          }                          
+                        </View>
                       </View>
                     </>
                   );
@@ -289,9 +301,15 @@ const JuegoImagenes = ({navigation}) => {
                           />
                         </View>
                         <Text style={styles.incomingPayload}>{payload}</Text>
-                        <Text style={styles.received}>
-                          {received.join(" ")}
-                        </Text>
+                        <View style={styles.divReceived}>
+                          {
+                            received.map(item =>(
+                              <Text style={styles.received} key={item}>
+                                {item}
+                              </Text>
+                            ))
+                          }                          
+                        </View>
                       </View>
                     </>
                   );
@@ -388,9 +406,15 @@ const JuegoImagenes = ({navigation}) => {
                           
                         </View>
                         <Text style={styles.incomingPayload}>{payload}</Text>
-                        <Text style={styles.received}>
-                          {received.join(" ")}
-                        </Text>
+                        <View style={styles.divReceived}>
+                          {
+                            received.map(item =>(
+                              <Text style={styles.received} key={item}>
+                                {item}
+                              </Text>
+                            ))
+                          }                          
+                        </View>
                       </View>
                     </>
                   );
@@ -475,22 +499,28 @@ const JuegoImagenes = ({navigation}) => {
                       <View style={styles.contentWord}>
                         <View style={css_JuegoImagenes.divImgOracion}>
                           <Image
-                            source={require("../img/juego-imagenes/comida.png")}
+                            source={require("../img/juego-imagenes/estufa.png")}
                             style={css_JuegoImagenes.imgOracion}
                           />
                           <Image
                             source={require("../img/juego-imagenes/fosforo.png")}
                             style={css_JuegoImagenes.imgOracion}
-                          />
+                          />                          
                           <Image
-                            source={require("../img/juego-imagenes/estufa.png")}
+                            source={require("../img/juego-imagenes/comida.png")}
                             style={css_JuegoImagenes.imgOracion}
-                          />
+                          />                          
                         </View>
                         <Text style={styles.incomingPayload}>{payload}</Text>
-                        <Text style={styles.received}>
-                          {received.join(" ")}
-                        </Text>
+                        <View style={styles.divReceived}>
+                          {
+                            received.map(item =>(
+                              <Text style={styles.received} key={item}>
+                                {item}
+                              </Text>
+                            ))
+                          }                          
+                        </View>
                       </View>
                     </>
                   );
@@ -588,9 +618,15 @@ const JuegoImagenes = ({navigation}) => {
                           />       
                         </View>
                         <Text style={styles.incomingPayload}>{payload}</Text>
-                        <Text style={styles.received}>
-                          {received.join(" ")}
-                        </Text>
+                        <View style={styles.divReceived}>
+                          {
+                            received.map(item =>(
+                              <Text style={styles.received} key={item}>
+                                {item}
+                              </Text>
+                            ))
+                          }                          
+                        </View>
                       </View>
                     </>
                   );
@@ -675,10 +711,6 @@ const JuegoImagenes = ({navigation}) => {
                       <View style={styles.contentWord}>
                         <View style={css_JuegoImagenes.divImgOracion}>
                           <Image
-                            source={require("../img/juego-imagenes/nube.png")}
-                            style={css_JuegoImagenes.imgOracion}
-                          />
-                          <Image
                             source={require("../img/juego-imagenes/tapilla.png")}
                             style={css_JuegoImagenes.imgOracion}
                           />
@@ -686,11 +718,21 @@ const JuegoImagenes = ({navigation}) => {
                             source={require("../img/juego-imagenes/flor.png")}
                             style={css_JuegoImagenes.imgOracion}
                           />
+                          <Image
+                            source={require("../img/juego-imagenes/nube.png")}
+                            style={css_JuegoImagenes.imgOracion}
+                          />
                         </View>
                         <Text style={styles.incomingPayload}>{payload}</Text>
-                        <Text style={styles.received}>
-                          {received.join(" ")}
-                        </Text>
+                        <View style={styles.divReceived}>
+                          {
+                            received.map(item =>(
+                              <Text style={styles.received} key={item}>
+                                {item}
+                              </Text>
+                            ))
+                          }                          
+                        </View>
                       </View>
                     </>
                   );
@@ -775,22 +817,28 @@ const JuegoImagenes = ({navigation}) => {
                       <View style={styles.contentWord}>
                         <View style={css_JuegoImagenes.divImgOracion}>
                           <Image
-                            source={require("../img/juego-imagenes/ropa.png")}
-                            style={css_JuegoImagenes.imgOracion}
-                          />
-                          <Image
-                            source={require("../img/juego-imagenes/regalo.png")}
-                            style={css_JuegoImagenes.imgOracion}
-                          />
-                          <Image
                             source={require("../img/juego-imagenes/nina.png")}
+                            style={css_JuegoImagenes.imgOracion}
+                          />
+                            <Image
+                              source={require("../img/juego-imagenes/regalo.png")}
+                              style={css_JuegoImagenes.imgOracion}
+                            />
+                          <Image
+                            source={require("../img/juego-imagenes/ropa.png")}
                             style={css_JuegoImagenes.imgOracion}
                           />
                         </View>
                         <Text style={styles.incomingPayload}>{payload}</Text>
-                        <Text style={styles.received}>
-                          {received.join(" ")}
-                        </Text>
+                        <View style={styles.divReceived}>
+                          {
+                            received.map(item =>(
+                              <Text style={styles.received} key={item}>
+                                {item}
+                              </Text>
+                            ))
+                          }                          
+                        </View>
                       </View>
                     </>
                   );
@@ -903,9 +951,9 @@ const JuegoImagenes = ({navigation}) => {
         setTrofeos(trofeosObj);
         setJuegosCompletados(juegosCompletados + 1);
       } else {
-        // setItemRuleta(null);
-        // setItem("");
-        // setLose(true);
+        setItemRuleta(null);
+        setItem("");
+        setLose(true);
       }
     };
 
@@ -927,13 +975,13 @@ const JuegoImagenes = ({navigation}) => {
         />
         <View style={css_JuegoImagenes.divInstrucciones}>
           <Text style={css_JuegoImagenes.txtInstrucciones}>
-            Completa la oración!
+            Ordena la oración de manera correcta, guiate en las imágenes
           </Text>
-          <MaterialIcons
+          {/* <MaterialIcons
             name="emoji-emotions"
-            size={24}
+            size={22}            
             color={Colors.blue_dark}
-          />
+          /> */}
         </View>
         <View style={styles.game}>
           <Imagenes Tipo={Nombre} />
@@ -1069,7 +1117,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   receivingZone: {
-    height: 200,
+    height: 220,
     borderRadius: 10,
     padding: 10,
     // margin: 16
@@ -1079,7 +1127,7 @@ const styles = StyleSheet.create({
   },
   textRecived: {
     color: Colors.blue_dark,
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
   },
   receiving: {
@@ -1094,14 +1142,28 @@ const styles = StyleSheet.create({
   contentWord: {
     padding: 4,
     margin: 2,
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "center",
   },
+  divReceived:{
+    display: 'flex',
+    flexDirection: 'row',           
+    // alignItems: "center",      
+    // justifyContent: 'center'
+  },
   received: {    
-    textAlign: "center",
-    fontSize: 17,
-    marginBottom:24,
-    fontWeight: "bold",
+    width: "30%",  
+    height:70,
+    margin: 4,
+    flexDirection:'column',
+    // alignSelf:'center',
+    alignItems: "center",
+    // justifyContent: "center",
+    backgroundColor: Colors.redLight,
+    borderRadius: 10,
+    padding: 6,
+    textAlign: "center",    
+    fontSize: 15,        
     color: Colors.white,
   },
   palette: {

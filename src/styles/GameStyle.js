@@ -102,7 +102,7 @@ export const css_JuegoImagenes = StyleSheet.create({
   imgOracion: {
     width: 87,
     height: 90,
-    margin: 5
+    margin: 4
   },
   divJuego: {
     margin: 8,
@@ -198,19 +198,19 @@ export const css_JuegoImagenes = StyleSheet.create({
   divInstrucciones:{
     flexDirection:'row',
     backgroundColor: Colors.turquesa,
-    padding: 10,
-    margin: 10,
+    padding: 4,    
     alignItems: 'center',
     justifyContent:'space-evenly',
     borderRadius: 6,    
     borderColor: Colors.yellow,
-    borderWidth: 4,
+    borderWidth: 2,
     borderStyle: "solid"
   },
   txtInstrucciones:{
+    padding: 4,
     color: Colors.blue_dark,
     fontWeight: 'bold',
-    fontSize: 22
+    fontSize: 18
   }
 });
 

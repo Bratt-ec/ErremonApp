@@ -104,8 +104,8 @@ const Menu = ({ navigation }) => {
             <Image 
             source={
               (playSound)
-              ? require('../img/volume-off.png')
-              : require('../img/volume.png')
+              ? require('../img/volume.png')
+              : require('../img/volume-off.png')
             } 
             style={{ width: 23, height: 23, alignSelf: 'center'}}
             />
@@ -145,8 +145,7 @@ const Menu = ({ navigation }) => {
         </View>
         <TouchableOpacity
           style={css_Menu.DivJuegoImg}
-          onPress={() => {
-            LecturaSound();
+          onPress={() => {            
             navigation.navigate("JuegoImagenes")
           }}
         >
@@ -162,7 +161,11 @@ const Menu = ({ navigation }) => {
         <View style={css_Menu.DivMenuCenter}>
           <TouchableOpacity
             style={css_Menu.DivSopaLetras}            
-            onPress={() => navigation.navigate("DeLectura")}
+            onPress={() => {
+                LecturaSound()
+                navigation.navigate("DeLectura")
+              }
+            }
           >
              <Text style={css_Menu.Enumeracion}>4</Text>
             <Text style={css_Menu.textoMenu3}>Juegos de Lectura</Text>

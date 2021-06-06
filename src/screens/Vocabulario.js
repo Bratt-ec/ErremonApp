@@ -89,12 +89,19 @@ return(
                 <Image source={require('../img/oso_game_2.png')} style={styles.imgOso} />
                 <View style={styles.contentWord}>
                   <Text style={styles.incomingPayload}>{payload}</Text>
-                  <Text style={styles.received}>{received}</Text>
+                  <View style={styles.divReceived}>
+                  {
+                      received.map(silaba =>(
+                          <Text style={styles.received} key={silaba} >{silaba}</Text>
+                      ))
+                    }
+                  </View>
                 </View>
               </>
             );
           }}
           onReceiveDragDrop={(event) => {
+
             if(received.length == NumeroPalabra.juego.length){
               console.log('DRAG BLOQUEADO');
             }else{
@@ -175,12 +182,21 @@ const styles = StyleSheet.create({
     color: Colors.blue_dark
   },
   contentWord:{
-    margin: 2,
+    margin: 1,
     alignItems: 'center',
     justifyContent: 'center',    
   },
+  divReceived:{
+    display: 'flex',
+    flexDirection: 'row',
+
+  },
   received: {
-    fontSize: 24,
+    backgroundColor: Colors.yellow,
+    padding: 6,
+    borderRadius: 6,
+    margin: 4,
+    fontSize: 20,
     fontWeight:'bold',
     color: Colors.blue_dark
   },
