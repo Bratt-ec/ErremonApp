@@ -15,7 +15,7 @@ export const Trofeo = ({Nombre})=>(
     </View>
   )
 const WinGame2 = ({Siguiente, Win , NombreTrofeo, TextoDialogo}) => {
-  const { setWin, setRuleta } = useContext(AuthContext)
+  const { setPreGame,setWin, setRuleta } = useContext(AuthContext)
   
     return ( 
         <View style={Styles.Container}>
@@ -29,6 +29,7 @@ const WinGame2 = ({Siguiente, Win , NombreTrofeo, TextoDialogo}) => {
         style={css_Boton.btnOpcion}
         onPress={() =>{
             setRuleta(true);
+            setPreGame(true);
             setWin(false);
         }}
         >
