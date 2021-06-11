@@ -13,14 +13,14 @@ const Opciones = ({ Value }) => {
 const styles = StyleSheet.create({
   containerOP: {
     backgroundColor: Colors.turquesa,
-    padding: "2%",
-    margin: "1%",
+    padding: 5,
+    margin: 5,
     borderRadius: 6,
     flexWrap: 'wrap'
   },
   txtOpcion: {
     color: Colors.white,
-    fontSize: 14,
+    fontSize: 18,
     textTransform: 'uppercase',
     fontWeight: "bold",
   },

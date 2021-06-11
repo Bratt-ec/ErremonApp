@@ -94,7 +94,7 @@ const Gm_DeLectura = ({ navigation }) => {
           <Video
             ref={video}
             style={play ? css_DeLectura.video : css_DeLectura.hiddenVideo}
-            source={require("../video/juego.mp4")}
+            source={require("../video/cuento_oso.mp4")}
             useNativeControls
             resizeMode="contain"
           />

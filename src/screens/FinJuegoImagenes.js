@@ -19,7 +19,7 @@ const FinJuegoImagenes = ({navigation}) => {
       onPress={() => navigation.navigate('Menu')}
     >
       <View style={css_Boton.divIcon}>
-        <Image
+        <Image 
           source={require("../img/mando.png")}
           style={css_Boton.iconOpcion}
         />

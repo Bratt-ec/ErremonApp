@@ -29,7 +29,7 @@ const WinGame2 = ({Siguiente, Win , NombreTrofeo, TextoDialogo}) => {
         style={css_Boton.btnOpcion}
         onPress={() =>{
             setRuleta(true);
-            setPreGame(true);
+            // setPreGame(true);
             setWin(false);
         }}
         >

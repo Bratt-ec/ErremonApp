@@ -157,7 +157,7 @@ const JuegoImagenes = ({navigation}) => {
                 >
                   <View>
                     <Text style={css_JuegoImagenes.txtEjemplos}>
-                      buscando su alimento
+                      buscando su alimento.
                     </Text>
                   </View>
                 </DraxView>
@@ -233,7 +233,7 @@ const JuegoImagenes = ({navigation}) => {
                 >
                   <View>
                     <Text style={css_JuegoImagenes.txtEjemplos}>
-                      despues de almorzar
+                      despues de almorzar.
                     </Text>
                   </View>
                 </DraxView>
@@ -924,6 +924,7 @@ const JuegoImagenes = ({navigation}) => {
         // Reiniciamos el item de la ruleta
         setItemRuleta(null);
         setItem("");
+        setReceived([]);
         // Eliminamos de la ruleta el item
         let objParticipant = participants;
         objParticipant = objParticipant.filter((obj) => {
@@ -952,6 +953,7 @@ const JuegoImagenes = ({navigation}) => {
           tipo: "medalla",
         });
         // Registramos el trofeo en el context
+        
         setTrofeos(trofeosObj);
         setJuegosCompletados(juegosCompletados + 1);
       } else {
@@ -979,7 +981,7 @@ const JuegoImagenes = ({navigation}) => {
         />
         <View style={css_JuegoImagenes.divInstrucciones}>
           <Text style={css_JuegoImagenes.txtInstrucciones}>
-            Ordena la oración de manera correcta, guiate en las imágenes
+            Ordena la oración de manera correcta, guiate en las imágenes.
           </Text>
           {/* <MaterialIcons
             name="emoji-emotions"

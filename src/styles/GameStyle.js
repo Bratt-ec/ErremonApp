@@ -266,9 +266,16 @@ export const css_Vocabulario = StyleSheet.create({
     justifyContent: 'center'
   },
   txtSignificado:{
+    marginTop: 14,
+    margin: 8,
     fontSize: 20,
     textAlign: 'justify',
   },
+  imgVocabulario:{
+    width:150,
+    height: 150,
+    resizeMode: "contain",        
+  },  
   btnVocabulario:{
     padding: 2,
     backgroundColor: Colors.turquesa,
@@ -376,10 +383,11 @@ export const css_DeLectura = StyleSheet.create({
     borderWidth: 3
   },
   txtRespuesta: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
     textTransform: "uppercase",
     marginHorizontal: 12,
+    padding: 16,
   },
   hiddenVideo: {
     alignSelf: "center",

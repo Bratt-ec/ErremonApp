@@ -17,10 +17,34 @@ const PalabraVocabulario = ({ navigation }) => {
   const FinJuego = () => {
     navigation.navigate("Menu");
   };
+
+  const ImagenVocabulario = ({Palabra}) =>{
+    if(Palabra == 'Estadio'){          
+      return <Image source={require('../img/vocabulario/estadio.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'bacteria'){          
+      return <Image source={require('../img/vocabulario/bacteria.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'microorganismo'){          
+      return <Image source={require('../img/vocabulario/microorganismo.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'cabaña'){          
+      return <Image source={require('../img/vocabulario/cabana.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'ganado'){          
+      return <Image source={require('../img/vocabulario/ganado.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'Alce'){          
+      return <Image source={require('../img/vocabulario/alce.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'panda'){          
+      return <Image source={require('../img/vocabulario/panda.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+  }
   return (
     <View style={css_JuegoImagenes.Container}>
       <HeaderGame image="book.png" name="NUEVA PALABRA" />
-      <View style={css_Vocabulario.Mensaje}>
+      {/* <View style={css_Vocabulario.Mensaje}>
         <Text style={css_Vocabulario.txtMensaje}>
           Encontraste una nueva palabra
         </Text>
@@ -28,7 +52,7 @@ const PalabraVocabulario = ({ navigation }) => {
           source={require("../img/oso_game_7.png")}
           style={css_Vocabulario.imgOso}
         />
-      </View>
+      </View> */}
 
       <View style={css_Vocabulario.ContainerPalabra}>
         <View style={css_Vocabulario.divPalabra}>
@@ -44,11 +68,12 @@ const PalabraVocabulario = ({ navigation }) => {
           />
         </View>
         <View style={css_Vocabulario.divSignificado}>
-          <Ionicons
+          <ImagenVocabulario Palabra={objPalabra.palabra} />
+          {/* <Ionicons
             name="chatbubble-ellipses-sharp"
             size={40}
             color={Colors.blue_dark}
-          />
+          /> */}
           <Text style={css_Vocabulario.txtSignificado}>
             {objPalabra.definicion}
           </Text>

@@ -17,7 +17,7 @@ const Vocabulario = ({navigation}) => {
   const { palabraVocabulario, setPalabraVocabulario,setobjPalabra, setOnVocabulario , preGame,
     setPreGame} = useContext(AuthContext);  
 
-  if (palabraVocabulario == 7) {
+  if (palabraVocabulario == 6) {
     setPalabraVocabulario(1);
   }
 
@@ -192,11 +192,16 @@ const styles = StyleSheet.create({
 
   },
   received: {
-    backgroundColor: Colors.yellow,
-    padding: 6,
+    backgroundColor: Colors.yellow,    
+    borderStyle: "dotted",
+    borderColor: Colors.blue_lit,
+    borderWidth: 4,
+    padding: 18,
     borderRadius: 6,
     margin: 4,
-    fontSize: 20,
+    textAlignVertical: "center",
+    textAlign: 'center',
+    fontSize: 22,
     fontWeight:'bold',
     color: Colors.blue_dark
   },

@@ -96,21 +96,21 @@ const TestEvaluativo = ({navigation}) => {
                             <Text style={css_DeLectura.txtPregunta}>Mariana se fue de viaje, _____ estando enferma</Text>
                         </View>
                         <View style={css_DeLectura.divRespuestas}>
-                            <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
-                               <Text style={css_DeLectura.txtRespuesta}>PERO</Text> 
-                            </TouchableOpacity>
-    
+                            
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(true)}>
                                <Text style={css_DeLectura.txtRespuesta}>AÚN</Text> 
-                            </TouchableOpacity>
+                            </TouchableOpacity>                            
     
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
                                <Text style={css_DeLectura.txtRespuesta}>SIN EMBARGO</Text> 
                             </TouchableOpacity>
-
-                                
+                            
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
                                <Text style={css_DeLectura.txtRespuesta}>EN CAMBIO</Text> 
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
+                               <Text style={css_DeLectura.txtRespuesta}>PERO</Text> 
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -129,19 +129,19 @@ const TestEvaluativo = ({navigation}) => {
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
                                <Text style={css_DeLectura.txtRespuesta}>PERO</Text> 
                             </TouchableOpacity>
-    
+
+                            <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(true)}>
+                               <Text style={css_DeLectura.txtRespuesta}>EN CAMBIO</Text> 
+                            </TouchableOpacity>
+
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
                                <Text style={css_DeLectura.txtRespuesta}>AÚN</Text> 
                             </TouchableOpacity>
     
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
                                <Text style={css_DeLectura.txtRespuesta}>SIN EMBARGO</Text> 
-                            </TouchableOpacity>
-
-                                
-                            <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(true)}>
-                               <Text style={css_DeLectura.txtRespuesta}>EN CAMBIO</Text> 
-                            </TouchableOpacity>
+                            </TouchableOpacity>                                
+                            
                         </View>
                     </View>
                 </View>
@@ -157,21 +157,21 @@ const TestEvaluativo = ({navigation}) => {
                         </View>
                         <View style={css_DeLectura.divRespuestas}>
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
-                               <Text style={css_DeLectura.txtRespuesta}>PERO</Text> 
+                               <Text style={css_DeLectura.txtRespuesta}>EN CAMBIO</Text> 
                             </TouchableOpacity>
     
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
                                <Text style={css_DeLectura.txtRespuesta}>AÚN</Text> 
                             </TouchableOpacity>
+
+                            <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
+                               <Text style={css_DeLectura.txtRespuesta}>PERO</Text> 
+                            </TouchableOpacity>
     
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(true)}>
                                <Text style={css_DeLectura.txtRespuesta}>SIN EMBARGO</Text> 
                             </TouchableOpacity>
-
-                                
-                            <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Respuesta(false)}>
-                               <Text style={css_DeLectura.txtRespuesta}>EN CAMBIO</Text> 
-                            </TouchableOpacity>
+                                                            
                         </View>
                     </View>
                 </View>

@@ -38,8 +38,8 @@ const HeaderGame = ({ name }) => {
         <Image
           source={
             playSound
-              ? require("../img/volume-off.png")
-              : require("../img/volume.png")
+              ? require("../img/volume.png")
+              : require("../img/volume-off.png")
           }
           style={{ width: 23, height: 23, alignSelf: "center" }}
         />

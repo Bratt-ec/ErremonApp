@@ -94,7 +94,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
           <Video
             ref={video}
             style={play ? css_DeLectura.video : css_DeLectura.hiddenVideo}
-            source={require("../video/juego.mp4")}
+            source={require("../video/cuento_oso.mp4")}
             useNativeControls
             resizeMode="contain"
           />
@@ -224,7 +224,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
   return (
     <View style={css_Crucigrama.Container}>
       <StatusBar style="light" />
-      <HeaderGame name="El León y el Conejo" />
+      <HeaderGame name="El León y la Oruga" />
       {pregunta !== 6 && preGame == false ? <JuegoLectura /> : null}
       {preGame ? (
         <PreScreenGame txtDialogo="Primero mira el video y luego responde a la pregunta ¡Suerte!" />
