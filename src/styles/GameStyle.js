@@ -350,7 +350,17 @@ export const css_DeLectura = StyleSheet.create({
     borderWidth: 3,
     marginVertical: "2%",
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',        
+    // justifyContent: 'center',
+  },
+  divPregunta2: {
+    backgroundColor: Colors.turquesa,
+    borderRadius: 6,
+    borderColor: Colors.yellow,
+    borderWidth: 3,
+    marginVertical: "2%",
+    flexDirection: 'column',
+    alignItems: 'center',    
     // justifyContent: 'center',
   },
   divIcon:{
@@ -369,9 +379,10 @@ export const css_DeLectura = StyleSheet.create({
   },
   txtPregunta: {
     color: Colors.white,
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
     marginHorizontal: 4,
+    textAlign: 'center',
   },
   Respuesta: {
     backgroundColor: Colors.yellow,
@@ -496,5 +507,85 @@ export const css_MenuCuentos = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   }
+
+})
+
+export const css_TestEvaluativo = StyleSheet.create({
+  img:{
+    width: 90,
+    height: 90,
+    resizeMode: "contain"
+  },
+  img2:{
+    width: 70,
+    height: 70,
+    resizeMode: "contain"
+  },
+  InputNombres:{
+    fontSize: 20,
+    marginHorizontal: '2%',
+    color: Colors.blue_dark,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.blue_dark,
+    width: 200
+  },
+  Respuesta: {
+    backgroundColor: Colors.yellow,
+    margin: "1%",
+    borderRadius: 6,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: Colors.turquesa,
+    borderWidth: 3
+  },
+  txtRespuesta: {
+    fontSize: 16,
+    padding: 4,
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    marginHorizontal: 12,    
+  },
+  viewOp:{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 12,
+  },
+  viewPress:{
+    backgroundColor: Colors.turquesa,
+    padding: 6,
+    paddingHorizontal: 12,
+    borderRadius: 5
+  },
+  btnOp:{
+    backgroundColor: Colors.red,
+    padding: 6,
+    paddingHorizontal: 12,
+    borderRadius: 5
+  },
+  txtOp:{
+    color: Colors.white,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  Respuesta:{
+    backgroundColor: Colors.yellow,
+    margin: "2%",
+    borderRadius: 6,    
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: Colors.turquesa,
+    borderWidth: 3 ,
+    padding: 14
+  },
+  txtRespuesta: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textTransform: "uppercase",    
+    textAlign: 'center',
+    marginVertical: 10
+  },
 
 })

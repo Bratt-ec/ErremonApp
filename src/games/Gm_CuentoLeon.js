@@ -7,6 +7,7 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import HeaderGame from "../components/HeaderGame";
 import PreScreenGame from "../components/PreScreenGame";
@@ -94,7 +95,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
           <Video
             ref={video}
             style={play ? css_DeLectura.video : css_DeLectura.hiddenVideo}
-            source={require("../video/cuento_oso.mp4")}
+            source={require("../video/cuento_leon.mp4")}
             useNativeControls
             resizeMode="contain"
           />
@@ -225,6 +226,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
     <View style={css_Crucigrama.Container}>
       <StatusBar style="light" />
       <HeaderGame name="El León y la Oruga" />
+      <ScrollView>
       {pregunta !== 6 && preGame == false ? <JuegoLectura /> : null}
       {preGame ? (
         <PreScreenGame txtDialogo="Primero mira el video y luego responde a la pregunta ¡Suerte!" />
@@ -237,6 +239,8 @@ const Gm_CuentoLeon = ({ navigation }) => {
       {pregunta == 4 ? <Preguntas NumPregunta={pregunta} /> : null}
       {pregunta == 5 ? <Preguntas NumPregunta={pregunta} /> : null}
       {pregunta == 6 ? <NotaFinal /> : null}
+      </ScrollView>
+      
     </View>
   );
 };
