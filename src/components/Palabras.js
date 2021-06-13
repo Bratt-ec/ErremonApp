@@ -1,6 +1,6 @@
 export const Palabras = [
     {id: 1, juego: ["DIO","ES","TA"], palabra: 'Estadio', tipo:'sustantivo-masculino', definicion: 'Recinto deportivo de gran tamaño con gradas para los espectadores'},
-    {id: 2, juego: ["PAN","DA"],palabra: 'panda', tipo:'sustantivo-femenino',definicion: 'Mamífero que habita en zonas montañosas y boscosas de China'},
+    {id: 2, juego: ["DA","PAN"],palabra: 'panda', tipo:'sustantivo-femenino',definicion: 'Mamífero que habita en zonas montañosas y boscosas de China'},
     {id: 3, juego: ["CA","ÑA","BA"],palabra: 'cabaña', tipo:'sustantivo-femenino',definicion: 'Casa rústica hecha de troncos y otros materiales sencillos'},
     {id: 4, juego: ["DO","GA","NA"],palabra: 'ganado', tipo:'sustantivo-masculino',definicion: 'Conjunto de animales criados para su explotación'},
     {id: 5, juego: ["AL","CE"],palabra: 'Alce', tipo:'sustantivo-masculino',definicion: 'Mamífero rumiante , parecido al ciervo y con astas en forma de pala'},

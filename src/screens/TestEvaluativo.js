@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, BackHandler, Image, TouchableOpacity, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { View, BackHandler, Image, TouchableOpacity, Text, StyleSheet,KeyboardAvoidingView,
+     Platform, TouchableWithoutFeedback, Keyboard ,TextInput, ScrollView } from 'react-native';
 import HeaderGame from '../components/HeaderGame';
 import PreScreenGame from '../components/PreScreenGame';
 import { css_Crucigrama, css_DeLectura, css_JuegoImagenes, css_TestEvaluativo } from '../styles/GameStyle';
@@ -109,7 +110,7 @@ const TestEvaluativo = ({navigation}) => {
                                         ]);
                                     }
                                     setTimeout(() => {
-                                        if(event.dragged.payload == 'Finalmente'){
+                                        if(event.dragged.payload == 'finalmente'){
                                             Respuesta(true);
                                             setReceived([]);
                                         }else{
@@ -126,20 +127,20 @@ const TestEvaluativo = ({navigation}) => {
                                     draggingStyle={styles.dragging}
                                     dragReleasedStyle={styles.dragging}
                                     hoverDraggingStyle={styles.hoverDragging}
-                                    dragPayload="Finalmente"
+                                    dragPayload="finalmente"
                                     longPressDelay={0}
                                 >
-                                    <Text style={styles.textDraggable}>Finalmente</Text>
+                                    <Text style={styles.textDraggable}>finalmente</Text>
                                 </DraxView>            
                                 <DraxView
                                     style={[styles.centeredContent, styles.draggableBox, styles.yellow]}
                                     draggingStyle={styles.dragging}
                                     dragReleasedStyle={styles.dragging}
                                     hoverDraggingStyle={styles.hoverDragging}
-                                    dragPayload="Ojala"
+                                    dragPayload="ojalá"
                                     longPressDelay={0}
                                 >
-                                    <Text style={styles.textDraggable}>Ojalá</Text>
+                                    <Text style={styles.textDraggable}>ojalá</Text>
                                 </DraxView>            
                                 </View>
                             </View> 
@@ -192,7 +193,7 @@ const TestEvaluativo = ({navigation}) => {
                                         ]);
                                     }
                                     setTimeout(() => {
-                                        if(event.dragged.payload == 'Debido a'){
+                                        if(event.dragged.payload == 'debido a'){
                                             setReceived([]);
                                             Respuesta(true);
                                         }else{
@@ -209,20 +210,20 @@ const TestEvaluativo = ({navigation}) => {
                                     draggingStyle={styles.dragging}
                                     dragReleasedStyle={styles.dragging}
                                     hoverDraggingStyle={styles.hoverDragging}
-                                    dragPayload="Debido a"
+                                    dragPayload="debido a"
                                     longPressDelay={0}
                                 >
-                                    <Text style={styles.textDraggable}>Debido a</Text>
+                                    <Text style={styles.textDraggable}>debido a</Text>
                                 </DraxView>            
                                 <DraxView
                                     style={[styles.centeredContent, styles.draggableBox, styles.yellow]}
                                     draggingStyle={styles.dragging}
                                     dragReleasedStyle={styles.dragging}
                                     hoverDraggingStyle={styles.hoverDragging}
-                                    dragPayload="Por que"
+                                    dragPayload="por que"
                                     longPressDelay={0}
                                 >
-                                    <Text style={styles.textDraggable}>Por que</Text>
+                                    <Text style={styles.textDraggable}>por que</Text>
                                 </DraxView>            
                                 </View>
                             </View> 
@@ -256,6 +257,7 @@ const TestEvaluativo = ({navigation}) => {
                             <Text style={css_DeLectura.txtPregunta}>-ESCRITURA-</Text>
                             <Text style={css_DeLectura.txtPregunta}>Escribe correctamente el nombre de los animales</Text>
                         </View>
+                        <KeyboardAvoidingView behavior="position">
                         <View style={css_DeLectura.divRespuestas}>
                             <View style={css_DeLectura.Respuesta}>
                                <Image source={require('../img/animales/016-cow.png')} style={css_TestEvaluativo.img}/>
@@ -297,6 +299,7 @@ const TestEvaluativo = ({navigation}) => {
                                <Text style={css_DeLectura.txtRespuesta}>SIGUIENTE</Text> 
                             </TouchableOpacity>                                                   
                         </View>
+                        </KeyboardAvoidingView>
                     </View>
                 </View>
             );
@@ -498,10 +501,11 @@ const TestEvaluativo = ({navigation}) => {
                         <View style={css_DeLectura.divPregunta}>
                             <Text style={css_DeLectura.txtPregunta}>-VOCABULARIO-</Text>
                         </View>
+                    <KeyboardAvoidingView behavior="position">
                         <View style={css_DeLectura.divRespuestas}>
                             <View style={css_TestEvaluativo.Respuesta}>
                                <Image source={require('../img/test/loro.png')} style={css_TestEvaluativo.img2}/>
-                               <Text style={css_TestEvaluativo.txtRespuesta}>Ave grande con plumas coloridas</Text> 
+                               <Text style={css_TestEvaluativo.txtRespuesta2}>Ave grande con plumas coloridas</Text> 
                                <TextInput
                                 style={css_TestEvaluativo.InputNombres}
                                 onChangeText={setanimal1}
@@ -512,23 +516,26 @@ const TestEvaluativo = ({navigation}) => {
                                 />
                             </View>
 
-                            <View style={css_TestEvaluativo.Respuesta}>
-                               <Image source={require('../img/test/lago.png')} style={css_TestEvaluativo.img2}/>
-                               <Text style={css_TestEvaluativo.txtRespuesta}>Gran depósito natural de agua </Text> 
-                               <TextInput
-                                style={css_TestEvaluativo.InputNombres}
-                                onChangeText={setanimal2}
-                                value={animal2}
-                                textContentType="name"
-                                placeholder="Nombre del lugar"
-                                placeholderTextColor={Colors.blue_dark}
-                                />
+                            <TouchableWithoutFeedback>
+                            <View style={css_TestEvaluativo.Respuesta}>                                                                                               
+                                    <Image source={require('../img/test/lago.png')} style={css_TestEvaluativo.img2}/>
+                                    <Text style={css_TestEvaluativo.txtRespuesta2}>Gran depósito natural de agua </Text> 
+                                    <TextInput
+                                        style={css_TestEvaluativo.InputNombres}
+                                        onChangeText={setanimal2}
+                                        value={animal2}
+                                        textContentType="name"
+                                        placeholder="Nombre del lugar"
+                                        placeholderTextColor={Colors.blue_dark}
+                                    />                                                              
                             </View>
+                            </TouchableWithoutFeedback>
 
                             <TouchableOpacity style={css_DeLectura.Respuesta} onPress={()=> Verificar()}>
                                <Text style={css_DeLectura.txtRespuesta}>SIGUIENTE</Text> 
                             </TouchableOpacity>
                         </View>
+                    </KeyboardAvoidingView>
                     </View>
                 </View>
             );
@@ -536,7 +543,7 @@ const TestEvaluativo = ({navigation}) => {
 
 
     return (  
-        <View style={css_Crucigrama.Container}>
+        <View style={css_Crucigrama.Container}>           
             <HeaderGame name='Test Evaluativo'/>
             {preGame ? <PreScreenGame txtDialogo='Ahora veremos cuanto has aprendido, escoje la palabra que comlpleta la oración ¡Suerte!'/> : null}
             {preGame ? null : ( pregunta == 1) ? <PrimeraPregunta /> : null}
@@ -546,7 +553,7 @@ const TestEvaluativo = ({navigation}) => {
             {pregunta == 5 ? <QuintaPregunta /> : null }
             {pregunta == 6 ? <SextaPregunta /> : null }
             {pregunta == 7 ? <SeptimaPregunta /> : null }
-            {pregunta == 8 ?  <NotaFinal /> : null }
+            {pregunta == 8 ?  <NotaFinal /> : null }        
 
         </View>
      ); 

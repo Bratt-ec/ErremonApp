@@ -472,7 +472,7 @@ export const css_ItemCrucigrama = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  imgFruta: { width: 45, height: 40, position: "absolute" },
+  imgFruta: { width: 45, height: 40,resizeMode: 'contain', position: "absolute" },
 });
 
 export const css_MenuCuentos = StyleSheet.create({
@@ -578,14 +578,21 @@ export const css_TestEvaluativo = StyleSheet.create({
     justifyContent: 'center',
     borderColor: Colors.turquesa,
     borderWidth: 3 ,
-    padding: 14
+    padding: 8
   },
   txtRespuesta: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     textTransform: "uppercase",    
     textAlign: 'center',
-    marginVertical: 10
+    // marginVertical: 10
+  },
+  txtRespuesta2: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textTransform: "uppercase",    
+    textAlign: 'center',
+    marginVertical: 5
   },
 
 })

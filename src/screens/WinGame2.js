@@ -6,6 +6,7 @@ import Dialogo from "../components/Dialogo";
 import HeaderGame from '../components/HeaderGame';
 import { AuthContext } from '../navigation/AuthProvider';
 import { Colors } from "../styles/Colors";
+import { useNavigation } from '@react-navigation/native';
 
 export const Trofeo = ({Nombre})=>(
     <View style={Styles.divTrofeo}>
@@ -14,9 +15,10 @@ export const Trofeo = ({Nombre})=>(
       <Text style={Styles.nombreTrofeo}>{Nombre}</Text>
     </View>
   )
+
 const WinGame2 = ({Siguiente, Win , NombreTrofeo, TextoDialogo}) => {
-  const { setPreGame,setWin, setRuleta } = useContext(AuthContext)
-  
+  const { setPreGame,setWin, setRuleta } = useContext(AuthContext);
+  const navigation =  useNavigation();
     return ( 
         <View style={Styles.Container}>
         <View style={Styles.divContenido}></View>
@@ -41,7 +43,23 @@ const WinGame2 = ({Siguiente, Win , NombreTrofeo, TextoDialogo}) => {
             </View>
         <Text style={css_Boton.txtOpcion}>Jugar Otra vez</Text>
         </TouchableOpacity>       
-        <BotonContinuar Texto="Ir al Menú" Ruta={Siguiente} />
+        <TouchableOpacity
+        style={css_Boton.btnOpcion}
+        onPress={() =>{        
+          navigation.navigate('Menu');
+            setRuleta(true);
+            // setPreGame(true);
+            setWin(false);            
+        }}
+        >
+            <View style={css_Boton.divIcon}>
+                <Image
+                source={require("../img/mando.png")}
+                style={css_Boton.iconOpcion}
+                />
+            </View>
+        <Text style={css_Boton.txtOpcion}>Ir al Menú</Text>
+        </TouchableOpacity>       
       </View>
      );
 }

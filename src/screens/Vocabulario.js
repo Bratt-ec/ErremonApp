@@ -114,17 +114,19 @@ return(
         />      
         <View style={styles.palette}>
           {
-            NumeroPalabra.juego.map(silaba =>(
+            NumeroPalabra.juego.map(silaba =>(            
               <DraxView
-            style={[styles.centeredContent, styles.draggableBox, styles.yellow]}
-            draggingStyle={styles.dragging}
-            dragReleasedStyle={styles.dragging}
-            hoverDraggingStyle={styles.hoverDragging}
-            dragPayload={silaba}
-            longPressDelay={0}
-          >
-            <Text style={styles.textDraggable}>{silaba}</Text>
-          </DraxView>
+                style={[styles.centeredContent, styles.draggableBox]}
+                draggingStyle={styles.dragging}
+                dragReleasedStyle={styles.dragging}
+                hoverDraggingStyle={styles.hoverDragging}
+                dragPayload={silaba}
+                longPressDelay={0}
+                key={silaba}
+              >
+                <Image source={require('../img/vocabulario/cubo.png')} style={styles.dado}/>
+                <Text style={styles.textDraggable}>{silaba}</Text>
+              </DraxView>          
 
             ))
           }          
@@ -215,12 +217,22 @@ const styles = StyleSheet.create({
   draggableBox: {
     width: 80,
     height: 80,
-    borderRadius: 10,
-    padding: 10,
-    margin: 10
+    top: -10,
+    // borderRadius: 10,
+    padding: 10,    
+    margin: 10,    
+  },
+  dado:{
+    position: 'absolute',    
+    width: 80,
+    height: 80,
   },
   textDraggable:{
+    backgroundColor: Colors.blue_semi_dark,
     fontWeight: 'bold',
+    color: Colors.white,
+    padding: 8,
+    borderRadius: 8,
     fontSize: 20
   },  
   green: {

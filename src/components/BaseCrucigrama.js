@@ -42,11 +42,11 @@ const BaseCrucigrama = ({Tipo}) => {
         "","a","","m","","","",
         "","n","","o","","","",
         "","z","","n","","","",
-        "ajo","a","","","","","",
-        "a","n","a","n","a","b","banana",
-        "j","a","","","r","","",
-        "o","","","","e","","",
-        "","","","","p","","",
+        "","a","","","","","",
+        "","n","a","n","a","b","banana",
+        "","a","","","r","","",
+        "","","","","e","","",
+        "","a","ñ","i","p","piña","",
         "","","","","pera","","",
         ];
 
@@ -110,10 +110,10 @@ const BaseCrucigrama = ({Tipo}) => {
         )
       }
   
-      if(Letra == "ajo"){
+      if(Letra == "piña"){
         return(
           <View style={css_ItemCrucigrama.cellEmpty}>
-             <Image source={require('../img/frutas/png/017-garlic.png')} style={css_ItemCrucigrama.imgFruta} />
+             <Image source={require('../img/frutas/png/pina.png')} style={css_ItemCrucigrama.imgFruta} />
           </View>
         )
       }
@@ -532,7 +532,7 @@ const BaseCrucigrama = ({Tipo}) => {
     } else {
     return (
       <View style={styles.container}>
-        <View style={styles.lista}> 
+        <View style={styles.lista}>         
           <FlatList
             data={DATA}
             renderItem={Item}

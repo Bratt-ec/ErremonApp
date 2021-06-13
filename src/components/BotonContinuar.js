@@ -5,7 +5,7 @@ import { AuthContext } from "../navigation/AuthProvider";
 import { useNavigation } from "@react-navigation/core";
 
 const BotonContinuar = ({ Texto, Ruta }) => {
-  const { setPreGame } = useContext(AuthContext);
+  const { setPreGame, setWin } = useContext(AuthContext);
   const navigation = useNavigation();  
   return (
     <TouchableOpacity
