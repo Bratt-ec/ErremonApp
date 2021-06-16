@@ -40,6 +40,33 @@ const PalabraVocabulario = ({ navigation }) => {
     if(Palabra == 'panda'){          
       return <Image source={require('../img/vocabulario/panda.png')} style={css_Vocabulario.imgVocabulario}/>;
     }
+    if(Palabra == 'semilla'){          
+      return <Image source={require('../img/vocabulario/semilla.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'pasa'){          
+      return <Image source={require('../img/vocabulario/pasas.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'lira'){          
+      return <Image source={require('../img/vocabulario/lira.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'meta'){          
+      return <Image source={require('../img/vocabulario/meta.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'tenaz'){          
+      return <Image source={require('../img/vocabulario/tenaz.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'veleta'){          
+      return <Image source={require('../img/vocabulario/veleta.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'ancla'){          
+      return <Image source={require('../img/vocabulario/ancla.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'loro'){          
+      return <Image source={require('../img/test/loro.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
+    if(Palabra == 'laguna'){          
+      return <Image source={require('../img/test/lago.png')} style={css_Vocabulario.imgVocabulario}/>;
+    }
   }
   return (
     <View style={css_JuegoImagenes.Container}>

@@ -17,7 +17,7 @@ const Vocabulario = ({navigation}) => {
   const { palabraVocabulario, setPalabraVocabulario,setobjPalabra, setOnVocabulario , preGame,
     setPreGame} = useContext(AuthContext);  
 
-  if (palabraVocabulario == 6) {
+  if (palabraVocabulario == 14) {
     setPalabraVocabulario(1);
   }
 
@@ -89,12 +89,18 @@ return(
                 <Image source={require('../img/oso_game_2.png')} style={styles.imgOso} />
                 <View style={styles.contentWord}>
                   <Text style={styles.incomingPayload}>{payload}</Text>
-                  <View style={styles.divReceived}>
-                  {
+                  <View style={styles.divReceived}> 
+                    {
+                      (received.length == 0)
+                      ?<Text style={styles.PreReceived}  >Coloca aquí los cubos</Text>                  
+                      :null 
+                    }
+                    {                          
                       received.map(silaba =>(
+
                           <Text style={styles.received} key={silaba} >{silaba}</Text>
                       ))
-                    }
+                    }                    
                   </View>
                 </View>
               </>
@@ -132,6 +138,7 @@ return(
           }          
         </View>
       </View>      
+    </DraxProvider>
       <View style={css_Vocabulario.divBotones}>
         <TouchableOpacity style={css_Vocabulario.btnVocabulario} onPress={()=> FinJuego()}>
           <Ionicons name="checkbox" size={36} color={Colors.blue_dark} />
@@ -147,7 +154,6 @@ return(
           <Text style={css_Vocabulario.txtBoton}>Otra vez</Text>
         </TouchableOpacity>
       </View>      
-    </DraxProvider>
   </View>
 )
 };
@@ -207,6 +213,15 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     color: Colors.blue_dark
   },
+  PreReceived:{ 
+    padding: 10,
+    backgroundColor: Colors.red,
+    margin:5,
+    borderRadius:8,
+    color: Colors.white,
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
   palette: {
     flexDirection: 'row',
     alignItems:'center',    
@@ -216,24 +231,26 @@ const styles = StyleSheet.create({
   },
   draggableBox: {
     width: 80,
-    height: 80,
-    top: -10,
-    // borderRadius: 10,
-    padding: 10,    
-    margin: 10,    
+    height: 80,    
+    margin: 10,  
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'  
   },
   dado:{
     position: 'absolute',    
-    width: 80,
-    height: 80,
+    width: 100,
+    height: 100,
+    alignSelf: 'center'
   },
-  textDraggable:{
-    backgroundColor: Colors.blue_semi_dark,
+  textDraggable:{    
     fontWeight: 'bold',
     color: Colors.white,
-    padding: 8,
+    paddingLeft: 10,
     borderRadius: 8,
-    fontSize: 20
+    fontSize: 22,    
+    textAlign:'center'
   },  
   green: {
     backgroundColor: Colors.blue_lit,

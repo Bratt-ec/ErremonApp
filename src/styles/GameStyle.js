@@ -301,9 +301,10 @@ export const css_Vocabulario = StyleSheet.create({
     marginLeft: 6
   },
   divBotones:{
-    marginTop: 30,
+    top: -90,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    // alignItems: 'flex-end'
   },
   divBotones2:{
     marginTop: 30,
