@@ -32,6 +32,8 @@ const SopaLetras = ({
         setTrofeos,
         juegosCompletados,
         setJuegosCompletados,
+        gmSopaLetras,
+        setGmSopaLetras,
       } = useContext(AuthContext);
 
   const [lose, setLose] = useState(false);
@@ -70,7 +72,7 @@ const SopaLetras = ({
       "U","N","D", "","O",
       "E","D","O","","N",
       "","E","A","","S",
-      "","","","r","I",
+      "","","","","I",
       "E","","","","G",
       "T","N","E","I","U",
     ];
@@ -79,34 +81,34 @@ const SopaLetras = ({
 
   if (Juego == "DeTiempo") {
     DATA = [
-      "F","","m","p","",
-      "i","","i","o","",
-      "n","","e","r","",
-      "a","","n","u","s",
-      "l","","t","l","e",
-      "m","","r","t","u",
-      "e","","a","i","p",
+      "F","","","p","",
+      "i","","","o","",
+      "n","","","r","",
+      "a","","","u","s",
+      "l","","","l","e",
+      "m","","e","t","u",
+      "e","","d","i","p",
       "n","","s", "m","s",
-      "t","", "", "o","e",
-      "e","","","","d",
+      "t","", "e", "o","e",
+      "e","","d","","d",
     ];
-    toques = 34;
+    toques = 31;
   }
 
   if (Juego == "DeAdicion") {
     DATA = [
-      "","","","","T",
-      "","","","","A",
-      "","","","O","M",
-      "","","","M","B",
-      "","S","","S","I",
-      "","A","","I","E",
+      "A","","","","T",
+      "P","","","","A",
+      "A","","","O","M",
+      "R","","","M","B",
+      "T","S","","S","I",
+      "E","A","","I","E",
       "","M","","M","N",
       "","E","","I","",
       "","D","","S","",
       "","A","","A","",
     ];
-    toques = 21;
+    toques = 27;
   }
 
   const abecedario = "abcdefghigklmnopqrstuvwxyz";
@@ -135,12 +137,14 @@ const SopaLetras = ({
                   setMedalla(false);
                   return;
                 } }
+
                 trofeosObj.push({
                   id: aleatorio,
                   nombre: 'Jefe de Conectores de Oposición',
                   estrellas: "5",
                   tipo: 'medalla'
-                }) 
+                });
+                setGmSopaLetras(gmSopaLetras + 1);
                 setMedalla(true);
 
           }
@@ -159,6 +163,7 @@ const SopaLetras = ({
                 estrellas: "5",
                 tipo: 'medalla'
               }) 
+              setGmSopaLetras(gmSopaLetras + 1);
               setMedalla(true);
           }
       
@@ -177,6 +182,7 @@ const SopaLetras = ({
               estrellas: "5", 
               tipo: 'medalla'
             }) 
+            setGmSopaLetras(gmSopaLetras + 1);
             setMedalla(true);
           }
       
@@ -195,11 +201,22 @@ const SopaLetras = ({
                 estrellas: "5",
                 tipo: 'medalla'
               }) 
+              setGmSopaLetras(gmSopaLetras + 1);
               setMedalla(true);
           }
-
+          console.log('SOPA LETRAS', gmSopaLetras);
           setTrofeos(trofeosObj)
           setJuegosCompletados(juegosCompletados + 1);
+          if(gmSopaLetras  == 3){
+            trofeosObj.push(  
+              {
+              id: aleatorio,
+              nombre: 'Master Sopa de Palabras',
+              estrellas: "5",
+              tipo: 'trofeo'
+            });
+            setTrofeos(trofeosObj);
+          }
       }
     }, [touch]);
     if (Letra == "") {

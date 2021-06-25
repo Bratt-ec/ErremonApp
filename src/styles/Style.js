@@ -203,6 +203,17 @@ export const css_Menu = StyleSheet.create({
     textAlign: "center",
     width: "50%",
   },
+  textoMenu4: {
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: "bold",
+    marginHorizontal: "1%",
+    marginLeft: '15%',
+    margin: "5%",
+    marginTop: '6%',
+    textAlign: "center",
+    width: "50%",
+  },
   txtTrofeos: {
     color: Colors.blue_dark,
     fontSize: 18,
@@ -238,6 +249,14 @@ export const css_Menu = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 50,
     marginTop: -10,
+  },
+  Enumeracion4: {
+    color: Colors.white,
+    position: "absolute",
+    fontWeight: "bold",
+    fontSize: 80,
+    marginTop: -10,
+    margin: 10,
   },
   imgAvatar: {},
   txtHeader: {

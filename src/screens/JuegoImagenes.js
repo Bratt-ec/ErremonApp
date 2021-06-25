@@ -37,7 +37,9 @@ const JuegoImagenes = ({navigation}) => {
     ruleta,
     setRuleta,
     win,
-    setWin
+    setWin,
+    setGmSopaLetras,
+    gmSopaLetras
   } = useContext(AuthContext);
   // State
   const [item, setItem] = useState("");
@@ -62,7 +64,7 @@ const JuegoImagenes = ({navigation}) => {
   };
   const RuletaView = () => <Ruleta />;
   const Imagenes = ({ Tipo }) => {
-    if (Tipo == "DRAGON") {
+    if (Tipo == "DRAGÓN") {
       setOracion(
         "El dragón sale a volar por las montañas buscando su alimento"
       );
@@ -483,7 +485,7 @@ const JuegoImagenes = ({navigation}) => {
       );
     }
 
-    if (Tipo == "FOSFORO") {
+    if (Tipo == "FÓSFORO") {
       setOracion(
         "Para encender la cocina usamos un fósforo y así podremos cocinar"
       );
@@ -933,7 +935,7 @@ const JuegoImagenes = ({navigation}) => {
         setparticipants(objParticipant);
 
         for (let i = 0; i < trofeos.length; i++) {
-          if (trofeos[i].nombre == "Master de las Oraciones") {
+          if (trofeos[i].nombre == "Jefe de las Oraciones") {
             console.log("Ya tienes este trofeo");
             // setMedalla(false);
             return;
@@ -948,7 +950,7 @@ const JuegoImagenes = ({navigation}) => {
         // Creamos el trofeo del juego
         trofeosObj.push({
           id: aleatorio,
-          nombre: "Master de las Oraciones",
+          nombre: "Jefe de las Oraciones",
           estrellas: "5",
           tipo: "medalla",
         });
@@ -956,6 +958,17 @@ const JuegoImagenes = ({navigation}) => {
         
         setTrofeos(trofeosObj);
         setJuegosCompletados(juegosCompletados + 1);
+        setGmSopaLetras(gmSopaLetras + 1);
+        if(gmSopaLetras  == 7){
+          trofeosObj.push(  
+            {
+            id: aleatorio,
+            nombre: 'Master de las Oraciones',
+            estrellas: "5",
+            tipo: 'trofeo'
+          });
+          setTrofeos(trofeosObj);
+        }
       } else {
         setItemRuleta(null);
         setItem("");

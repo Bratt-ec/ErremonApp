@@ -438,7 +438,7 @@ const TestEvaluativo = ({navigation}) => {
 
                         <View style={css_DeLectura.divRespuestas}>
                             <View style={css_TestEvaluativo.Respuesta}>
-                               <Text style={css_TestEvaluativo.txtRespuesta}>¿Como se llama la gallina?</Text> 
+                               <Text style={css_TestEvaluativo.txtRespuesta}>¿Cómo se llama la gallina?</Text> 
                             </View>
                             <View style={css_TestEvaluativo.viewOp}>
                                 <TouchableOpacity style={(select1 == 'Josefina' && press1) ? css_TestEvaluativo.viewPress :css_TestEvaluativo.btnOp } onPress={()=>{seleccion1('Josefina')}}>
@@ -450,7 +450,7 @@ const TestEvaluativo = ({navigation}) => {
                             </View> 
     
                             <View style={css_TestEvaluativo.Respuesta}>
-                               <Text style={css_TestEvaluativo.txtRespuesta}>¿De que color eran los huevos?</Text> 
+                               <Text style={css_TestEvaluativo.txtRespuesta}>¿De qué color eran los huevos?</Text> 
                             </View>
                             <View style={css_TestEvaluativo.viewOp}>
                                 <TouchableOpacity style={(select2 == 'Verdes' && press2) ? css_TestEvaluativo.viewPress :css_TestEvaluativo.btnOp } onPress={()=>{seleccion2('Verdes')}}>
@@ -462,7 +462,7 @@ const TestEvaluativo = ({navigation}) => {
                             </View> 
 
                             <View style={css_TestEvaluativo.Respuesta}>
-                               <Text style={css_TestEvaluativo.txtRespuesta}>¿Que hace la gallina cuendo pone un huevo?</Text> 
+                               <Text style={css_TestEvaluativo.txtRespuesta}>¿Qué hace la gallina cuendo pone un huevo?</Text> 
                             </View>
                             <View style={css_TestEvaluativo.viewOp}>
                                 <TouchableOpacity style={(select3 == 'Cacarea' && press3) ? css_TestEvaluativo.viewPress :css_TestEvaluativo.btnOp } onPress={()=>{seleccion3('Cacarea')}}>
@@ -505,7 +505,7 @@ const TestEvaluativo = ({navigation}) => {
                         <View style={css_DeLectura.divRespuestas}>
                             <View style={css_TestEvaluativo.Respuesta}>
                                <Image source={require('../img/test/loro.png')} style={css_TestEvaluativo.img2}/>
-                               <Text style={css_TestEvaluativo.txtRespuesta2}>Ave grande con plumas coloridas</Text> 
+                               <Text style={css_TestEvaluativo.txtRespuesta2}>Ave grande con plumas coloridas.</Text> 
                                <TextInput
                                 style={css_TestEvaluativo.InputNombres}
                                 onChangeText={setanimal1}
@@ -519,7 +519,7 @@ const TestEvaluativo = ({navigation}) => {
                             <TouchableWithoutFeedback>
                             <View style={css_TestEvaluativo.Respuesta}>                                                                                               
                                     <Image source={require('../img/test/lago.png')} style={css_TestEvaluativo.img2}/>
-                                    <Text style={css_TestEvaluativo.txtRespuesta2}>Gran depósito natural de agua </Text> 
+                                    <Text style={css_TestEvaluativo.txtRespuesta2}>Gran depósito natural de agua. </Text> 
                                     <TextInput
                                         style={css_TestEvaluativo.InputNombres}
                                         onChangeText={setanimal2}
@@ -545,7 +545,7 @@ const TestEvaluativo = ({navigation}) => {
     return (  
         <View style={css_Crucigrama.Container}>           
             <HeaderGame name='Test Evaluativo'/>
-            {preGame ? <PreScreenGame txtDialogo='Ahora veremos cuanto has aprendido, escoje la palabra que comlpleta la oración ¡Suerte!'/> : null}
+            {preGame ? <PreScreenGame txtDialogo='Ahora veremos cuanto has aprendido, juega y contesta las preguntas ¡Suerte!'/> : null}
             {preGame ? null : ( pregunta == 1) ? <PrimeraPregunta /> : null}
             {pregunta == 2 ? <SegundaPregunta /> : null }
             {pregunta == 3 ? <TerceraPregunta /> : null }

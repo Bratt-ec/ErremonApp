@@ -23,6 +23,8 @@ const BaseCrucigrama = ({Tipo}) => {
     setTrofeos,
     juegosCompletados,
     setJuegosCompletados,
+    gmSopaLetras,
+    setGmSopaLetras
   } = useContext(AuthContext);
 
   const [lose, setLose] = useState(false);
@@ -50,7 +52,7 @@ const BaseCrucigrama = ({Tipo}) => {
         "","","","","pera","","",
         ];
 
-        num_letras= 24;
+        num_letras= 25;
     }
 
     if(Tipo =='Colores'){
@@ -176,8 +178,20 @@ const BaseCrucigrama = ({Tipo}) => {
               nombre: 'Jefe de las Frutas',
               estrellas: "5",
             }) 
-            setMedalla(true);
+        setMedalla(true);
         setTrofeos(trofeosObj);
+        setGmSopaLetras(gmSopaLetras + 1);
+        
+        if(gmSopaLetras  == 3){
+          trofeosObj.push(  
+            {
+            id: aleatorio,
+            nombre: 'Master de Crucigramas',
+            estrellas: "5",
+            tipo: 'trofeo'
+          });
+          setTrofeos(trofeosObj);
+        }
         setJuegosCompletados(juegosCompletados + 1);
       }
     }, [aciertos])
@@ -245,7 +259,18 @@ const BaseCrucigrama = ({Tipo}) => {
               setMedalla(true);
           setTrofeos(trofeosObj);
           setJuegosCompletados(juegosCompletados + 1);
-
+          setGmSopaLetras(gmSopaLetras + 1);
+        
+          if(gmSopaLetras  == 3){
+            trofeosObj.push(  
+              {
+              id: aleatorio,
+              nombre: 'Master de Crucigramas',
+              estrellas: "5",
+              tipo: 'trofeo'
+            });
+            setTrofeos(trofeosObj);
+          }
         }
       }, [aciertos])
 
@@ -313,7 +338,7 @@ const BaseCrucigrama = ({Tipo}) => {
           );
         } else {
           return (
-            <View style={css_ItemCrucigrama.cell}>
+            <View style={(item == Animal.toUpperCase()) ? css_ItemCrucigrama.cell : css_ItemCrucigrama.cellError }>
               <TextInput
                 style={css_ItemCrucigrama.InputNombre}
                 onChangeText={setItem}
@@ -371,7 +396,18 @@ const BaseCrucigrama = ({Tipo}) => {
               setMedalla(true);
           setTrofeos(trofeosObj);
           setJuegosCompletados(juegosCompletados + 1);
-
+          setGmSopaLetras(gmSopaLetras + 1);
+        
+          if(gmSopaLetras  == 3){
+            trofeosObj.push(  
+              {
+              id: aleatorio,
+              nombre: 'Master de Crucigramas',
+              estrellas: "5",
+              tipo: 'trofeo'
+            });
+            setTrofeos(trofeosObj);
+          }
         }
       }, [aciertos])
     
@@ -461,7 +497,7 @@ const BaseCrucigrama = ({Tipo}) => {
         );
       } else {
         return (
-          <View style={css_ItemCrucigrama.cell}>
+          <View style={(item == Color.toUpperCase()) ? css_ItemCrucigrama.cell : css_ItemCrucigrama.cellError }>
             <TextInput
               style={css_ItemCrucigrama.InputNombre}
               onChangeText={setItem}

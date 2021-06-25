@@ -122,7 +122,7 @@ const Menu = ({ navigation }) => {
             }}
           >
             <Text style={css_Menu.Enumeracion}>1</Text>
-            <Text style={css_Menu.textoMenu}>Sopa de Palabras</Text>
+            <Text style={css_Menu.textoMenu}>Sopa de Letras</Text>
             <Image
               source={require("../img/conejo1.png")}
               style={css_Menu.MenuImg}
@@ -190,8 +190,8 @@ const Menu = ({ navigation }) => {
           style={css_Menu.DivTest}
           onPress={() => navigation.navigate("TestEvaluativo")}
         >
-           <Text style={css_Menu.Enumeracion2}>6</Text>
-          <Text style={css_Menu.textoMenu2}>Test Evaluativo</Text>
+           <Text style={css_Menu.Enumeracion4}>6</Text>
+          <Text style={css_Menu.textoMenu4}>Test Evaluativo</Text>
           <Image
             source={require("../img/oso_game_2.png")}
             style={css_Menu.ImgOso}

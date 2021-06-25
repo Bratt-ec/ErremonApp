@@ -19,9 +19,9 @@ const Gm_DeTiempo = () => {
     return ( 
         <View style={css_Crucigrama.Container}>
         <StatusBar style='light' />
-        <HeaderGame name='juego de adicion' />
+        <HeaderGame name='juego de tiempo' />
         {preGame ? <PreScreenGame txtDialogo='Encuentra las palabras en la siguiente sopa de letras'/> : null}
-        {preGame ? null : <SopaLetras Juego='DeTiempo' Opcion1='finalmente' Opcion2='por ultimo' Opcion3='después' Opcion4='Mientras tanto' Siguiente='LoseGame'/>}
+        {preGame ? null : <SopaLetras Juego='DeTiempo' Opcion1='finalmente' Opcion2='por ultimo' Opcion3='después' Opcion4='desde' Siguiente='LoseGame'/>}
     </View>
      );
 }

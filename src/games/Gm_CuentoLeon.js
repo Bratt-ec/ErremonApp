@@ -51,8 +51,8 @@ const Gm_CuentoLeon = ({ navigation }) => {
       1:{id:1, textoPregunta: '¿Cómo se llamaba el León?', opciones:['Eren','Pepe','Rocky'], correcta: 'Rocky' },
       2:{id:2, textoPregunta: '¿Qué imaginaba el León?', opciones:['Se imaginó que estaba feliz jugando y hablando con amigos','Se imaginó que estaba feliz jugando y hablando con sus padres','Se imaginó que estaba feliz cocinando'], correcta: 'Se imaginó que estaba feliz jugando y hablando con amigos' },
       3:{id:3, textoPregunta: '¿Cómo se llama el animal que aconsejo al león?', opciones:['Oruga','Perico','Loro'], correcta: 'Oruga' },
-      4:{id:4, textoPregunta: '¿El león reflexiono sobre su actitud?', opciones:['PUES SI','PUES NO','TAL VEZ'], correcta: 'PUES SI' },
-      5:{id:5, textoPregunta: '¿Rocky es un..?', opciones:['Un Leon','Un Conejo','Un Oso'], correcta: 'Un Leon' },
+      4:{id:4, textoPregunta: '¿El león reflexiono sobre su actitud?', opciones:['SI','NO','TAL VEZ'], correcta: 'SI' },
+      5:{id:5, textoPregunta: '¿Rocky es un..?', opciones:['Un León','Un Conejo','Un Oso'], correcta: 'Un León' },
      }
   let aleatorio = Math.random();
 

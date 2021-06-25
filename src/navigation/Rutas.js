@@ -116,7 +116,7 @@ function MyDrawer() {
         
       }} />
       <Drawer.Screen name="Logros" component={Logros} options={{
-        title: 'Ver Trofeos',
+        title: 'Ver Logros',
         drawerIcon: ({ focused, size }) => (
             <FontAwesome5 name="trophy" size={24} color="#fff" />
             )

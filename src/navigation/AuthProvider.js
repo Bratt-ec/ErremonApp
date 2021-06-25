@@ -20,13 +20,19 @@ export const AuthProvider = ({ children }) => {
     estrellas: '' ,
     tipo: '',
   })
+  // CONTEO DE PREMIOS Y JUEGOS COMPLETADOS
+  const[gmSopaLetras, setGmSopaLetras] = useState(0);
+  const[gmCrucigrama, setGmCrucigrama] = useState(0);
+  const[gmImagenes, setGmImagenes] = useState(0);
+  const[gmLectura, setGmLectura] = useState(0);  
+  // 
   const[participants, setparticipants] = useState([
-    'DRAGON',
+    'DRAGÓN',
     'LIBRO',
     'REGALO',
     'GATO',
     'CANDADO',
-    'FOSFORO',
+    'FÓSFORO',
     'PLATO',
     'TAPILLA',
   ])
@@ -61,7 +67,15 @@ export const AuthProvider = ({ children }) => {
         ruleta,
         setRuleta,
         win,
-        setWin
+        setWin,
+        gmSopaLetras,
+        setGmSopaLetras,
+        gmCrucigrama,
+        setGmCrucigrama,
+        gmImagenes,
+        setGmImagenes,
+        gmLectura,
+        setGmLectura,
       }}
     >
       {children}
