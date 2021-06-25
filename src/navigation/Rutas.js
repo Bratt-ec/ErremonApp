@@ -88,12 +88,12 @@ function CustomDrawerContent(props) {
               estrellas: '' 
             });
             setparticipants([
-              'DRAGON',
+              'DRAGÓN',
               'LIBRO',
               'REGALO',
               'GATO',
               'CANDADO',
-              'FOSFORO',
+              'FÓSFORO',
               'PLATO',
               'TAPILLA',
             ]);

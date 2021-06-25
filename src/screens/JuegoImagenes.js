@@ -1057,12 +1057,12 @@ const JuegoImagenes = ({navigation}) => {
         />
       ) : null}
       {lose ? <LoseGame Siguiente="Menu" /> : null}
-      {item == "DRAGON" ? <ActividadImagenes Nombre="DRAGON" /> : null}
+      {item == "DRAGÓN" ? <ActividadImagenes Nombre="DRAGÓN" /> : null}
       {item == "LIBRO" ? <ActividadImagenes Nombre="LIBRO" /> : null}
       {item == "REGALO" ? <ActividadImagenes Nombre="REGALO" /> : null}
       {item == "GATO" ? <ActividadImagenes Nombre="GATO" /> : null}
       {item == "CANDADO" ? <ActividadImagenes Nombre="CANDADO" /> : null}
-      {item == "FOSFORO" ? <ActividadImagenes Nombre="FOSFORO" /> : null}
+      {item == "FÓSFORO" ? <ActividadImagenes Nombre="FÓSFORO" /> : null}
       {item == "PLATO" ? <ActividadImagenes Nombre="PLATO" /> : null}
       {item == "TAPILLA" ? <ActividadImagenes Nombre="TAPILLA" /> : null}
     </View>
