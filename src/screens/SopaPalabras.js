@@ -9,7 +9,7 @@ const SopaPalabras = ({navigation}) => {
   }
   return (
     <View style={css_SopaPalabras.Container}>
-      <HeaderGame image="book.png" name="SOPA DE PALABRAS" />
+      <HeaderGame image="book.png" name="SOPA DE LETRAS" />
 
       <View style={css_SopaPalabras.EligeJuego}>
         <Text style={css_SopaPalabras.txtElige}>Vamos a jugar con conectores de palabras</Text>

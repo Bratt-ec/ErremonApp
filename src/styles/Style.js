@@ -203,6 +203,16 @@ export const css_Menu = StyleSheet.create({
     textAlign: "center",
     width: "50%",
   },
+  textoMenu5: {
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: "bold",
+    marginHorizontal: "1%",
+    marginLeft: '10%',
+    margin: "5%",
+    textAlign: "right",
+    width: "70%",
+  },
   textoMenu4: {
     color: Colors.white,
     fontSize: 20,

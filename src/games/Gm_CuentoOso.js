@@ -50,7 +50,7 @@ const Gm_DeLectura = ({ navigation }) => {
       1:{id:1, textoPregunta: '¿Cómo se llama el oso?', opciones:['Juan','Enrique','Erremon'], correcta: 'Erremon' },
       2:{id:2, textoPregunta: '¿A ErreMon le gustaba leer?', opciones:['SI','NO','Tal vez'], correcta: 'NO' },
       3:{id:3, textoPregunta: '¿A quién fue a visitar ErreMon?', opciones:['Abuela','Tía','Papá'], correcta: 'Abuela' },
-      4:{id:4, textoPregunta: '¿Por qué ErreMon tomo ese camino?', opciones:['Por que penso que era un atajo','Por que era de color Rojo','Por que le daba miedo'], correcta: 'Por que penso que era un atajo' },
+      4:{id:4, textoPregunta: '¿Por qué ErreMon tomo ese camino?', opciones:['Porque penso que era un atajo','Porque era de color Rojo','Porque le daba miedo'], correcta: 'Porque penso que era un atajo' },
       5:{id:5, textoPregunta: '¿Quién le ayudó a salir del abismo?', opciones:['Polo el León','Juan el conejo','Marissa'], correcta: 'Juan el conejo' },
      }
   let aleatorio = Math.random();

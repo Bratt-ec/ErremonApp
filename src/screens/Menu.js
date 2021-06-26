@@ -122,7 +122,7 @@ const Menu = ({ navigation }) => {
             }}
           >
             <Text style={css_Menu.Enumeracion}>1</Text>
-            <Text style={css_Menu.textoMenu}>Sopa de Letras</Text>
+            <Text style={css_Menu.textoMenu5}>Sopa de Letras</Text>
             <Image
               source={require("../img/conejo1.png")}
               style={css_Menu.MenuImg}

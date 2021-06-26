@@ -56,12 +56,14 @@ const JuegoImagenes = ({navigation}) => {
   //
   let aleatorio = Math.random();
 
-  const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>
-    setItemRuleta(null)
-  );
+  // const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>
+  //   setItemRuleta(null)
+  // );
+
   const RepetirJuego = () => {
     setReceived([]);
   };
+
   const RuletaView = () => <Ruleta />;
   const Imagenes = ({ Tipo }) => {
     if (Tipo == "DRAGÓN") {
@@ -1040,7 +1042,7 @@ const JuegoImagenes = ({navigation}) => {
     if (itemRuleta !== null) setRuleta(false);
     setItem(itemRuleta);
     // console.log('Y el juego es:' + item);
-    return () => backHandler.remove();
+    // return () => backHandler.remove();
   }, [itemRuleta]);  
   return (
     <View style={css_JuegoImagenes.Container}>
