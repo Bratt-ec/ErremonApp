@@ -21,7 +21,7 @@ import WinGame, { Trofeo } from "../screens/WinGame";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-const Gm_CuentoLeon = ({ navigation }) => {
+const Gm_CuentoAna = ({ navigation }) => {
   // App Context
   const {
     trofeos,
@@ -48,11 +48,10 @@ const Gm_CuentoLeon = ({ navigation }) => {
     5. Quien lê ayudo a salir del abismo? 5. Polo el Leon, R=Juan el conejo, marissa
     */
     const objPreguntas = {
-      1:{id:1, textoPregunta: '¿Cómo se llamaba el León?', opciones:['Eren','Pepe','Rocky'], correcta: 'Rocky' },
-      2:{id:2, textoPregunta: '¿Qué imaginaba el León?', opciones:['Se imaginó que estaba feliz jugando y hablando con amigos','Se imaginó que estaba feliz jugando y hablando con sus padres','Se imaginó que estaba feliz cocinando'], correcta: 'Se imaginó que estaba feliz jugando y hablando con amigos' },
-      3:{id:3, textoPregunta: '¿Cómo se llama el animal que aconsejo al león?', opciones:['Oruga','Perico','Loro'], correcta: 'Oruga' },
-      4:{id:4, textoPregunta: '¿El león reflexiono sobre su actitud?', opciones:['SI','NO','TAL VEZ'], correcta: 'SI' },
-      5:{id:5, textoPregunta: '¿Rocky es un..?', opciones:['Un León','Un Conejo','Un Oso'], correcta: 'Un León' },
+      1:{id:1, textoPregunta: '¿Cómo se llama la niña?', opciones:['Ana','Luisa','Maria'], correcta: 'Ana' },
+      2:{id:2, textoPregunta: '¿Cuántas mascotas tiene?', opciones:['Tres','Dos','Uno'], correcta: 'Dos' },
+      3:{id:3, textoPregunta: '¿De qué color es el vestido de Ana?', opciones:['Rojo','Amarillo','Azul'], correcta: 'Amarillo' },      
+      4:{id:4, textoPregunta: '¿De qué color es Pelusa? ', opciones:['Verde','Violeta','Café'], correcta: 'Café' },
      }
   let aleatorio = Math.random();
 
@@ -66,39 +65,23 @@ const Gm_CuentoLeon = ({ navigation }) => {
     }
   };
   // console.log(respuestas);
-  const OpenVideo = () => {
-    play ? setPlay(false) : setPlay(true);
-  };
 
   const JuegoLectura = () => {
     return (
-      <View>
-        <View style={css_DeLectura.divTop}>
-          <Image
-            source={require("../img/book.png")}
-            style={css_DeLectura.book}
-          />
-          <TouchableOpacity
-            style={styles.btnOpcion}
-            onPress={() => OpenVideo()}
-          >
-            <View style={styles.divIcon}>
-              <Image
-                source={require("../img/video.png")}
-                style={styles.iconOpcion}
-              />
-            </View>
-            <Text style={styles.txtOpcion}>Ver Video</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={css_DeLectura.divContenido}>
-          <Video
-            ref={video}
-            style={play ? css_DeLectura.video : css_DeLectura.hiddenVideo}
-            source={require("../video/cuento_leon.mp4")}
-            useNativeControls
-            resizeMode="contain"
-          />
+      <View style={{padding: 10}}>
+        <View style={css_DeLectura.divPregunta2}>                            
+          <Text style={ {fontSize: 18,   paddingHorizontal: 10, paddingVertical:2,
+    color: Colors.blue_dark}}>                            
+          Ella es Ana una niña muy tierna y respetuosa, tiene el cabello de color café y piel clara, usa un vestido de color amarillo.
+          </Text>
+          <Text style={ {fontSize: 18,   paddingHorizontal: 10, paddingVertical:2,
+    color: Colors.blue_dark}}>                                                  
+                A ella le gusta mucho cuidar de los animales, Ana tiene dos perritos, Lulu de color amarillo y Pelusa de color café.
+          </Text>
+          <Text style={ {fontSize: 18,   paddingHorizontal: 10, paddingVertical:2,
+    color: Colors.blue_dark}}>                                                  
+              A Ana le gusta cuidar mucho a sus perritos.
+           </Text>                    
         </View>
       </View>
     );
@@ -111,7 +94,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
           <View style={css_DeLectura.divNota}>
             <Text style={css_DeLectura.txtPregunta}>Tu nota final es:</Text>
             <View style={css_DeLectura.Respuesta}>
-              <Text style={css_DeLectura.txtPregunta}>{respuestas}/5</Text>
+              <Text style={css_DeLectura.txtPregunta}>{respuestas}/4</Text>
             </View>
           </View>
 
@@ -193,7 +176,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
   };
 
   useEffect(() => {
-    if (pregunta == 6) {
+    if (pregunta == 5) {
       if (respuestas >= 4) {
         let trofeosObj;
         if (trofeos.id === "") {
@@ -225,10 +208,10 @@ const Gm_CuentoLeon = ({ navigation }) => {
   return (
     <View style={css_Crucigrama.Container}>
       <StatusBar style="light" />
-      <HeaderGame name="El León y la Oruga" />
-      {pregunta !== 6 && preGame == false ? <JuegoLectura /> : null}
+      <HeaderGame name="Ana y sus Perritos" />
+      {pregunta !== 5 && preGame == false ? <JuegoLectura /> : null}
       {preGame ? (
-        <PreScreenGame txtDialogo="Primero mira el video y luego responde a la pregunta ¡Suerte!" />
+        <PreScreenGame txtDialogo="Primero lee el cuento y luego responde a la pregunta ¡Suerte!" />
         ) : null}
       {preGame ? null : pregunta == 1 ? (
         <Preguntas NumPregunta={pregunta} />
@@ -237,8 +220,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
       {pregunta == 2 ? <Preguntas NumPregunta={pregunta} /> : null}
       {pregunta == 3 ? <Preguntas NumPregunta={pregunta} /> : null}
       {pregunta == 4 ? <Preguntas NumPregunta={pregunta} /> : null}
-      {pregunta == 5 ? <Preguntas NumPregunta={pregunta} /> : null}
-      {pregunta == 6 ? <NotaFinal /> : null}
+      {pregunta == 5 ? <NotaFinal /> : null}
       {/* </ScrollView> */}
       
     </View>
@@ -287,4 +269,4 @@ const styles = StyleSheet.create({
   oso: { width: 100, height: 150, alignSelf: "flex-end", marginTop: -40 },
   oso2: { width: 100, height: 110, alignSelf: "flex-end", marginTop: -40 },
 });
-export default Gm_CuentoLeon;
+export default Gm_CuentoAna;

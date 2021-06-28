@@ -38,6 +38,8 @@ import PalabraVocabulario from '../screens/PalabraVocabulario';
 import FinJuegoImagenes from '../screens/FinJuegoImagenes';
 import MenuCuentos from '../screens/MenuCuentos';
 import Gm_CuentoLeon from '../games/Gm_CuentoLeon';
+import Gm_CuentoPatita from '../games/Gm_CuentoPatita';
+import Gm_CuentoAna from '../games/Gm_CuentoAna';
 
 
 const Stack = createStackNavigator();
@@ -140,6 +142,8 @@ export const AuthStack = () => {
             <Stack.Screen name='FinJuegoImagenes' component={FinJuegoImagenes} options={{headerShown: false}} />            
             <Stack.Screen name='CuentoOso' component={Gm_DeLectura} options={{headerShown: false}} />            
             <Stack.Screen name='CuentoLeon' component={Gm_CuentoLeon} options={{headerShown: false}} />            
+            <Stack.Screen name='CuentoPata' component={Gm_CuentoPatita} options={{headerShown: false}} />            
+            <Stack.Screen name='CuentoAna' component={Gm_CuentoAna} options={{headerShown: false}} />            
             <Stack.Screen name='PalabraVocabulario' component={PalabraVocabulario} options={{headerShown: false}} />
             {/* JUEGOS */}
             <Stack.Screen name='DeOposicion' component={Gm_DeOposicion} options={{headerShown: false}} />

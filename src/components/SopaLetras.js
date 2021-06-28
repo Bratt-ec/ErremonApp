@@ -146,7 +146,6 @@ const SopaLetras = ({
                 });
                 setGmSopaLetras(gmSopaLetras + 1);
                 setMedalla(true);
-
           }
       
           if (Juego == "CausaConsecuencia") {

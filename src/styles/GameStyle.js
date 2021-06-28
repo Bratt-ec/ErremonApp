@@ -401,6 +401,14 @@ export const css_DeLectura = StyleSheet.create({
     marginHorizontal: 12,
     padding: 16,
   },
+  txtPreguntaCn: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    marginHorizontal: 12,
+    padding: 10,
+    color: Colors.blue_dark
+  },
   hiddenVideo: {
     alignSelf: "center",
     width: 0,
