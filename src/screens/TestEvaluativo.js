@@ -6,11 +6,12 @@ import HeaderGame from '../components/HeaderGame';
 import PreScreenGame from '../components/PreScreenGame';
 import { css_Crucigrama, css_DeLectura, css_JuegoImagenes, css_TestEvaluativo } from '../styles/GameStyle';
 import { AuthContext } from "../navigation/AuthProvider";
-import Dialogo from '../components/Dialogo';
+// import Dialogo from '../components/Dialogo';
 import BotonContinuar from '../components/BotonContinuar';
 import { DraxProvider, DraxView } from 'react-native-drax';
 import { Colors } from '../styles/Colors';
 import { css_Registro } from '../styles/Style';
+import { Dialogo } from '../components/Dialogo';
 
 
 const TestEvaluativo = ({navigation}) => {

@@ -56,9 +56,11 @@ const JuegoImagenes = ({navigation}) => {
   //
   let aleatorio = Math.random();
 
-  // const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>
-  //   setItemRuleta(null)
-  // );
+  const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>{
+    setItemRuleta(null)
+    setRuleta(true);    
+  }
+  );
 
   const RepetirJuego = () => {
     setReceived([]);
@@ -972,7 +974,7 @@ const JuegoImagenes = ({navigation}) => {
           setTrofeos(trofeosObj);
         }
       } else {
-        setItemRuleta(null);
+        // setItemRuleta(null);
         setItem("");
         setLose(true);
       }
@@ -1042,7 +1044,7 @@ const JuegoImagenes = ({navigation}) => {
     if (itemRuleta !== null) setRuleta(false);
     setItem(itemRuleta);
     // console.log('Y el juego es:' + item);
-    // return () => backHandler.remove();
+    return () => backHandler.remove();
   }, [itemRuleta]);  
   return (
     <View style={css_JuegoImagenes.Container}>

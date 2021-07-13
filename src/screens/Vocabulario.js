@@ -2,12 +2,15 @@ import React, { useEffect, useState, useContext } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import HeaderGame from "../components/HeaderGame";
 import { Palabras } from "../components/Palabras";
+// import { Dialogo } from "../components/Dialogo";
 import { AuthContext } from "../navigation/AuthProvider";
 import { Colors } from "../styles/Colors";
 import { css_JuegoImagenes, css_Vocabulario } from "../styles/GameStyle";
 import { Ionicons } from "@expo/vector-icons";
 import { DraxProvider, DraxView } from 'react-native-drax';
 import AwesomeAlert from "react-native-awesome-alerts";
+import { css_Boton } from "../components/BotonContinuar";
+import { Dialogo } from "../components/Dialogo";
 
 
 const Vocabulario = ({navigation}) => {
@@ -17,8 +20,39 @@ const Vocabulario = ({navigation}) => {
   const { palabraVocabulario, setPalabraVocabulario,setobjPalabra, setOnVocabulario , preGame,
     setPreGame} = useContext(AuthContext);  
 
-  if (palabraVocabulario == 14) {
-    setPalabraVocabulario(1);
+  if (palabraVocabulario == 11) {
+    return(
+      <View style={Styles.Container}>
+        <View style={Styles.divContenido}></View>      
+        <HeaderGame name='EXCELENTE' /> 
+        <Dialogo texto="¡Muy bien, lo lograste! Has terminado todo el vocabulario" />               
+        <Image source={require("../img/oso_3.png")} style={Styles.imgOso} />        
+        <TouchableOpacity
+          style={css_Boton.btnOpcion}
+          onPress={() => setPalabraVocabulario(1)}
+        >
+          <View style={css_Boton.divIcon}>
+            <Image
+              source={require("../img/mando.png")}
+              style={css_Boton.iconOpcion}
+            />
+          </View>
+          <Text style={css_Boton.txtOpcion}>Repetir Vocabulario</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={css_Boton.btnOpcion}
+          onPress={() => navigation.navigate('Menu')}
+        >
+          <View style={css_Boton.divIcon}>
+            <Image
+              source={require("../img/mando.png")}
+              style={css_Boton.iconOpcion}
+            />
+          </View>
+          <Text style={css_Boton.txtOpcion}>Ir al Menú</Text>
+        </TouchableOpacity>
+      </View>
+    );
   }
 
   const NumeroPalabra = Palabras.find(
@@ -157,6 +191,50 @@ return(
   </View>
 )
 };
+
+const Styles = StyleSheet.create({
+  Container: {
+    flex: 1,
+    backgroundColor: Colors.blue_dark,
+  },
+  divContenido: {
+    backgroundColor: Colors.white,
+    opacity: 0.4,
+    height: "100%",
+    width: "100%",
+    padding: "4%",
+    position: "absolute",
+  },
+  imgOso: {
+    width: 160,
+    height: 200,
+    alignSelf: "flex-end",
+  },
+  divTrofeo:{
+    backgroundColor: Colors.turquesa,
+    padding: 8,
+    width: '80%',
+    alignSelf: 'center',
+    borderRadius: 10
+  },
+  nombreTrofeo:{
+    color: Colors.blue_dark,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  alerta:{
+    fontSize: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  Icono: {
+    width: 40,
+    height: 40,
+    alignSelf: 'center'
+}
+});
+
 const styles = StyleSheet.create({
   container: {
     // flex: 1,

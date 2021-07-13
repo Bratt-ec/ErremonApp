@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../styles/Colors';
 
-const Dialogo = ({texto}) => {
+export const Dialogo = ({texto}) => {
     return ( 
         <View style={css.divDialogo}>
             <Text style={css.txtDialogo}>
@@ -36,7 +36,4 @@ const css =  StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: 'bold',
     },
-
-
-})
-export default Dialogo;
+});

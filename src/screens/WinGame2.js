@@ -2,11 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useContext} from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import BotonContinuar from '../components/BotonContinuar';
-import Dialogo from "../components/Dialogo";
+// import Dialogo from "../components/Dialogo";
 import HeaderGame from '../components/HeaderGame';
 import { AuthContext } from '../navigation/AuthProvider';
 import { Colors } from "../styles/Colors";
 import { useNavigation } from '@react-navigation/native';
+import { Dialogo } from '../components/Dialogo';
 
 export const Trofeo = ({Nombre})=>(
     <View style={Styles.divTrofeo}>

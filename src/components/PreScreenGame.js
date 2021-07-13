@@ -1,8 +1,9 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import Boton from "../components/Boton";
-import Dialogo from "../components/Dialogo";
+// import Dialogo from "../components/Dialogo";
 import { Colors } from "../styles/Colors";
+import { Dialogo } from "./Dialogo";
 
 const PreScreenGame = ({ txtDialogo }) => {
   return (

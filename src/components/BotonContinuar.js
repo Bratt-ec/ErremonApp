@@ -22,7 +22,7 @@ const BotonContinuar = ({ Texto, Ruta }) => {
     </TouchableOpacity>
   );
 };
-const css_Boton = StyleSheet.create({
+export const css_Boton = StyleSheet.create({
   btnOpcion: {
     flexDirection: "row",
     backgroundColor: Colors.turquesa,

@@ -3,7 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import BotonContinuar from "../components/BotonContinuar";
-import Dialogo from "../components/Dialogo";
+import { Dialogo } from "../components/Dialogo";
+// import Dialogo from "../components/Dialogo";
 import HeaderGame from "../components/HeaderGame";
 import { Colors } from "../styles/Colors";
 

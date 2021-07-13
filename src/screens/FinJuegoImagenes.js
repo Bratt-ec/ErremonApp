@@ -1,7 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Boton from "../components/Boton";
-import Dialogo from "../components/Dialogo";
+import { Dialogo } from "../components/Dialogo";
+// import Dialogo from "../components/Dialogo";
 import HeaderGame from "../components/HeaderGame";
 import { Colors } from "../styles/Colors";
 import { css_JuegoImagenes, css_Vocabulario } from "../styles/GameStyle";

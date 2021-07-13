@@ -14,11 +14,12 @@ import { css_Crucigrama, css_DeLectura } from "../styles/GameStyle";
 import { AuthContext } from "../navigation/AuthProvider";
 import { Colors } from "../styles/Colors";
 import { Video, AVPlaybackStatus } from "expo-av";
-import Dialogo from "../components/Dialogo";
+// import Dialogo from "../components/Dialogo";
 import BotonContinuar from "../components/BotonContinuar";
 import WinGame, { Trofeo } from "../screens/WinGame";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { Dialogo } from "../components/Dialogo";
 
 const Gm_DeLectura = ({ navigation }) => {
   // App Context
