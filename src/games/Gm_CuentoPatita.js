@@ -119,7 +119,7 @@ const Gm_CuentoPatita = () => {
                   color: Colors.blue_dark,
                 }}
               >
-                La patita muy contenta amaso la harina e hizo unos ricos panes.
+                La patita muy contenta amasó la harina e hizo unos ricos panes.
                 Gracias a que sembró y cosecho el grano de trigo pudo hacer unos
                 ricos panes y comer junto a sus patitos.
               </Text>

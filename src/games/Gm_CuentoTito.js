@@ -7,6 +7,7 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import HeaderGame from "../components/HeaderGame";
 import PreScreenGame from "../components/PreScreenGame";
@@ -21,18 +22,13 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Dialogo } from "../components/Dialogo";
 
-const Gm_DeLectura = ({ navigation }) => {
-  // App Context
-  const {
-    trofeos,
-    setTrofeos,
-    juegosCompletados,
-    setJuegosCompletados,
-  } = useContext(AuthContext);
+const Gm_CuentoTito = ({ navigation }) => {
+  const { trofeos, setTrofeos, juegosCompletados, setJuegosCompletados } =
+    useContext(AuthContext);
   //
   const { preGame, setPreGame } = useContext(AuthContext);
   const [pregunta, setPregunta] = useState(1);
-  const [respuestas, setRespuestas] = useState(0);
+  const [respuestas, setRespuestas] = useState(1);
   const [play, setPlay] = useState(false);
   const [medalla, setMedalla] = useState(false);
   const video = useRef(null);
@@ -40,20 +36,32 @@ const Gm_DeLectura = ({ navigation }) => {
     setPreGame(true)
   );
 
-  /*
-    1. Como se llama el oso?  1. Juan, Enrique, R=ErreMon 
-    2. A ErreMon lê gustaba leer? 2. Si, R=no, talvez 
-    3. A quien fue a visitar ErreMon? 3. R=Abuela tia, papa 
-    4. Por que ErreMon tomo ese caminho?  4. R=Por que penso que era um atajo, por que era de color Rojo 
-    5. Quien lê ayudo a salir del abismo? 5. Polo el Leon, R=Juan el conejo, marissa
-    */
-    const objPreguntas = {
-      1:{id:1, textoPregunta: '¿Cómo se llama el oso?', opciones:['Juan','Enrique','Erremon'], correcta: 'Erremon' },
-      2:{id:2, textoPregunta: '¿A ErreMon le gustaba leer?', opciones:['SI','NO','Tal vez'], correcta: 'NO' },
-      3:{id:3, textoPregunta: '¿A quién fue a visitar ErreMon?', opciones:['Abuela','Tía','Papá'], correcta: 'Abuela' },
-      4:{id:4, textoPregunta: '¿Por qué ErreMon tomo ese camino?', opciones:['Porque pensó que era un atajo','Porque era de color Rojo','Porque le daba miedo'], correcta: 'Porque penso que era un atajo' },
-      5:{id:5, textoPregunta: '¿Quién le ayudó a salir del abismo?', opciones:['Polo el León','Juan el conejo','Marissa'], correcta: 'Juan el conejo' },
-     }
+  const objPreguntas = {
+    1: {
+      id: 1,
+      textoPregunta: "¿Dónde vivía Tito?",
+      opciones: ["En el bosque", "En el sofá", "En la laguna del parque"],
+      correcta: "En la laguna del parque",
+    },
+    2: {
+      id: 2,
+      textoPregunta: "¿Tito tenía amigos?",
+      opciones: ["SI ", "NO"],
+      correcta: "SI",
+    },
+    3: {
+      id: 3,
+      textoPregunta: "¿Cuál cumplía años?",
+      opciones: ["Manuel", "Pepito", "Tito"],
+      correcta: "Manuel",
+    },
+    4: {
+      id: 4,
+      textoPregunta: "¿Cuántos años cumplía el amigo de Tito?",
+      opciones: ["7", "4", "6"],
+      correcta: "6",
+    },    
+  };
   let aleatorio = Math.random();
 
   const Respuesta = (valor) => {
@@ -65,42 +73,63 @@ const Gm_DeLectura = ({ navigation }) => {
       setPregunta(pregunta + 1);
     }
   };
-  // console.log(respuestas);
-  const OpenVideo = () => {
-    play ? setPlay(false) : setPlay(true);
-  };
 
   const JuegoLectura = () => {
     return (
-      <View>
-        <View style={css_DeLectura.divTop}>
-          <Image
-            source={require("../img/book.png")}
-            style={css_DeLectura.book}
-          />
-          <TouchableOpacity
-            style={styles.btnOpcion}
-            onPress={() => OpenVideo()}
-          >
-            <View style={styles.divIcon}>
-              <Image
-                source={require("../img/video.png")}
-                style={styles.iconOpcion}
-              />
-            </View>
-            <Text style={styles.txtOpcion}>Ver Video</Text>
-          </TouchableOpacity>
-        </View>
+      <ScrollView>
         <View style={css_DeLectura.divContenido}>
-          <Video
-            ref={video}
-            style={play ? css_DeLectura.video : css_DeLectura.hiddenVideo}
-            source={require("../video/cuento_oso.mp4")}
-            useNativeControls
-            resizeMode="contain"
-          />
+          <View style={css_DeLectura.divPregunta2}>
+            <Image
+              source={require("../img/cuentos/cisne.png")}
+              style={{
+                width: 100,
+                height: 100,
+                resizeMode: "contain",
+                margin: 10,
+              }}
+            />
+          </View>
+          <View style={{ padding: 10 }}>
+            <View style={css_DeLectura.divPregunta2}>
+              <Text
+                style={{
+                  fontSize: 17,
+                  paddingHorizontal: 10,
+                  paddingVertical: 2,
+                  color: Colors.blue_dark,
+                }}
+              >
+                Había una vez un cisne que se llamaba Tito.
+              </Text>
+              <Text
+                style={{
+                  fontSize: 18,
+                  paddingHorizontal: 10,
+                  paddingVertical: 2,
+                  color: Colors.blue_dark,
+                }}
+              >
+                Tito vivía en la laguna del parque, y todos los días jugaba con
+                sus amigos en la laguna, su amigo la tortuga se llama Manuel y
+                su otro amigo el pato se llama Pepito.
+              </Text>
+              <Text
+                style={{
+                  fontSize: 18,
+                  paddingHorizontal: 10,
+                  paddingVertical: 2,
+                  color: Colors.blue_dark,
+                }}
+              >
+                Un día Tito preparó un pastel de chocolate para su amigo Pepito
+                por su cumpleaños, cumplía 6 años y en la tarde Tito y Manuel
+                fueron al parque para darle la torta a su amigo Pepito, comieron
+                la torta y luego jugaron muy felices en la laguna del parque.
+              </Text>
+            </View>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     );
   };
 
@@ -111,7 +140,7 @@ const Gm_DeLectura = ({ navigation }) => {
           <View style={css_DeLectura.divNota}>
             <Text style={css_DeLectura.txtPregunta}>Tu nota final es:</Text>
             <View style={css_DeLectura.Respuesta}>
-              <Text style={css_DeLectura.txtPregunta}>{respuestas}/5</Text>
+              <Text style={css_DeLectura.txtPregunta}>{respuestas}/4</Text>
             </View>
           </View>
 
@@ -120,9 +149,9 @@ const Gm_DeLectura = ({ navigation }) => {
           ) : respuestas >= 3 ? (
             <Dialogo texto="Casi aciertas, pero te equivocaste en algunas preguntas ¡Sigue Intetandolo!" />
           ) : (
-            <Dialogo texto="Solo acertaste 2, ¡No te rindas Sigue Intetandolo!" />
+            <Dialogo texto="¡No te rindas Sigue Intetandolo!" />
           )}
-          {respuestas >= 4 ? (
+          {respuestas >= 3 ? (
             <Image
               source={require("../img/oso_game_3.png")}
               style={styles.oso2}
@@ -191,10 +220,9 @@ const Gm_DeLectura = ({ navigation }) => {
       </View>
     );
   };
-
   useEffect(() => {
-    if (pregunta == 6) {
-      if (respuestas >= 4) {
+    if (pregunta == 4) {
+      if (respuestas >= 3) {
         let trofeosObj;
         if (trofeos.id === "") {
           trofeosObj = [];
@@ -223,25 +251,30 @@ const Gm_DeLectura = ({ navigation }) => {
     return () => backHandler.remove();
   }, [pregunta]);
   return (
-    <View style={css_Crucigrama.Container}>
+    <View style={styles.Container}>
       <StatusBar style="light" />
-      <HeaderGame name="El cuento de El Oso" />
-      {pregunta !== 6 && preGame == false ? <JuegoLectura /> : null}
+      <HeaderGame name="Tito y sus Amigos" />
+      {/* <ScrollView> */}
       {preGame ? (
-        <PreScreenGame txtDialogo="Primero mira el video y luego responde a la pregunta ¡Suerte!" />
+        <PreScreenGame txtDialogo="Lee el cuento y luego responde a la pregunta ¡Suerte!" />
       ) : null}
+      {pregunta !== 4 && preGame == false ? <JuegoLectura /> : null}
       {preGame ? null : pregunta == 1 ? (
         <Preguntas NumPregunta={pregunta} />
       ) : null}
       {pregunta == 2 ? <Preguntas NumPregunta={pregunta} /> : null}
       {pregunta == 3 ? <Preguntas NumPregunta={pregunta} /> : null}
-      {pregunta == 4 ? <Preguntas NumPregunta={pregunta} /> : null}
-      {pregunta == 5 ? <Preguntas NumPregunta={pregunta} /> : null}
-      {pregunta == 6 ? <NotaFinal /> : null}
+      {pregunta == 4 ? <NotaFinal /> : null}
+      {/* </ScrollView> */}
     </View>
   );
 };
+
 const styles = StyleSheet.create({
+  Container: {
+    flex: 1,
+    backgroundColor: Colors.blue_dark,
+  },
   btnOpcion: {
     flexDirection: "row",
     backgroundColor: Colors.turquesa,
@@ -284,4 +317,5 @@ const styles = StyleSheet.create({
   oso: { width: 100, height: 150, alignSelf: "flex-end", marginTop: -40 },
   oso2: { width: 100, height: 110, alignSelf: "flex-end", marginTop: -40 },
 });
-export default Gm_DeLectura;
+
+export default Gm_CuentoTito;

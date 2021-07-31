@@ -50,6 +50,14 @@ const MenuCuentos = ({navigation}) => {
                         <Text style={css_MenuCuentos.tituloCuento}>Ana y sus Perritos</Text>
                     </View>
                 </TouchableOpacity>
+                <TouchableOpacity style={css_MenuCuentos.CardCuento} onPress={() => navigation.navigate('CuentoTito')}>
+                    <View style={css_MenuCuentos.ContainerImg}>
+                        <Image source={require('../img/cuentos/cisne.png')} style={css_MenuCuentos.imgCuento} />
+                    </View>
+                    <View style={css_MenuCuentos.containerTitulo}>
+                        <Text style={css_MenuCuentos.tituloCuento}>Tito y sus Amigos</Text>
+                     </View>
+                </TouchableOpacity>
             </View>      
             
         </View>
