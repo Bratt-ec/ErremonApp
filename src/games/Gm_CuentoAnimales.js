@@ -22,7 +22,8 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Dialogo } from "../components/Dialogo";
 
-const Gm_CuentoTito = ({ navigation }) => {
+const Gm_CuentoAnimales = () => {
+  // STATES
   const { trofeos, setTrofeos, juegosCompletados, setJuegosCompletados } =
     useContext(AuthContext);
   //
@@ -39,28 +40,28 @@ const Gm_CuentoTito = ({ navigation }) => {
   const objPreguntas = {
     1: {
       id: 1,
-      textoPregunta: "¿Dónde vivía Tito?",
-      opciones: ["En el bosque", "En el sofá", "En la laguna del parque"],
-      correcta: "En la laguna del parque",
+      textoPregunta: "¿De qué color era el pájaro?",
+      opciones: ["Naranja", "Azul", "Café"],
+      correcta: "Azul",
     },
     2: {
       id: 2,
-      textoPregunta: "¿Tito tenía amigos?",
-      opciones: ["SI ", "NO"],
-      correcta: "SI",
+      textoPregunta: "¿Quién empezaba a cantar?",
+      opciones: ["El pájaro de color azul", "El cerdo", "El mono"],
+      correcta: "El pájaro de color azul",
     },
     3: {
       id: 3,
-      textoPregunta: "¿Cuál cumplía años?",
-      opciones: ["Manuel", "Pepito", "Tito"],
-      correcta: "Manuel",
+      textoPregunta: "¿Quién relincha?",
+      opciones: ["El pato", "La paloma", "El caballo"],
+      correcta: "El caballo",
     },
     4: {
       id: 4,
-      textoPregunta: "¿Cuántos años cumplía el amigo de Tito?",
-      opciones: ["7", "4", "6"],
-      correcta: "6",
-    },    
+      textoPregunta: "¿Las personas se sentían felices al escucharlos?",
+      opciones: ["SI", "NO"],
+      correcta: "SI",
+    },
   };
   let aleatorio = Math.random();
 
@@ -80,7 +81,7 @@ const Gm_CuentoTito = ({ navigation }) => {
         <View style={css_DeLectura.divContenido}>
           <View style={css_DeLectura.divPregunta2}>
             <Image
-              source={require("../img/cuentos/cisne.png")}
+              source={require("../img/cuentos/pajaro.png")}
               style={{
                 width: 100,
                 height: 100,
@@ -99,7 +100,7 @@ const Gm_CuentoTito = ({ navigation }) => {
                   color: Colors.blue_dark,
                 }}
               >
-                Había una vez un cisne que se llamaba Tito.
+                Había un pájaro de color azul, que vivía en el tronco de un enorme árbol, todas las mañanas salía a cantar y empezaban a salir los demás animalitos que lo acompañaban en su cantar.
               </Text>
               <Text
                 style={{
@@ -109,23 +110,8 @@ const Gm_CuentoTito = ({ navigation }) => {
                   color: Colors.blue_dark,
                 }}
               >
-                Tito vivía en la laguna del parque, y todos los días jugaba con
-                sus amigos en la laguna, su amigo la tortuga se llama Manuel y
-                su otro amigo el pato se llama Pepito.
-              </Text>
-              <Text
-                style={{
-                  fontSize: 18,
-                  paddingHorizontal: 10,
-                  paddingVertical: 2,
-                  color: Colors.blue_dark,
-                }}
-              >
-                Un día Tito preparó un pastel de chocolate para su amigo Pepito
-                por su cumpleaños, cumplía 6 años y en la tarde Tito y Manuel
-                fueron al parque para darle la torta a su amigo Pepito, comieron
-                la torta y luego jugaron muy felices en la laguna del parque.
-              </Text>
+                ¡Kikiriki, kikiriki! Cantaba el gallo, ¡muuu, muuu! Mugía la vaca, ¡hiiii, hiiii! Relinchaba el caballo, ¡oink, oink! Gruñían los cerdos, así formaban un concierto al ritmo de sus sonidos, las personas que pasaban por ahí se sentían muy felices al escucharlos.
+              </Text>              
             </View>
           </View>
         </View>
@@ -220,7 +206,7 @@ const Gm_CuentoTito = ({ navigation }) => {
       </View>
     );
   };
- 
+
   useEffect(() => {
     if (pregunta == 4) {
       if (respuestas >= 3) {
@@ -251,10 +237,11 @@ const Gm_CuentoTito = ({ navigation }) => {
     }
     return () => backHandler.remove();
   }, [pregunta]);
+
   return (
     <View style={styles.Container}>
       <StatusBar style="light" />
-      <HeaderGame name="Tito y sus Amigos" />
+      <HeaderGame name="El Cantar de los animalitos" />
       {/* <ScrollView> */}
       {preGame ? (
         <PreScreenGame txtDialogo="Lee el cuento y luego responde a la pregunta ¡Suerte!" />
@@ -268,7 +255,6 @@ const Gm_CuentoTito = ({ navigation }) => {
       {pregunta == 4 ? <NotaFinal /> : null}
       {/* </ScrollView> */}
     </View>
-  
   );
 };
 
@@ -320,4 +306,4 @@ const styles = StyleSheet.create({
   oso2: { width: 100, height: 110, alignSelf: "flex-end", marginTop: -40 },
 });
 
-export default Gm_CuentoTito;
+export default Gm_CuentoAnimales;
