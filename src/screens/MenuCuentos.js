@@ -6,7 +6,7 @@ import { css_JuegoImagenes, css_MenuCuentos } from '../styles/GameStyle'
 
 const MenuCuentos = ({navigation}) => {
     return (        
-        <Scrollview>
+        <ScrollView>
             <View style={css_JuegoImagenes.Container}>
             <HeaderGame image="book.png" name="MENÚ DE CUENTOS" />
             <View style={css_MenuCuentos.containerCuentos} >
@@ -71,7 +71,7 @@ const MenuCuentos = ({navigation}) => {
             </View>      
             
         </View>
-        </Scrollview>
+        </ScrollView>
     )
 }
 
