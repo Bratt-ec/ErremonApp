@@ -53,7 +53,7 @@ const Gm_CuentoTito = ({ navigation }) => {
       id: 3,
       textoPregunta: "¿Cuál cumplía años?",
       opciones: ["Manuel", "Pepito", "Tito"],
-      correcta: "Manuel",
+      correcta: "Pepito",
     },
     4: {
       id: 4,

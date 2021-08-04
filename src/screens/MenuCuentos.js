@@ -1,12 +1,13 @@
 import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView  } from 'react-native'
 import HeaderGame from '../components/HeaderGame'
 import { Colors } from '../styles/Colors'
 import { css_JuegoImagenes, css_MenuCuentos } from '../styles/GameStyle'
 
 const MenuCuentos = ({navigation}) => {
-    return (
-        <View style={css_JuegoImagenes.Container}>
+    return (        
+        <Scrollview>
+            <View style={css_JuegoImagenes.Container}>
             <HeaderGame image="book.png" name="MENÚ DE CUENTOS" />
             <View style={css_MenuCuentos.containerCuentos} >
                 
@@ -70,6 +71,7 @@ const MenuCuentos = ({navigation}) => {
             </View>      
             
         </View>
+        </Scrollview>
     )
 }
 
