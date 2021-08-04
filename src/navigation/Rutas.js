@@ -42,6 +42,7 @@ import Gm_CuentoPatita from '../games/Gm_CuentoPatita';
 import Gm_CuentoAna from '../games/Gm_CuentoAna';
 import Gm_CuentoTito from '../games/Gm_CuentoTito';
 import Gm_CuentoAnimales from '../games/Gm_CuentoAnimales';
+import AcercaDe from '../screens/AcercaDe';
 
 
 const Stack = createStackNavigator();
@@ -124,6 +125,14 @@ function MyDrawer() {
         drawerIcon: ({ focused, size }) => (
             <FontAwesome5 name="trophy" size={24} color="#fff" />
             )
+      }} />
+      <Drawer.Screen name='Acerca' component={AcercaDe} 
+      options={{
+        title: 'Acerca de Erremon',
+        drawerIcon: ({ focused, size }) => (
+            <FontAwesome5 name="info-circle" size={24} color="#fff" />
+            ),
+        
       }} />
       
     </Drawer.Navigator>

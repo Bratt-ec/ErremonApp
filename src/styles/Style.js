@@ -399,4 +399,44 @@ export const css_Trofeos = StyleSheet.create({
           height: 50,
           alignSelf: 'flex-start'
       }
+});
+
+export  const css_Acerca  = StyleSheet.create({
+  contenido:{
+    // width: '100%',
+    // height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 15
+  },
+  imgOso:{
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
+  titulos:{
+    color: Colors.white,
+    fontWeight: 'bold',
+    fontSize: 20,
+    backgroundColor: Colors.turquesa,
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 13,
+  },
+  texto:{
+    color: Colors.white,
+    marginHorizontal: 25,
+    marginVertical: 6,
+    textAlign: "justify",
+    fontSize: 15
+  },
+  texto2:{
+    color: Colors.white,
+    marginHorizontal: 25,
+    marginVertical: 6,
+    textAlign: "center",
+    fontSize: 17
+  }
 })
