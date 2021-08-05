@@ -32,7 +32,7 @@ const Gm_DeLectura = ({ navigation }) => {
   //
   const { preGame, setPreGame } = useContext(AuthContext);
   const [pregunta, setPregunta] = useState(1);
-  const [respuestas, setRespuestas] = useState(0);
+  const [respuestas, setRespuestas] = useState(1);
   const [play, setPlay] = useState(false);
   const [medalla, setMedalla] = useState(false);
   const video = useRef(null);
@@ -141,7 +141,7 @@ const Gm_DeLectura = ({ navigation }) => {
           {medalla ? (
             <Trofeo Nombre="Master de la Comprensión Lectora" />
           ) : null}
-          <BotonContinuar Texto="Continuar" Ruta="Menu" />
+          <BotonContinuar Texto="Continuar" Ruta="MenuCuentos" />
         </View>
       </View>
     );
@@ -202,7 +202,7 @@ const Gm_DeLectura = ({ navigation }) => {
           trofeosObj = [...trofeos];
         }
         for (let i = 0; i < trofeos.length; i++) {
-          if (trofeos[i].nombre == "Master de la Comprensión Lectora") {
+          if (trofeos[i].nombre == "Master de la Comprensión Lectora I") {
             console.log("Ya tienes este trofeo");
             setMedalla(false);
             return;
@@ -211,7 +211,7 @@ const Gm_DeLectura = ({ navigation }) => {
 
         trofeosObj.push({
           id: aleatorio,
-          nombre: "Master de la Comprensión Lectora",
+          nombre: "Master de la Comprensión Lectora I",
           estrellas: "5",
         });
 

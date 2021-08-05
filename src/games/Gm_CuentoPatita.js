@@ -164,9 +164,9 @@ const Gm_CuentoPatita = () => {
             />
           )}
           {medalla ? (
-            <Trofeo Nombre="Master de la Comprensión Lectora" />
+            <Trofeo Nombre="Master de la Comprensión Lectora III" />
           ) : null}
-          <BotonContinuar Texto="Continuar" Ruta="Menu" />
+          <BotonContinuar Texto="Continuar" Ruta="MenuCuentos" />
         </View>
       </View>
     );
@@ -226,7 +226,7 @@ const Gm_CuentoPatita = () => {
           trofeosObj = [...trofeos];
         }
         for (let i = 0; i < trofeos.length; i++) {
-          if (trofeos[i].nombre == "Master de la Comprensión Lectora") {
+          if (trofeos[i].nombre == "Master de la Comprensión Lectora III") {
             console.log("Ya tienes este trofeo");
             setMedalla(false);
             return;
@@ -235,7 +235,7 @@ const Gm_CuentoPatita = () => {
 
         trofeosObj.push({
           id: aleatorio,
-          nombre: "Master de la Comprensión Lectora",
+          nombre: "Master de la Comprensión Lectora III",
           estrellas: "5",
         });
 

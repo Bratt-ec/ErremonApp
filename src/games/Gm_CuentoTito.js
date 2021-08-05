@@ -168,9 +168,9 @@ const Gm_CuentoTito = ({ navigation }) => {
             />
           )}
           {medalla ? (
-            <Trofeo Nombre="Master de la Comprensión Lectora" />
+            <Trofeo Nombre="Master de la Comprensión Lectora V" />
           ) : null}
-          <BotonContinuar Texto="Continuar" Ruta="Menu" />
+          <BotonContinuar Texto="Continuar" Ruta="MenuCuentos" />
         </View>
       </View>
     );
@@ -222,8 +222,9 @@ const Gm_CuentoTito = ({ navigation }) => {
   };
  
   useEffect(() => {
-    if (pregunta == 4) {
-      if (respuestas >= 3) {
+    console.log('PREGUNTA ',pregunta);
+    if (pregunta == 5) {
+      if (respuestas >= 4) {
         let trofeosObj;
         if (trofeos.id === "") {
           trofeosObj = [];
@@ -231,7 +232,7 @@ const Gm_CuentoTito = ({ navigation }) => {
           trofeosObj = [...trofeos];
         }
         for (let i = 0; i < trofeos.length; i++) {
-          if (trofeos[i].nombre == "Master de la Comprensión Lectora") {
+          if (trofeos[i].nombre == "Master de la Comprensión Lectora V") {
             console.log("Ya tienes este trofeo");
             setMedalla(false);
             return;
@@ -240,7 +241,7 @@ const Gm_CuentoTito = ({ navigation }) => {
 
         trofeosObj.push({
           id: aleatorio,
-          nombre: "Master de la Comprensión Lectora",
+          nombre: "Master de la Comprensión Lectora V",
           estrellas: "5",
         });
 
@@ -259,13 +260,14 @@ const Gm_CuentoTito = ({ navigation }) => {
       {preGame ? (
         <PreScreenGame txtDialogo="Lee el cuento y luego responde a la pregunta ¡Suerte!" />
       ) : null}
-      {pregunta !== 4 && preGame == false ? <JuegoLectura /> : null}
+      {pregunta !== 5 && preGame == false ? <JuegoLectura /> : null}
       {preGame ? null : pregunta == 1 ? (
         <Preguntas NumPregunta={pregunta} />
       ) : null}
       {pregunta == 2 ? <Preguntas NumPregunta={pregunta} /> : null}
       {pregunta == 3 ? <Preguntas NumPregunta={pregunta} /> : null}
-      {pregunta == 4 ? <NotaFinal /> : null}
+      {pregunta == 4 ? <Preguntas NumPregunta={pregunta} /> : null}
+      {pregunta == 5 ? <NotaFinal /> : null}
       {/* </ScrollView> */}
     </View>
   

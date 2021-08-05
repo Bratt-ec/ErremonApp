@@ -140,9 +140,9 @@ const Gm_CuentoLeon = ({ navigation }) => {
             />
           )}
           {medalla ? (
-            <Trofeo Nombre="Master de la Comprensión Lectora" />
+            <Trofeo Nombre="Master de la Comprensión Lectora II" />
           ) : null}
-          <BotonContinuar Texto="Continuar" Ruta="Menu" />
+          <BotonContinuar Texto="Continuar" Ruta="MenuCuentos" />
         </View>
       </View>
     );
@@ -194,7 +194,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
   };
 
   useEffect(() => {
-    if (pregunta == 6) {
+    if (pregunta == 5) {
       if (respuestas >= 4) {
         let trofeosObj;
         if (trofeos.id === "") {
@@ -203,7 +203,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
           trofeosObj = [...trofeos];
         }
         for (let i = 0; i < trofeos.length; i++) {
-          if (trofeos[i].nombre == "Master de la Comprensión Lectora") {
+          if (trofeos[i].nombre == "Master de la Comprensión Lectora II") {
             console.log("Ya tienes este trofeo");
             setMedalla(false);
             return;
@@ -212,7 +212,7 @@ const Gm_CuentoLeon = ({ navigation }) => {
 
         trofeosObj.push({
           id: aleatorio,
-          nombre: "Master de la Comprensión Lectora",
+          nombre: "Master de la Comprensión Lectora II",
           estrellas: "5",
         });
 

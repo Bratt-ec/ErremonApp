@@ -29,7 +29,7 @@ const Gm_CuentoAnimales = () => {
   //
   const { preGame, setPreGame } = useContext(AuthContext);
   const [pregunta, setPregunta] = useState(1);
-  const [respuestas, setRespuestas] = useState(1);
+  const [respuestas, setRespuestas] = useState(0);
   const [play, setPlay] = useState(false);
   const [medalla, setMedalla] = useState(false);
   const video = useRef(null);
@@ -154,9 +154,9 @@ const Gm_CuentoAnimales = () => {
             />
           )}
           {medalla ? (
-            <Trofeo Nombre="Master de la Comprensión Lectora" />
+            <Trofeo Nombre="Master de la Comprensión Lectora VI" />
           ) : null}
-          <BotonContinuar Texto="Continuar" Ruta="Menu" />
+          <BotonContinuar Texto="Continuar" Ruta="MenuCuentos" />
         </View>
       </View>
     );
@@ -208,7 +208,7 @@ const Gm_CuentoAnimales = () => {
   };
 
   useEffect(() => {
-    if (pregunta == 4) {
+    if (pregunta == 5) {
       if (respuestas >= 3) {
         let trofeosObj;
         if (trofeos.id === "") {
@@ -217,7 +217,7 @@ const Gm_CuentoAnimales = () => {
           trofeosObj = [...trofeos];
         }
         for (let i = 0; i < trofeos.length; i++) {
-          if (trofeos[i].nombre == "Master de la Comprensión Lectora") {
+          if (trofeos[i].nombre == "Master de la Comprensión Lectora VI") {
             console.log("Ya tienes este trofeo");
             setMedalla(false);
             return;
@@ -226,7 +226,7 @@ const Gm_CuentoAnimales = () => {
 
         trofeosObj.push({
           id: aleatorio,
-          nombre: "Master de la Comprensión Lectora",
+          nombre: "Master de la Comprensión Lectora VI",
           estrellas: "5",
         });
 
@@ -246,13 +246,14 @@ const Gm_CuentoAnimales = () => {
       {preGame ? (
         <PreScreenGame txtDialogo="Lee el cuento y luego responde a la pregunta ¡Suerte!" />
       ) : null}
-      {pregunta !== 4 && preGame == false ? <JuegoLectura /> : null}
+      {pregunta !== 5 && preGame == false ? <JuegoLectura /> : null}
       {preGame ? null : pregunta == 1 ? (
         <Preguntas NumPregunta={pregunta} />
       ) : null}
       {pregunta == 2 ? <Preguntas NumPregunta={pregunta} /> : null}
       {pregunta == 3 ? <Preguntas NumPregunta={pregunta} /> : null}
-      {pregunta == 4 ? <NotaFinal /> : null}
+      {pregunta == 4 ? <Preguntas NumPregunta={pregunta} /> : null}
+      {pregunta == 5 ? <NotaFinal /> : null}
       {/* </ScrollView> */}
     </View>
   );

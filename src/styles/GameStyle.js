@@ -392,14 +392,15 @@ export const css_DeLectura = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderColor: Colors.turquesa,
-    borderWidth: 3
+    borderWidth: 3,
+    paddingRight: 3
   },
   txtRespuesta: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: "bold",
     textTransform: "uppercase",
-    marginHorizontal: 12,
-    padding: 16,
+    marginHorizontal: 10,
+    padding: 10,
   },
   txtPreguntaCn: {
     fontSize: 18,
