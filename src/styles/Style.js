@@ -19,6 +19,21 @@ export const css_Inicio = StyleSheet.create({
         resizeMode: 'contain',
         width: '80%',
     },
+    imgLogos:{      
+      width: 100,
+      height: 100,
+      borderRadius: 16,
+      marginHorizontal: 15
+  },
+  contentLogos:{
+    display: 'flex',
+    flexDirection: 'row',
+  },
+    imgLogoHome2:{
+      resizeMode: 'contain',
+      width: '35%',
+      top: -200
+  },
     AnimateLogo:{
         width: '100%'  
     },

@@ -47,8 +47,19 @@ const Inicio = ({ navigation }) => {
           <Image
             source={require("../img/logo.png")}
             style={css_Inicio.imgLogoHome}
-          />
-        </View>
+          />   
+          <View style={css_Inicio.contentLogos}>
+            <Image
+              source={require("../img/pedagogia.jpg")}
+              style={css_Inicio.imgLogos}
+            />    
+            <Image
+              source={require("../img/utmach.png")}
+              style={css_Inicio.imgLogos}
+            />                 
+          </View>
+        </View>        
+        
       </View>
       <TouchableOpacity
         style={css_Inicio.ViewPlayButton}
